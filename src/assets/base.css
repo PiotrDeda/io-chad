@@ -50,6 +50,19 @@
   }
 }
 
+/* colors for CHAD */
+:root
+{
+  --chad-c-green: hsla(160, 100%, 37%, 1);
+  --chad-c-green-hover: rgb(21, 221, 154);
+
+  --chad-c-border: var(--color-border);
+  --chad-c-border-hover: rgb(0, 145, 96);
+
+  --chad-c-element-background: var(--color-background);
+  --chad-c-element-background-hover: hsla(160, 100%, 37%, 0.2);
+}
+
 *,
 *::before,
 *::after {
