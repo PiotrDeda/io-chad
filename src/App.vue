@@ -1,7 +1,7 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
-import LoginButton from './components/buttons/LoginButton.vue'
+import LinkButton from './components/buttons/LinkButton.vue'
 </script>
 
 <template>
@@ -14,7 +14,8 @@ import LoginButton from './components/buttons/LoginButton.vue'
   </header>
 
   <main>
-    <LoginButton link="https://google.com" /> <!-- debug -->
+    <LinkButton label="Login" link="https://google.com" /> <!-- debug -->
+    <LinkButton label="Register" link="https://stackoverflow.com" />
     <TheWelcome />
   </main>
 </template>

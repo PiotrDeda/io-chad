@@ -1,16 +1,18 @@
 <script setup>
-    defineProps(
+    const props = defineProps(
     {
-        link:
-        {
-            type: String,
-            required: true
-        }
-    })
+        label: { type: String, required: true },
+        link: { type: String, default: "/" }
+    });
+
+    function redirect()
+    {
+        window.location.href = props.link;
+    }
 </script>
 
 <template>
-    <a v-bind:href="link"><button type="button">Login</button></a>
+    <button type="button" @click="redirect()">{{ label }}</button>
 </template>
 
 <style scoped>
@@ -19,7 +21,7 @@ button
     text-align: center;
     color: var(--chad-c-green);
 
-    margin: 0;
+    margin: 4px;
     padding: 5px 15px;
     background-color: transparent;
 
