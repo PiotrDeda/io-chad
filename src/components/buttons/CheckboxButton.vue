@@ -5,21 +5,40 @@
         checked: { type: Boolean, defaults: false }
     });
 
+    // Unfortunately, "checked" prop is not properly assigned to
+    // "checked" attribute, so we have to use a dirty hack also
+    // known as bitwise XOR to get the correct "checked" status.
+    //
+    // It is also worth noting that Vue props are read-only,
+    // hence we use an attribute in the first place.
+    function _init()
+    {
+        return { checked: props.checked };
+    }
+
     function changeCheckedStatus()
     {
-        props.checked = !(props.checked);
+        this.checked = !(this.checked);
+        console.log(`${props.label} isChecked = ${this.checked ^ props.checked}`);
     }
 
     function getCheckedStatus()
     {
-        return props.checked;
+        return this.checked ^ props.checked;
     }
+
+    _init();
 </script>
 
 <template>
     <div class="checkbox_wrapper">
-        <input type="checkbox" name="es" :checked="checked" />
-        <label for="es">{{ label }}</label>
+        <input
+            type="checkbox"
+            :name="props.label"
+            :checked="checked"
+            @click="changeCheckedStatus()"
+        />
+        <label :for="props.label">{{ label }}</label>
     </div>
 </template>
 
