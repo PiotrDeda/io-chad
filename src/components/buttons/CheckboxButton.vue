@@ -18,12 +18,7 @@
 
 <template>
     <div class="checkbox_wrapper">
-        <div v-if="checked">
-            <input type="checkbox" name="es" />
-        </div>
-        <div v-else>
-            <input type="checkbox" name="es" checked />
-        </div>
+        <input type="checkbox" name="es" :checked="checked" />
         <label for="es">{{ label }}</label>
     </div>
 </template>
@@ -35,7 +30,6 @@
     flex-direction: row;
 
     text-align: center;
-    color: var(--chad-c-green);
     font-size: inherit;
 
     margin: 4px;
@@ -53,6 +47,18 @@
 .checkbox_wrapper input[type="checkbox"]
 {
     margin-right: 5px;
+}
+
+.checkbox_wrapper input[type="checkbox"]:checked + label
+{
+    color: var(--chad-c-green);
+    transition: 0.4s;
+}
+
+.checkbox_wrapper input[type="checkbox"] + label
+{
+    color: var(--chad-c-gray);
+    transition: 0.4s;
 }
 
 </style>
