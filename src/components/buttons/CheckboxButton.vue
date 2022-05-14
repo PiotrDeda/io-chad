@@ -2,7 +2,7 @@
     const props = defineProps(
     {
         label: { type: String, required: true },
-        checked: { type: Boolean, defaults: false }
+        checked: { type: Boolean, default: false }
     });
 
     // Unfortunately, "checked" prop is not properly assigned to
@@ -35,7 +35,7 @@
         <input
             type="checkbox"
             :name="props.label"
-            :checked="checked"
+            :checked="props.checked"
             @click="changeCheckedStatus()"
         />
         <label :for="props.label">{{ label }}</label>
