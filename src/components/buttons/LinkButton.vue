@@ -20,6 +20,7 @@ button
 {
     text-align: center;
     color: var(--chad-c-green);
+    font-size: inherit;
 
     margin: 4px;
     padding: 5px 15px;
