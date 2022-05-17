@@ -10,7 +10,7 @@
     });
 </script>
 <template>
-    <div class="login_panel">
+    <div class="register_panel">
         <div class ="email_text"> <!-- from top -->
             <span> 
                 E-Mail
@@ -48,7 +48,7 @@
 </template>
 
 <style>
-.login_panel
+.register_panel
 {
     display: flex;
     flex-direction: column;
@@ -56,8 +56,8 @@
     padding: 20px 35px; /* y x */
 
     position: fixed;
-    left: 23%;
-    right: 23%;
+    left: 37%;
+    right: 37%;
     top: 10%;
     bottom: 45%;
 
@@ -74,9 +74,6 @@
     border-bottom-style: solid;
     border-bottom-width: thin;
     border-bottom-color: var(--chad-c-border);
-    /* border-bottom-color: white; */
-
-    z-index: 1; /* always bring to front */
 }
 
 .email_text
@@ -101,7 +98,7 @@
 
 .checkbox_button
 {
-    padding: 5px 0px; /* y x */
+    padding: 5px 25px; /* y x */
 }
 
 .create_button

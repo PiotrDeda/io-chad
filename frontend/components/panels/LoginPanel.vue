@@ -44,8 +44,8 @@
     padding: 20px 35px; /* y x */
 
     position: fixed;
-    left: 23%;
-    right: 23%;
+    left: 37%;
+    right: 37%;
     top: 10%;
     bottom: 60%;
 
