@@ -68,6 +68,11 @@
     margin-right: 5px;
 }
 
+.checkbox_wrapper:hover
+{
+    border-color: var(--chad-c-border-hover);
+}
+
 .checkbox_wrapper input[type="checkbox"]:checked + label
 {
     color: var(--chad-c-green);
