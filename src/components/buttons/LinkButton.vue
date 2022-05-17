@@ -31,6 +31,8 @@ button
     border-width: 1px;
     border-color: var(--chad-c-border);
 
+    cursor: pointer;
+
     transition: 0.4s;
 }
 
