@@ -1,13 +1,22 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const express = require('express');
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const port = 8000
 
-var mongoDB = 'mongodb+srv://admin:admin@io-chad.elbrc.mongodb.net/?retryWrites=true&w=majority';
+// Init
+
+const mongoDB = 'mongodb+srv://admin:admin@io-chad.elbrc.mongodb.net/?retryWrites=true&w=majority';
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
-var db = mongoose.connection;
+const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
+const app = express();
+app.use(express.json());
+app.listen(port, () => console.log("Node Express server listening at port " + port))
+
+// Models
+
 var AccountSchema = new Schema({
-	_id: Schema.Types.ObjectId,
 	email: String,
 	login: String,
 	passwd: String,
@@ -15,10 +24,9 @@ var AccountSchema = new Schema({
 	accountCreationDate: { type: Date, default: Date.now() },
 	managedCompetitions: [Schema.Types.ObjectId]
 })
-var AccountModel = mongoose.model('AccountModel', AccountSchema);
+var Account = mongoose.model('AccountModel', AccountSchema);
 
 var CompetitionSchema = new Schema({
-	_id: Schema.Types.ObjectId,
 	name: String,
 	game: String,
 	type: String,
@@ -40,13 +48,37 @@ var CompetitionSchema = new Schema({
 	]
 	
 })
-var CompetitionModel = mongoose.model('CompetitionModel', CompetitionSchema);
+var Competition = mongoose.model('CompetitionModel', CompetitionSchema);
 
 var MatchSchema = new Schema({
-	_id: Schema.Types.ObjectId,
 	teamOne: Schema.Types.ObjectId,
 	teamTwo: Schema.Types.ObjectId,
 	teamOneScore: Number,
 	teamTwoScore: Number
 })
-var MatchModel = mongoose.model('MatchModel', MatchSchema);
+var Match = mongoose.model('MatchModel', MatchSchema);
+
+// REST
+
+app.get("/accounts", async (req, res) => {
+	const accounts = await Account.find();
+	res.send(accounts);
+})
+
+app.post("/accounts", async (req, res) => {
+	const account = await Account.create(req.body);
+	res.send(account);
+})
+
+app.put("/accounts/:id", async (req, res) => {
+	const account = await Account.findOneAndUpdate({_id: req.params.id}, req.body, {new: true});
+	res.send(account);
+})
+
+app.delete("/accounts/:id", async (req, res) => {
+	const account = await Account.findOneAndDelete({_id: req.params.id});
+	res.send(account);
+})
+
+// TODO: move to a separate router
+// TODO: implement Competition and Match
