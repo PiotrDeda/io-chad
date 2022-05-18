@@ -83,13 +83,27 @@ app.post("/accounts", async (req, res) => {
 })
 
 app.put("/accounts/:id", async (req, res) => {
-	const account = await Account.findOneAndUpdate({_id: req.params.id}, req.body, {new: true});
-	res.send(account);
+	try
+	{
+		const account = await Account.findOneAndUpdate({_id: req.params.id}, req.body, {new: true});
+		res.send(account);
+	}
+	catch
+	{
+		res.sendStatus(404);
+	}
 })
 
 app.delete("/accounts/:id", async (req, res) => {
-	const account = await Account.findOneAndDelete({_id: req.params.id});
-	res.send(account);
+	try
+	{
+		const account = await Account.findOneAndDelete({_id: req.params.id});
+		res.send(account);
+	}
+	catch
+	{
+		res.sendStatus(404);
+	}
 })
 
 // TODO: move to a separate router
