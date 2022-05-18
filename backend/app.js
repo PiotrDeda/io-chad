@@ -65,6 +65,18 @@ app.get("/accounts", async (req, res) => {
 	res.send(accounts);
 })
 
+app.get("/accounts/:id", async (req, res) => {
+	try
+	{
+		const account = await Account.findOne({_id: req.params.id});
+		res.send(account);
+	}
+	catch
+	{
+		res.sendStatus(404);
+	}
+})
+
 app.post("/accounts", async (req, res) => {
 	const account = await Account.create(req.body);
 	res.send(account);
