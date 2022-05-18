@@ -5,7 +5,7 @@ const port = 8000
 
 // Init
 
-const mongoDB = 'mongodb+srv://admin:admin@io-chad.elbrc.mongodb.net/?retryWrites=true&w=majority';
+const mongoDB = 'mongodb+srv://admin:admin@io-chad.elbrc.mongodb.net/IO-CHAD?retryWrites=true&w=majority';
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -24,7 +24,7 @@ var AccountSchema = new Schema({
 	accountCreationDate: { type: Date, default: Date.now() },
 	managedCompetitions: [Schema.Types.ObjectId]
 })
-var Account = mongoose.model('AccountModel', AccountSchema);
+var Account = mongoose.model('Account', AccountSchema);
 
 var CompetitionSchema = new Schema({
 	name: String,
@@ -48,7 +48,7 @@ var CompetitionSchema = new Schema({
 	]
 	
 })
-var Competition = mongoose.model('CompetitionModel', CompetitionSchema);
+var Competition = mongoose.model('Competition', CompetitionSchema);
 
 var MatchSchema = new Schema({
 	teamOne: Schema.Types.ObjectId,
@@ -56,7 +56,7 @@ var MatchSchema = new Schema({
 	teamOneScore: Number,
 	teamTwoScore: Number
 })
-var Match = mongoose.model('MatchModel', MatchSchema);
+var Match = mongoose.model('Match', MatchSchema);
 
 // REST
 
