@@ -20,26 +20,25 @@
     {
         this.checked = !(this.checked);
         console.log(`${props.label} isChecked = ${this.checked ^ props.checked}`);
-        document.getElementById(props.label).checked = this.checked
     }
 
     function getCheckedStatus()
     {
         return this.checked ^ props.checked;
-    } 
+    }
 
     _init();
 </script>
 
 <template>
-    <div class="checkbox_wrapper" @click="changeCheckedStatus()">
+    <div class="checkbox_wrapper">
         <input
             type="checkbox"
-            :id="props.label"
             :name="props.label"
             :checked="props.checked"
+            @click="changeCheckedStatus()"
         />
-        <label>{{ label }}</label>
+        <label :for="props.label">{{ label }}</label>
     </div>
 </template>
 
@@ -61,20 +60,12 @@
     border-width: 1px;
     border-color: var(--chad-c-border);
 
-    cursor: pointer;
-
     transition: 0.4s;
 }
 
 .checkbox_wrapper input[type="checkbox"]
 {
     margin-right: 5px;
-    cursor: pointer;
-}
-
-.checkbox_wrapper:hover
-{
-    border-color: var(--chad-c-border-hover);
 }
 
 .checkbox_wrapper input[type="checkbox"]:checked + label
@@ -86,15 +77,6 @@
 .checkbox_wrapper input[type="checkbox"] + label
 {
     color: var(--chad-c-gray);
-    cursor: pointer;
-
-    /* Prevent text selection */
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-
     transition: 0.4s;
 }
 

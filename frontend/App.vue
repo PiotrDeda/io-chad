@@ -3,15 +3,43 @@ import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
 import LinkButton from './components/buttons/LinkButton.vue'
 import TopPanel from './components/panels/TopPanel.vue';
+import DropdownList from './components/lists/DropdownList.vue';
+import ElementsList from './components/lists/ElementsList.vue';
+import ListsRow from './components/lists/ListsRow.vue';
 </script>
 
 <template>
     <header>
-        <TopPanel />
         <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
         <div class="wrapper">
             <HelloWorld msg="You did it!" />
+        </div>
+
+        <div id="elementList">
+            <ElementsList width="500px" height="500px">
+                <ListsRow height="80px">
+                    <DropdownList id='dropdown' placeholder="que1" :items="['11', '2']">
+                    </DropdownList>
+                    <DropdownList id='dropdown2' placeholder="que2" :items="['11', '2']">
+                    </DropdownList>
+                </ListsRow>
+                <ListsRow height="200px">
+                    <DropdownList id='dropdown3' placeholder="que3" :items="['1', '2', '3']">
+                    </DropdownList>
+                    <DropdownList id='dropdown4' placeholder="que4" :items="['1', '2', '3']">
+                    </DropdownList>
+                    <DropdownList id='dropdown5' placeholder="que5" :items="['1', '2', '67']">
+                    </DropdownList>
+                </ListsRow>
+                <ListsRow>
+                    <DropdownList id='dropdown6' placeholder="que6" :items="['1', '2', '4', '6']">
+                    </DropdownList>
+                </ListsRow>
+            </ElementsList>
+
+
+
         </div>
     </header>
 
@@ -19,6 +47,11 @@ import TopPanel from './components/panels/TopPanel.vue';
         <TheWelcome />
     </main>
 </template>
+
+
+
+
+
 
 <style>
 @import './assets/base.css';

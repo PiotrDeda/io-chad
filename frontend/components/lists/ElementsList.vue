@@ -27,7 +27,6 @@
     scrollbar-color: rgb(0, 145, 96) rgb(142, 142, 142);
     background-color: inherit;
     border-radius: 4px;
-    z-index: -1;
 }
 
 .main-window
@@ -36,7 +35,6 @@
     border-radius: 4px;
     width: v-bind(props.width);
     height: v-bind(props.height);
-    z-index: 1;
 }
 
 </style>
