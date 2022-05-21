@@ -18,12 +18,14 @@ defineProps({
 
 <style scoped>
 h1 {
+  margin-top: 20px;
   font-weight: 500;
   font-size: 2.6rem;
   top: -10px;
 }
 
 h3 {
+  margin :auto;
   font-size: 1.2rem;
 }
 

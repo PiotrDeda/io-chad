@@ -1,7 +1,7 @@
 <script setup>
     const props = defineProps(
     {
-        height: { type: String, default: '300px' },
+        height: { type: String, default: '90px' },
         width: { type: String, default: '400px' }
     });
 </script>
@@ -24,15 +24,15 @@
     height: 100%;
     overflow: scroll;
     scrollbar-width: auto;
-    scrollbar-color: rgb(0, 145, 96) rgb(142, 142, 142);
-    background-color: inherit;
+    scrollbar-color: rgb(16, 187, 255) rgb(142, 142, 142);
+    background-color: white;
     border-radius: 4px;
     z-index: -1;
 }
 
 .main-window
 {
-    border: 2px solid rgb(0, 145, 96);
+    border: 2px solid rgb(16, 187, 255);
     border-radius: 4px;
     width: v-bind(props.width);
     height: v-bind(props.height);

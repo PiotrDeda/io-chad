@@ -43,7 +43,7 @@ select{
 
 select:hover{
     color: var(--chad-c-green);
-    border-color: rgb(0, 145, 96);
+    border-color: rgb(16, 187, 255);
 }
 
 option:hover{

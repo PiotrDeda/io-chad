@@ -1,23 +1,24 @@
 <script setup>
-
-import LinkButton from './components/buttons/LinkButton.vue'
 import TopPanel from './components/panels/TopPanel.vue';
 import MainPanel from './components/MainPanel.vue';
-import MainContent from './components/MainContent.vue';
-import PasswdChange from './PasswdChange.vue';
+import baseItem from './baseItem.vue'
+import PasswordField from './components/test_input_fields/PasswordField.vue';
 </script>
 
 <template>
     <header>
         <TopPanel />
-
         <div class="wrapper">
             <MainPanel msg="CHAD Competition Hub Administration & Design" />
         </div>
     </header>
 
     <main>
-        <MainContent />
+        <baseItem>
+            <template #heading>Podaj nowe hasło</template>
+            <PasswordField></PasswordField>
+            
+        </baseItem>  
     </main>
 </template>
 
@@ -32,29 +33,20 @@ import PasswdChange from './PasswdChange.vue';
     color: aliceblue;
     font-weight: normal;
 }
-#przycisk_generuj {
-  background-color: rgb(16, 187, 255);
-  border: none;
-  color: aliceblue;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
 
 header {
     line-height: 1.5;
 }
+
+
+
+
 a,
 .blue {
     text-decoration: none;
     color: rgb(16, 187, 255);
     transition: 0.4s;
 }
-
 
 @media (min-width: 1024px) {
     body {
@@ -63,10 +55,13 @@ a,
         display: flex;
         place-items: center;
     }
+
     #app {
         grid-template-columns: 1fr 1fr;
         padding: 0 2rem;
     }
+    
+
     header {
         display: flex;
         place-items: center;
@@ -78,6 +73,7 @@ a,
         place-items: flex-start;
         flex-wrap: wrap;
     }
-}
 
-</style>
+
+    
+}

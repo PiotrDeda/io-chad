@@ -13,6 +13,7 @@
 </template>
 
 <style >
+
 .row
 {
     position: relative;
@@ -22,5 +23,6 @@
     text-align: center;
     display: flex;
 }
+
 
 </style>
