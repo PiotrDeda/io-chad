@@ -8,10 +8,9 @@ import TopPanel from './components/panels/TopPanel.vue';
 <template>
     <header>
         <TopPanel />
-        <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
         <div class="wrapper">
-            <HelloWorld msg="You did it!" />
+            <HelloWorld msg="CHAD Competition Hub Administration & Design" />
         </div>
     </header>
 
@@ -27,8 +26,21 @@ import TopPanel from './components/panels/TopPanel.vue';
     max-width: 1280px;
     margin: 0 auto;
     padding: 2rem;
-
+    background-color: rgba(12, 4, 36, 0.996);
+    color: aliceblue;
     font-weight: normal;
+}
+#przycisk_generuj {
+  background-color: rgb(16, 187, 255);
+  border: none;
+  color: aliceblue;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
 
 header {
@@ -40,10 +52,11 @@ header {
     margin: 0 auto 2rem;
 }
 
+
 a,
 .green {
     text-decoration: none;
-    color: hsla(160, 100%, 37%, 1);
+    color: rgb(16, 187, 255);
     transition: 0.4s;
 }
 
@@ -55,15 +68,17 @@ a,
 
 @media (min-width: 1024px) {
     body {
+        
+    background-color: rgba(12, 4, 36, 0.996);
         display: flex;
         place-items: center;
     }
 
     #app {
-        display: grid;
         grid-template-columns: 1fr 1fr;
         padding: 0 2rem;
     }
+    
 
     header {
         display: flex;
@@ -80,5 +95,7 @@ a,
     .logo {
         margin: 0 2rem 0 0;
     }
+    
 }
+
 </style>
