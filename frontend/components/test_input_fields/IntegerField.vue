@@ -29,7 +29,6 @@
 </template>
 
 <style scoped>
-/* @import '../../assets/base.css'; */
 
 .integer_field_wrapper
 {

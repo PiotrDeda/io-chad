@@ -58,6 +58,8 @@
   --chad-c-green: hsla(160, 100%, 37%, 1);
   --chad-c-green-hover: rgb(21, 221, 154);
 
+  --chad-c-red: rgb(255, 80, 80);
+
   --chad-c-border: var(--color-border);
   --chad-c-border-hover: rgb(0, 145, 96);
 
@@ -65,6 +67,10 @@
   --chad-c-element-background-hover: hsla(160, 100%, 37%, 0.2);
 
   --chad-c-background: var(--color-background-mute);
+
+  --chad-c-invalid-input: var(--chad-c-red);
+  --chad-c-valid-input: var(--chad-c-green);
+  --chad-c-default-input: var(--chad-c-gray);
 }
 
 *,
