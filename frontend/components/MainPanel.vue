@@ -9,10 +9,11 @@ defineProps({
 
 <template>
   <div class="greetings">
-    <h1 class="green">{{ msg }}</h1>
+    <h1 class="blue">{{ msg }}</h1>
     <h3>
       Nowoczesny generetor turniejów specjalnie dla ciebie! Twórz turnieje już teraz w kilku prostych krokach !
     </h3>
+    <br/>
   </div>
 </template>
 
@@ -21,7 +22,7 @@ h1 {
   margin-top: 20px;
   font-weight: 500;
   font-size: 2.6rem;
-  top: -10px;
+  top: 10px;
 }
 
 h3 {
