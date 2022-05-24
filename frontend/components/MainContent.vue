@@ -34,7 +34,7 @@ import ElementsListVue from './lists/ElementsList.vue';
   </baseItem>  
 
   <baseItem>
-    <LinkButtonVue  id ="przycisk_generuj"  label="GENERUJ !" link="frontend\PasswdChange.vue"> </LinkButtonVue>
+    <LinkButtonVue  id ="przycisk_generuj"  label="GENERUJ !" link="https://www.youtube.com/watch?v=dQw4w9WgXcQ"> </LinkButtonVue>
   </baseItem>  
 
 </template>
