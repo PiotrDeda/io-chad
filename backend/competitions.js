@@ -15,15 +15,7 @@ var CompetitionSchema = new Schema({
 			matches: [Schema.Types.ObjectId]
 		}
 	],
-	participants: [ { id: Schema.Types.ObjectId, nick: String } ],
-	teams: [
-		{
-			id: Schema.Types.ObjectId,
-			name: String,
-			members: [ { id: Schema.Types.ObjectId, nick: String } ]
-		}
-	]
-	
+	participants: [ { number: Number, name: String } ]
 });
 var Competition = mongoose.model('Competition', CompetitionSchema);
 
