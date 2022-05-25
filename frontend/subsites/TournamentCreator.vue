@@ -1,6 +1,9 @@
 <script setup>
 import TopPanel from '../components/panels/TopPanel.vue';
 import IntegerField from '../components/test_input_fields/IntegerField.vue';
+import DropdownList from '../components/lists/DropdownList.vue';
+import ElementsList from '../components/lists/ElementsList.vue';
+import ListsRow from '../components/lists/ListsRow.vue';
 </script>
 
 <template>
@@ -11,7 +14,19 @@ import IntegerField from '../components/test_input_fields/IntegerField.vue';
 
     <main>
         <article>
+            <ElementsList height="100%" width="100%">
+                Faza grupowa:
+                <ListsRow height="fit-content">
+                    <IntegerField label="Grupa A" min="0" max="8" value="0" />
+                    <IntegerField label="Grupa B" min="0" max="8" value="0" />
+                    <IntegerField label="Grupa C" min="0" max="8" value="0" />
+                    <IntegerField label="Grupa D" min="0" max="8" value="0" />
+                    <IntegerField label="Grupa E" min="0" max="8" value="0" />
+                </ListsRow>
+                <ListsRow height="fit-content">
 
+                </ListsRow>
+            </ElementsList>
         </article>
         <aside>
             <IntegerField label="Liczba uczestników" min="0" max="12" value="4" />
@@ -23,6 +38,10 @@ import IntegerField from '../components/test_input_fields/IntegerField.vue';
             <IntegerField label="Punkty za wygraną" min="0" max="99" value="3" />
             <IntegerField label="Punkty za remis" min="-99" max="99" value="1" />
             <IntegerField label="Punkty za przegraną" min="-99" max="99" value="0" />
+            <DropdownList
+                placeholder="W przypadku remisu punktowego decyduje:"
+                :items="['Bilans bramkowy', 'Bezpośredni mecz', 'Losowo', 'Wybór ręczny']"
+            />
         </aside>
     </main>
 </template>
@@ -53,7 +72,6 @@ body
     min-height: inherit;
 
     font-weight: normal;
-    /* border: solid 2px red; */
 }
 
 header
@@ -72,21 +90,16 @@ main
 
     min-height: fit-content;
     width: inherit;
-
-    /* border: solid 1px red; */
 }
 
 article
 {
-    width: 70%;
-}
-
-aside
-{
-    /* border: solid 1px white; */
     padding: 15px;
     margin: 15px;
-    width: min(30%, fit-content);
+    margin-right: 7.5px;
+
+    width: 70%;
+    min-width: fit-content;
 
     border-style: solid;
     border-radius: 6px;
@@ -94,38 +107,22 @@ aside
     border-color: var(--color-border);
 }
 
-.green {
-    text-decoration: none;
-    color: hsla(160, 100%, 37%, 1);
-    transition: 0.4s;
+aside
+{
+    padding: 15px;
+    margin: 15px;
+    margin-left: 7.5px;
+
+    width: calc(30% - 45px);
+    min-width: fit-content;
+
+    border-style: solid;
+    border-radius: 6px;
+    border-width: 1px;
+    border-color: var(--color-border);
 }
 
 /* @media (min-width: 1024px) {
-    body {
-        display: flex;
-        place-items: center;
-    }
 
-    #app {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        padding: 0 2rem;
-    }
-
-    header {
-        display: flex;
-        place-items: center;
-        padding-right: calc(var(--section-gap) / 2);
-    }
-
-    header .wrapper {
-        display: flex;
-        place-items: flex-start;
-        flex-wrap: wrap;
-    }
-
-    .logo {
-        margin: 0 2rem 0 0;
-    }
 } */
 </style>
