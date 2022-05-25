@@ -91,7 +91,7 @@ aside
     border-style: solid;
     border-radius: 6px;
     border-width: 1px;
-    border-color: var(--chad-c-border);
+    border-color: var(--color-border);
 }
 
 .green {

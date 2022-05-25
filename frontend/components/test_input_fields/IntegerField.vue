@@ -90,7 +90,7 @@ input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-o
 .integer_field_wrapper:hover,
 .integer_field_wrapper:focus-within
 {
-    border-color: var(--color-border);
+    border-color: var(--color-border-hover);
     transition: 0.4s;
 }
 
