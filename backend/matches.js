@@ -4,10 +4,10 @@ const Schema = mongoose.Schema;
 const router = express.Router();
 
 var MatchSchema = new Schema({
-	teamOne: Schema.Types.ObjectId,
-	teamTwo: Schema.Types.ObjectId,
-	teamOneScore: Number,
-	teamTwoScore: Number
+	participantOne: Schema.Types.ObjectId,
+	participantTwo: Schema.Types.ObjectId,
+	participantOneScore: Number,
+	participantTwoScore: Number
 });
 var Match = mongoose.model('Match', MatchSchema);
 
