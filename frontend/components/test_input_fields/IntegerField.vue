@@ -32,7 +32,7 @@
 
 .integer_field_wrapper
 {
-    color: var(--chad-c-gray);
+    color: var(--color-text);
     font-size: inherit;
 
     width: fit-content;
@@ -45,7 +45,7 @@
     border-style: solid;
     border-radius: 6px;
     border-width: 1px;
-    border-color: var(--chad-c-border);
+    border-color: var(--color-border);
 
     transition: 0.4s;
 }
@@ -57,7 +57,7 @@
 
 .integer_field_wrapper input[type="number"]
 {
-    color: var(--chad-c-default-input);
+    color: var(--color-default-input);
     font-size: inherit;
 
     width: 70px;
@@ -69,7 +69,7 @@
     border-width: 0px;
     border-left-width: 1px;
     border-style: solid;
-    border-color: var(--chad-c-border);
+    border-color: var(--color-border);
 
     -moz-appearance: textfield;
 
@@ -78,7 +78,7 @@
 
 .integer_field_wrapper input[type="number"]:out-of-range
 {
-    color: var(--chad-c-invalid-input);
+    color: var(--color-invalid-input);
 }
 
 input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button
@@ -90,7 +90,7 @@ input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-o
 .integer_field_wrapper:hover,
 .integer_field_wrapper:focus-within
 {
-    border-color: var(--chad-c-border-hover);
+    border-color: var(--color-border);
     transition: 0.4s;
 }
 
@@ -98,7 +98,7 @@ input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-o
 .integer_field_wrapper input[type="number"]:hover
 {
     outline: none;
-    border-color: var(--chad-c-border-hover);
+    border-color: var(--color-border-hover);
     transition: 0.4s;
 }
 

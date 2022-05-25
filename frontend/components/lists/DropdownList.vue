@@ -25,12 +25,12 @@ _init_()
 
 select{
 	text-align: center;
-    color: var(--chad-c-green);
+    color: var(--color-text);
     font-size: inherit;
 
     margin: 4px;
     padding: 5px 15px;
-    background-color: var(--chad-c-background);
+    background-color: var(--color-background);
 
     border-style: solid;
     border-radius: 6px;
@@ -42,13 +42,13 @@ select{
 }
 
 select:hover{
-    color: var(--chad-c-green);
-    border-color: rgb(16, 187, 255);
+    color: var(--color-text-hover);
+    border-color: var(--color-border-hover);
 }
 
 option:hover{
-    border-color: var(--chad-c-border-);
-    background-color: var(--chad-c-green-hover);
+    border-color: var(--color-border);
+    background-color: var(--color-background-soft);
 }
 
 </style>

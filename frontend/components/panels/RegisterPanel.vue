@@ -61,19 +61,19 @@
     top: 10%;
     bottom: 45%;
 
-    background-color: var(--chad-c-background);
+    background-color: var(--color-background);
     border-top-style: solid;
     border-top-width: thin;
-    border-top-color: var(--chad-c-border);
+    border-top-color: var(--color-border);
     border-left-style: solid;
     border-left-width: thin;
-    border-left-color: var(--chad-c-border);
+    border-left-color:  var(--color-border);
     border-right-style: solid;
     border-right-width: thin;
-    border-right-color: var(--chad-c-border);
+    border-right-color:  var(--color-border);
     border-bottom-style: solid;
     border-bottom-width: thin;
-    border-bottom-color: var(--chad-c-border);
+    border-bottom-color:  var(--color-border);
 }
 
 .email_text

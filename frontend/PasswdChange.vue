@@ -48,14 +48,14 @@ import LinkButtonVue from './components/buttons/LinkButton.vue';
     max-width: 1280px;
     margin: 0 auto;
     padding: 2rem;
-    background-color: rgba(12, 4, 36, 0.996);
-    color: aliceblue;
+    background-color: var(--color-background);
+    color: var(-color-text2);
     font-weight: normal;
 }
 #change_passwd {
-  background-color: rgb(16, 187, 255);
+  background-color: var(--color-background);
   border: none;
-  color: aliceblue;
+  color: var(-color-text2);
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -69,18 +69,11 @@ import LinkButtonVue from './components/buttons/LinkButton.vue';
 header {
     line-height: 1.5;
 }
-a,
-.blue {
-    text-decoration: none;
-    color: rgb(16, 187, 255);
-    transition: 0.4s;
-}
-
 
 @media (min-width: 1024px) {
     body {
         
-         background-color: rgba(12, 4, 36, 0.996);
+        background-color: var(--color-background);
         display: flex;
         place-items: center;
     }

@@ -21,12 +21,12 @@
 <style scoped>
 input[type="password"]::placeholder
 {
-    color: var(--chad-c-gray);
+    color: var(--color-text);
 }
 
 input[type="password"]
 {
-    color: var(--chad-c-green);
+    color: var(--color-valid-input);
     font-size: inherit;
 
     margin: 4px;
@@ -36,7 +36,7 @@ input[type="password"]
     border-style: solid;
     border-radius: 6px;
     border-width: 1px;
-    border-color: var(--chad-c-border);
+    border-color: var(--color-border);
 
     transition: 0.4s;
 }
@@ -44,7 +44,7 @@ input[type="password"]
 input[type="password"]:focus, input[type="password"]:hover
 {
     outline: none;
-    border-color: var(--chad-c-border-hover);
+    border-color: var(--color-border-hover);
 }
 
 </style>

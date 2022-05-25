@@ -34,10 +34,10 @@
     top: 0%;
     bottom: 100% - 50px;
 
-    background-color: var(--chad-c-background);
+    background-color: var(--color-background);
     border-bottom-style: solid;
     border-bottom-width: thin;
-    border-bottom-color: var(--chad-c-border);
+    border-bottom-color:  var(--color-border);
     /* border-bottom-color: white; */
 
     z-index: 1; /* always bring to front */

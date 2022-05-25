@@ -17,32 +17,6 @@ import ListsRow from './components/lists/ListsRow.vue';
         <div class="wrapper">
             <MainPanel msg="CHAD Competition Hub Administration & Design" />
         </div>
-
-        <div id="elementList">
-            <ElementsList width="500px" height="500px">
-                <ListsRow height="80px">
-                    <DropdownList id='dropdown' placeholder="que1" :items="['11', '2']">
-                    </DropdownList>
-                    <DropdownList id='dropdown2' placeholder="que2" :items="['11', '2']">
-                    </DropdownList>
-                </ListsRow>
-                <ListsRow height="200px">
-                    <DropdownList id='dropdown3' placeholder="que3" :items="['1', '2', '3']">
-                    </DropdownList>
-                    <DropdownList id='dropdown4' placeholder="que4" :items="['1', '2', '3']">
-                    </DropdownList>
-                    <DropdownList id='dropdown5' placeholder="que5" :items="['1', '2', '67']">
-                    </DropdownList>
-                </ListsRow>
-                <ListsRow>
-                    <DropdownList id='dropdown6' placeholder="que6" :items="['1', '2', '4', '6']">
-                    </DropdownList>
-                </ListsRow>
-            </ElementsList>
-
-
-
-        </div>
     </header>
 
     <main>
@@ -62,14 +36,14 @@ import ListsRow from './components/lists/ListsRow.vue';
     max-width: 1280px;
     margin: 0 auto;
     padding: 2rem;
-    background-color: rgba(12, 4, 36, 0.996);
-    color: aliceblue;
+    background-color: var(--vt-c-black);
+    color: var(--vt-c-text-dark-1);
     font-weight: normal;
 }
 #przycisk_generuj {
-  background-color: rgb(16, 187, 255);
+  background-color: var(--vt-c-black);
   border: none;
-  color: aliceblue;
+  color: var(--vt-c-text-dark-1);
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -82,18 +56,11 @@ import ListsRow from './components/lists/ListsRow.vue';
 header {
     line-height: 1.5;
 }
-a,
-.blue {
-    text-decoration: none;
-    color: rgb(16, 187, 255);
-    transition: 0.4s;
-}
-
 
 @media (min-width: 1024px) {
     body {
         
-    background-color: rgba(12, 4, 36, 0.996);
+    background-color: var(--color-background-soft);
         display: flex;
         place-items: center;
     }

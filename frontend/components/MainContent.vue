@@ -1,13 +1,13 @@
 <script setup>
 import baseItem from './baseItem.vue'
 import LinkButtonVue from './buttons/LinkButton.vue'
-import DropdownListVue from './lists/DropdownList.vue';
+import DropdownList from './lists/DropdownList.vue';
 import ElementsListVue from './lists/ElementsList.vue';
 </script>
 
 <template>
   <baseItem>
-    <template #heading>Nazwa Turnieju</template>
+    <template #heading>Nazwa turnieju</template>
     <input :value="text">
     
   </baseItem>
@@ -18,8 +18,8 @@ import ElementsListVue from './lists/ElementsList.vue';
   </baseItem>
 
   <baseItem>
-    <template #heading>Typ Turnieju</template>
-    <DropdownListVue items ='items' />
+    <template #heading>Typ turnieju</template>
+    <DropdownList :items ="['play-off', 'liga']" placeholder ='Typ turnieju'/>
   </baseItem>
 
   <baseItem>
@@ -28,9 +28,9 @@ import ElementsListVue from './lists/ElementsList.vue';
   </baseItem>
   
   <baseItem>
-    <template #heading>Uczestnicy (jeden uczestnik w jednej lini)</template>
+    <template #heading>Uczestnicy (jeden uczestnik w jednej linii)</template>
    
-    <ElementsListVue background-color="white"></ElementsListVue>
+    <ElementsListVue/> 
   </baseItem>  
 
   <baseItem>

@@ -23,15 +23,15 @@
     width: 100%;
     height: 100%;
     overflow: scroll;
-    scrollbar-width: auto;
-    scrollbar-color: rgb(16, 187, 255) rgb(142, 142, 142);
-    background-color: white;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) var(--color-border-hover);
+    background-color: var(--color-input);
     border-radius: 4px;
 }
 
 .main-window
 {
-    border: 2px solid rgb(16, 187, 255);
+    border: 2px solid var(--color-border);
     border-radius: 4px;
     width: v-bind(props.width);
     height: v-bind(props.height);

@@ -19,17 +19,17 @@
 button
 {
     text-align: center;
-    color: var(--chad-c-green);
+    color: var(--color-text);
     font-size: inherit;
 
     margin: 4px;
     padding: 5px 15px;
-    background-color: rgba(12, 4, 36, 0.996);
+    background-color: var(--color-background);
 
     border-style: solid;
     border-radius: 6px;
     border-width: 1px;
-    border-color: var(--chad-c-border);
+    border-color: var(--color-border);
 
     cursor: pointer;
 
@@ -40,8 +40,8 @@ button
 {
     button:hover
     {
-        border-color: var(--chad-c-border-hover);
-        color: var(--chad-c-green-hover);
+        border-color: var(--color-border);
+        color: var(--color-text-hover);
     }
 }
 </style>

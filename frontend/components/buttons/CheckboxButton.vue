@@ -59,7 +59,7 @@
     border-style: solid;
     border-radius: 6px;
     border-width: 1px;
-    border-color: var(--chad-c-border);
+    border-color: var(--color-border);
 
     transition: 0.4s;
 }
@@ -71,13 +71,13 @@
 
 .checkbox_wrapper input[type="checkbox"]:checked + label
 {
-    color: var(--chad-c-green);
+    color: var(--color-valid-input);
     transition: 0.4s;
 }
 
 .checkbox_wrapper input[type="checkbox"] + label
 {
-    color: var(--chad-c-gray);
+    color: var(--color-text);
     transition: 0.4s;
 }
 
