@@ -20,7 +20,7 @@ var CompetitionSchema = new Schema({
 		{
 			id: Schema.Types.ObjectId,
 			name: String,
-			members: { id: Schema.Types.ObjectId, nick: String }
+			members: [ { id: Schema.Types.ObjectId, nick: String } ]
 		}
 	]
 	
