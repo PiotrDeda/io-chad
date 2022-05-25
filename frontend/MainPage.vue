@@ -5,6 +5,9 @@ import TopPanel from './components/panels/TopPanel.vue';
 import MainPanel from './components/MainPanel.vue';
 import MainContent from './components/MainContent.vue';
 import PasswdChange from './PasswdChange.vue';
+import DropdownList from './components/lists/DropdownList.vue';
+import ElementsList from './components/lists/ElementsList.vue';
+import ListsRow from './components/lists/ListsRow.vue';
 </script>
 
 <template>
@@ -14,12 +17,43 @@ import PasswdChange from './PasswdChange.vue';
         <div class="wrapper">
             <MainPanel msg="CHAD Competition Hub Administration & Design" />
         </div>
+
+        <div id="elementList">
+            <ElementsList width="500px" height="500px">
+                <ListsRow height="80px">
+                    <DropdownList id='dropdown' placeholder="que1" :items="['11', '2']">
+                    </DropdownList>
+                    <DropdownList id='dropdown2' placeholder="que2" :items="['11', '2']">
+                    </DropdownList>
+                </ListsRow>
+                <ListsRow height="200px">
+                    <DropdownList id='dropdown3' placeholder="que3" :items="['1', '2', '3']">
+                    </DropdownList>
+                    <DropdownList id='dropdown4' placeholder="que4" :items="['1', '2', '3']">
+                    </DropdownList>
+                    <DropdownList id='dropdown5' placeholder="que5" :items="['1', '2', '67']">
+                    </DropdownList>
+                </ListsRow>
+                <ListsRow>
+                    <DropdownList id='dropdown6' placeholder="que6" :items="['1', '2', '4', '6']">
+                    </DropdownList>
+                </ListsRow>
+            </ElementsList>
+
+
+
+        </div>
     </header>
 
     <main>
         <MainContent />
     </main>
 </template>
+
+
+
+
+
 
 <style>
 @import './assets/base.css';

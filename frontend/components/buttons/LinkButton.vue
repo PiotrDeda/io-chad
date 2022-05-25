@@ -19,7 +19,8 @@
 button
 {
     text-align: center;
-    color: rgb(16, 187, 255);
+    color: var(--chad-c-green);
+    font-size: inherit;
 
     margin: 4px;
     padding: 5px 15px;
@@ -30,8 +31,6 @@ button
     border-width: 1px;
     border-color: var(--chad-c-border);
 
-    cursor: pointer;
-
     transition: 0.4s;
 }
 
@@ -40,8 +39,8 @@ button
     button:hover
     {
         border-color: var(--chad-c-border-hover);
-        color: rgb(16, 187, 255);
-        background-color: aliceblue;
+        color: var(--chad-c-green-hover);
+        background-color: var(--chad-c-element-background-hover);
     }
 }
 </style>

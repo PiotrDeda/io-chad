@@ -8,7 +8,7 @@
 
 <template>
     <div class="row">
-        <slot></slot>
+        <slot class="content"></slot>
     </div>
 </template>
 
@@ -24,5 +24,8 @@
     display: flex;
 }
 
+#content{
+    align-content: center;
+}
 
 </style>
