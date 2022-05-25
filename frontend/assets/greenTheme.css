@@ -6,7 +6,7 @@
 
   --color-border:           rgba(84, 84, 84, 0.48);
   --color-border-hover:     rgb(0, 145, 96);
-  --color-input:            rgb(230, 230, 230);
+  --color-input-background: rgb(50, 50, 50);
 
   --color-heading:          rgb(0, 189, 126);
   --color-text:             rgba(235, 235, 235, 0.64);
