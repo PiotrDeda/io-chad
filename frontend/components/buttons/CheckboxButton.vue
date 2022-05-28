@@ -80,9 +80,4 @@
     color: var(--color-text);
     transition: 0.4s;
 }
-
-</style>
-    transition: 0.4s;
-}
-
 </style>

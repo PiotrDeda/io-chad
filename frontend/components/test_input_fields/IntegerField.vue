@@ -63,7 +63,7 @@
     width: 70px;
 
     margin: 4px 0px;
-    padding: 7.5px 15px;
+    padding: 5px 15px;
     background-color: transparent;
 
     border-width: 0px;

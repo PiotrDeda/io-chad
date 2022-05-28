@@ -33,7 +33,7 @@ input[type="email"]::placeholder
 
 input[type="email"]
 {
-    color: var(--color-text);
+    color: var(--color-valid-input);
     font-size: inherit;
 
     margin: 4px;
@@ -51,7 +51,7 @@ input[type="email"]
 input[type="email"]:focus, input[type="email"]:hover
 {
     outline: none;
-    border-color: var(--color-border);
+    border-color: var(--color-border-hover);
 }
 
 </style>
