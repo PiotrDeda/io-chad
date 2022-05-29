@@ -9,7 +9,7 @@ var AccountSchema = new Schema({
 	passwd: String,
 	birthDate: Date,
 	accountCreationDate: { type: Date, default: Date.now() },
-	managedCompetitions: [Schema.Types.ObjectId]
+	managedCompetitions: [{ type: Schema.Types.ObjectId, ref: 'Competition' }]
 });
 var Account = mongoose.model('Account', AccountSchema);
 

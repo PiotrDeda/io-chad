@@ -4,8 +4,8 @@ const Schema = mongoose.Schema;
 const router = express.Router();
 
 var MatchSchema = new Schema({
-	participantOne: Schema.Types.ObjectId,
-	participantTwo: Schema.Types.ObjectId,
+	participantOne: { type: Schema.Types.ObjectId, ref: 'Competition.participants' },
+	participantTwo: { type: Schema.Types.ObjectId, ref: 'Competition.participants' },
 	participantOneScore: Number,
 	participantTwoScore: Number
 });

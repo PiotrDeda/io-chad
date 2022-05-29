@@ -7,7 +7,7 @@ var StageSchema = new Schema({
 	name: String,
 	type: String,
 	properties: [],
-	matches: [Schema.Types.ObjectId]
+	matches: [{ type: Schema.Types.ObjectId, ref: 'Match' }]
 });
 
 var ParticipantSchema = new Schema({
