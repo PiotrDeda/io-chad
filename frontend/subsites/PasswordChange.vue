@@ -1,19 +1,22 @@
 <script setup type="module" >
 
-import TopPanel from './components/panels/TopPanel.vue';
-import MainPanel from './components/MainPanel.vue';
-import MainContent from './components/MainContent.vue';
-import BaseItem from './components/baseItem.vue';
-import EmailField from './components/test_input_fields/EmailField.vue';
-import PasswordField from './components/test_input_fields/PasswordField.vue';
-import LinkButtonVue from './components/buttons/LinkButton.vue'; 
+import TopPanel from '../components/panels/TopPanel.vue';
+import BaseItem from '../components/baseItem.vue';
+import EmailField from '../components/input_fields/EmailField.vue';
+import PasswordField from '../components/input_fields/PasswordField.vue';
+import LinkButtonVue from '../components/buttons/LinkButton.vue'; 
 </script>
 <template>
     <header>
         <TopPanel />
 
         <div class="wrapper">
-            <MainPanel msg="CHAD Competition Hub Administration & Design" />
+            <div class="greetings">
+                <h1 class="blue">CHAD Competition Hub Administration & Design</h1>
+                <h3>
+                    Nowoczesny generetor turniejów specjalnie dla ciebie! Twórz turnieje już teraz w kilku prostych krokach !
+                </h3>
+            </div>
             
             <h1>W celu zmiany hasła podaj nowe e-mail oraz nowe hasło</h1>
             
@@ -42,7 +45,7 @@ import LinkButtonVue from './components/buttons/LinkButton.vue';
 
 
 <style>
-@import './assets/base.css';
+@import '../assets/base.css';
 
 #app {
     max-width: 1280px;

@@ -1,6 +1,6 @@
 <script setup>
-    import EmailField from "../test_input_fields/EmailField.vue"
-    import PasswordField from "../test_input_fields/PasswordField.vue";
+    import EmailField from "../input_fields/EmailField.vue"
+    import PasswordField from "../input_fields/PasswordField.vue";
     import LinkButton from "../buttons/LinkButton.vue";
 
     const props = defineProps(

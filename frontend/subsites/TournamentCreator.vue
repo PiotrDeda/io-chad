@@ -1,6 +1,6 @@
 <script setup>
 import TopPanel from '../components/panels/TopPanel.vue';
-import IntegerField from '../components/test_input_fields/IntegerField.vue';
+import IntegerField from '../components/input_fields/IntegerField.vue';
 import DropdownList from '../components/lists/DropdownList.vue';
 import ElementsList from '../components/lists/ElementsList.vue';
 import ListsRow from '../components/lists/ListsRow.vue';
