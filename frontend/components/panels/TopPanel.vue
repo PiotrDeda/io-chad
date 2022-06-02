@@ -3,7 +3,7 @@
 
     const props = defineProps(
     {
-        auth: { type: Boolean, required: true }
+        auth: { type: Boolean, required: true, default: false }
     });
 </script>
 
@@ -11,11 +11,12 @@
 <template>
     <div class="top_panel">
         <span> <!-- left side -->
-            <LinkButton label="Home" link="https://youtu.be/dQw4w9WgXcQ" />
+            <LinkButton label="Strona Główna" link="https://youtu.be/dQw4w9WgXcQ" />
         </span>
         <span> <!-- right side -->
-            <LinkButton label="Login" link="https://google.com" />
-            <LinkButton label="Register" link="https://stackoverflow.com" />
+            <LinkButton v-if="props.auth != true" label="Zaloguj" link="https://google.com" />
+            <LinkButton v-if="props.auth != true" label="Załóż Konto" link="https://stackoverflow.com" />
+            <LinkButton v-else label="Wyloguj" link="https://stackoverflow.com" />
         </span>
     </div>
 </template>
@@ -38,7 +39,6 @@
     border-bottom-style: solid;
     border-bottom-width: thin;
     border-bottom-color: var(--color-border);
-    /* border-bottom-color: white; */
 
     z-index: 1; /* always bring to front */
 }
