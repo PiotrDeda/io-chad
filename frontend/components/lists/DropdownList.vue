@@ -12,13 +12,11 @@ function _init_() {
 _init_()
 </script>
 
-<template>
-	<div class="drop-menu">		
-		<select name="sub-menu">
-			<option value="" disabled selected>{{props.placeholder}}</option>
-			<option v-for="it in items" :value="it"> {{ it }} </option>
-		</select>
-	</div>
+<template>	
+    <select name="sub-menu">
+        <option value="" disabled selected>{{props.placeholder}}</option>
+        <option v-for="it in items" :value="it"> {{ it }} </option>
+    </select>
 </template>
 
 <style>
@@ -28,8 +26,8 @@ select{
     color: var(--color-text);
     font-size: inherit;
 
-    margin: 4px;
-    padding: 5px 15px;
+    margin: 0px 4px;
+    padding: 10px 10px;
     background-color: var(--color-background);
 
     border-style: solid;
