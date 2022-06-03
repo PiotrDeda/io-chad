@@ -3,27 +3,24 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const router = express.Router();
 
+var StageSchema = new Schema({
+	name: String,
+	type: String,
+	properties: [],
+	matches: [{ type: Schema.Types.ObjectId, ref: 'Match' }]
+});
+
+var ParticipantSchema = new Schema({
+	number: Number,
+	name: String
+});
+
 var CompetitionSchema = new Schema({
 	name: String,
 	game: String,
 	type: String,
-	stages: [
-		{
-			name: String,
-			type: String,
-			properties: [],
-			matches: [Schema.Types.ObjectId]
-		}
-	],
-	participants: [ { id: Schema.Types.ObjectId, nick: String } ],
-	teams: [
-		{
-			id: Schema.Types.ObjectId,
-			name: String,
-			members: { id: Schema.Types.ObjectId, nick: String }
-		}
-	]
-	
+	stages: [StageSchema],
+	participants: [ParticipantSchema]
 });
 var Competition = mongoose.model('Competition', CompetitionSchema);
 
