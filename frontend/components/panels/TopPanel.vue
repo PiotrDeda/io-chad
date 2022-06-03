@@ -11,7 +11,7 @@
 <template>
     <div class="top_panel">
         <span> <!-- left side -->
-            <LinkButton label="Strona Główna" link="https://youtu.be/dQw4w9WgXcQ" />
+            <LinkButton label="Strona Główna" link="/tc" />
         </span>
         <span> <!-- right side -->
             <LinkButton v-if="props.auth != true" label="Zaloguj" link="https://google.com" />

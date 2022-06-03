@@ -6,9 +6,8 @@ import ElementsList from '../components/lists/ElementsList.vue';
 </script>
 
 <template>
+    <TopPanel />
     <header>
-        <TopPanel />
-
         <div class="wrapper">
             <div class="greetings">
                 <h1 class="blue">CHAD Competition Hub Administration & Design</h1>
