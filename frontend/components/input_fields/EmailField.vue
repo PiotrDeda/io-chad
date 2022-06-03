@@ -28,12 +28,12 @@
 <style scoped>
 input[type="email"]::placeholder
 {
-    color: var(--chad-c-gray);
+    color: var(--color-text);
 }
 
 input[type="email"]
 {
-    color: var(--chad-c-green);
+    color: var(--color-valid-input);
     font-size: inherit;
 
     margin: 4px;
@@ -43,7 +43,7 @@ input[type="email"]
     border-style: solid;
     border-radius: 6px;
     border-width: 1px;
-    border-color: var(--chad-c-border);
+    border-color: var(--color-border);
 
     transition: 0.4s;
 }
@@ -51,7 +51,7 @@ input[type="email"]
 input[type="email"]:focus, input[type="email"]:hover
 {
     outline: none;
-    border-color: var(--chad-c-border-hover);
+    border-color: var(--color-border-hover);
 }
 
 </style>

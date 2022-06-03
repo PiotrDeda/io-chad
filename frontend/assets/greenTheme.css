@@ -1,0 +1,20 @@
+@media (prefers-color-scheme: dark) {
+:root {
+  --color-background:       rgb(24, 24, 24);
+  --color-background-soft:  rgb(34, 34, 34);
+  --color-background-mute:  rgb(40, 40, 40);
+
+  --color-border:           rgba(84, 84, 84, 0.48);
+  --color-border-hover:     rgb(0, 145, 96);
+  --color-input-background: rgb(50, 50, 50);
+
+  --color-heading:          rgb(0, 189, 126);
+  --color-text:             rgba(235, 235, 235, 0.64);
+  --color-text-hover:       rgb(21, 221, 154);
+  --color-header:           rgb(0, 189, 126);
+
+  --color-default-input:    rgba(235, 235, 235, 0.64);
+  --color-invalid-input:    rgb(255, 80, 80);
+  --color-valid-input:      rgb(0, 189, 126);
+ }
+}

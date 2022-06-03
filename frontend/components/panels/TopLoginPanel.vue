@@ -1,28 +1,27 @@
+<!--Like TopPage, but with only one button on the right side-->
 <script setup>
     import LinkButton from "../buttons/LinkButton.vue"
 
     const props = defineProps(
     {
-        auth: { type: Boolean, required: true, default: false }
+        auth: { type: Boolean, required: true }
     });
 </script>
 
-<!-- TODO: change links to proper subsites as soon as they are created -->
 <template>
-    <div class="top_panel">
+    <div class="top_login_panel">
         <span> <!-- left side -->
-            <LinkButton label="Strona Główna" link="https://youtu.be/dQw4w9WgXcQ" />
+            <LinkButton label="Home" />
         </span>
         <span> <!-- right side -->
-            <LinkButton v-if="props.auth != true" label="Zaloguj" link="https://google.com" />
-            <LinkButton v-if="props.auth != true" label="Załóż Konto" link="https://stackoverflow.com" />
-            <LinkButton v-else label="Wyloguj" link="https://stackoverflow.com" />
+        <!-- For register site change to: Have an account already?-->
+            <LinkButton label="Don't have an account?"/>
         </span>
     </div>
 </template>
 
 <style scoped>
-.top_panel
+.top_login_panel
 {
     display: flex;
     flex-direction: row;
@@ -38,7 +37,8 @@
     background-color: var(--color-background);
     border-bottom-style: solid;
     border-bottom-width: thin;
-    border-bottom-color: var(--color-border);
+    border-bottom-color:  var(--color-border);
+    /* border-bottom-color: white; */
 
     z-index: 1; /* always bring to front */
 }

@@ -8,11 +8,12 @@
 
 <template>
     <div class="row">
-        <slot></slot>
+        <slot class="content"></slot>
     </div>
 </template>
 
 <style >
+
 .row
 {
     position: relative;
@@ -21,6 +22,10 @@
     width: 100%;
     text-align: center;
     display: flex;
+}
+
+#content{
+    align-content: center;
 }
 
 </style>
