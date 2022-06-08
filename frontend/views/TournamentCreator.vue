@@ -46,51 +46,8 @@ import ListsRow from '../components/lists/ListsRow.vue';
     </main>
 </template>
 
-<style>
+<style scoped>
 @import '../assets/base.css';
-
-body
-{
-    place-items: center;
-}
-
-#app
-{
-    display: flex;
-    flex-direction: column;
-    
-    justify-content: flex-start;
-    align-items: center;
-
-    position: absolute;
-
-    margin: 0;
-    padding: 0;
-    padding-top: 50px;
-
-    width: 100%;
-    min-height: inherit;
-
-    font-weight: normal;
-}
-
-header
-{
-    text-align: center;
-}
-
-h1
-{
-    justify-content: center;
-}
-
-main
-{
-    display: flex;
-
-    min-height: fit-content;
-    width: inherit;
-}
 
 article
 {
@@ -122,7 +79,4 @@ aside
     border-color: var(--color-border);
 }
 
-/* @media (min-width: 1024px) {
-
-} */
 </style>

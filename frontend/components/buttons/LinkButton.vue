@@ -23,7 +23,7 @@ button
     font-size: inherit;
 
     margin: 4px;
-    padding: 5px 15px;
+    padding: 9px 15px;
     background-color: var(--color-background);
 
     border-style: solid;
@@ -40,7 +40,7 @@ button
 {
     button:hover
     {
-        border-color: var(--color-border);
+        border-color: var(--color-border-hover);
         color: var(--color-text-hover);
     }
 }
