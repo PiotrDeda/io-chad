@@ -27,15 +27,11 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 2px 5px; /* y x */
+    padding: 5px 15px; /* y x */
 
-    position: fixed;
-    left: 0%;
-    right: 0%;
-    top: 0%;
-    bottom: 100% - 50px;
+    width: 100%;
 
-    background-color: var(--color-background);
+    background-color: var(--color-background-soft);
     border-bottom-style: solid;
     border-bottom-width: thin;
     border-bottom-color: var(--color-border);

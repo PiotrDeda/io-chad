@@ -19,15 +19,15 @@ _init_()
     </select>
 </template>
 
-<style>
-
-select{
+<style scoped>
+select
+{
 	text-align: center;
     color: var(--color-text);
     font-size: inherit;
 
-    margin: 0px 4px;
-    padding: 10px 10px;
+    margin: 4px;
+    padding: 9px 10px;
     background-color: var(--color-background);
 
     border-style: solid;
@@ -35,18 +35,21 @@ select{
     border-width: 1px;
     border-color: var(--color-border);
 
-    transition: 0.5s;
     cursor: pointer;
+    
+    transition: 0.4s;
 }
 
-select:hover{
+select:hover
+{
     color: var(--color-text-hover);
     border-color: var(--color-border-hover);
 }
 
-option:hover{
+option:hover
+{
     border-color: var(--color-border);
     background-color: var(--color-background-soft);
+    transition: 0.4s;
 }
-
 </style>

@@ -5,16 +5,16 @@
   --color-background-mute:  rgb(40, 40, 40);
 
   --color-border:           rgba(84, 84, 84, 0.48);
-  --color-border-hover:     rgb(0, 145, 96);
+  --color-border-hover:     rgb(0, 190, 146);
   --color-input-background: rgb(50, 50, 50);
 
-  --color-heading:          rgb(0, 189, 126);
+  --color-heading:          rgb(0, 190, 146);
   --color-text:             rgba(235, 235, 235, 0.64);
-  --color-text-hover:       rgb(21, 221, 154);
-  --color-header:           rgb(0, 189, 126);
+  --color-text-hover:       rgb(0, 190, 146);
+  --color-header:           rgb(0, 190, 146);
 
   --color-default-input:    rgba(235, 235, 235, 0.64);
   --color-invalid-input:    rgb(255, 80, 80);
-  --color-valid-input:      rgb(0, 189, 126);
+  --color-valid-input:      rgb(0, 190, 146);
  }
 }
