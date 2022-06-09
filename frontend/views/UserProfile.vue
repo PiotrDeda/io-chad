@@ -14,12 +14,13 @@ import IntegerField from '../components/input_fields/IntegerField.vue';
     </header>
 
     <body>
-        <IntegerField label="Nazwa turnirju"></IntegerField>
+        <LinkButton label ="Strona zmiany hasła" link ="/passwd" />
+      
         <IntegerField label="Gra"></IntegerField>
         <DropdownList :items ="['play-off', 'liga']" placeholder ='Typ turnieju'/>
         <IntegerField label="Liczba uczestników" min="0" max="100"/>
             <ElementsList /> 
-            <LinkButton id="submit_button" label="Generuj" link="/tc" />
+            <LinkButton id="submit_button" label="Generuj" link="https://www.youtube.com/watch?v=dQw4w9WgXcQ" />
        
     </body>
 </template>

@@ -11,12 +11,12 @@
 <template>
     <div class="top_panel">
         <span> <!-- left side -->
-            <LinkButton label="Strona Główna" link="/tc" />
+            <LinkButton label="Strona Główna" link="/" />
         </span>
         <span> <!-- right side -->
-            <LinkButton v-if="props.auth != true" label="Zaloguj" link="https://google.com" />
-            <LinkButton v-if="props.auth != true" label="Załóż Konto" link="https://stackoverflow.com" />
-            <LinkButton v-else label="Wyloguj" link="https://stackoverflow.com" />
+            <LinkButton v-if="props.auth != true" label="Zaloguj" link="/login" />
+            <LinkButton v-if="props.auth != true" label="Załóż Konto" link="/reg" />
+            <LinkButton v-else label="Wyloguj" link="/" />
         </span>
     </div>
 </template>
