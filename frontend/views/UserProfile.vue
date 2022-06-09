@@ -7,6 +7,10 @@ import IntegerField from '../components/input_fields/IntegerField.vue';
 </script>
 
 <template>
+<!--
+
+    WORK IN PROGRES
+-->
     <TopPanel />
     <header>
         <h1>CHAD Competition Hub Administration & Design</h1>
@@ -14,17 +18,18 @@ import IntegerField from '../components/input_fields/IntegerField.vue';
     </header>
 
     <body>
+        <h3 id="imie">Witaj Użytkowniku !</h3>
         <LinkButton label ="Strona zmiany hasła" link ="/passwd" />
-      
-        <IntegerField label="Gra"></IntegerField>
-        <DropdownList :items ="['play-off', 'liga']" placeholder ='Typ turnieju'/>
-        <IntegerField label="Liczba uczestników" min="0" max="100"/>
-            <ElementsList /> 
-            <LinkButton id="submit_button" label="Generuj" link="https://www.youtube.com/watch?v=dQw4w9WgXcQ" />
-       
+        <LinkButton label ="Generator turnieju" link ="/tc" />
+        <LinkButton label ="Statystyki" link ="https://www.youtube.com/watch?v=dQw4w9WgXcQ&feature=youtu.be"/>
     </body>
 </template>
 
 <style scoped>
 @import '../assets/chadTheme.css';
+#imie{
+     color: var(--color-valid-input);
+  text-align: center;
+    
+}
 </style>

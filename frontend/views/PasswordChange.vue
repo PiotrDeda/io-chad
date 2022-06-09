@@ -18,11 +18,11 @@ import LinkButtonVue from '../components/buttons/LinkButton.vue';
                 </h3>
             </div>
             
-            <h1>W celu zmiany hasła podaj nowe e-mail oraz nowe hasło</h1>
+            <h1>W celu zmiany hasła podaj nowy e-mail oraz nowe hasło</h1>
         </div>
     </header>
 
-    <main>
+    <body>
         <BaseItem>
             <template #heading>Podaj login (e-mail)</template>
             <EmailField></EmailField>
@@ -38,7 +38,7 @@ import LinkButtonVue from '../components/buttons/LinkButton.vue';
         <BaseItem>
              <LinkButtonVue  id ="change_passwd"  label="ZMIEŃ !" link="https://www.youtube.com/watch?v=dQw4w9WgXcQ&feature=youtu.be"> </LinkButtonVue>
         </BaseItem>  
-    </main>
+    </body>
 </template>
 
 

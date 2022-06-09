@@ -4,6 +4,7 @@ import TopPanel from '../components/panels/TopPanel.vue';
 import DropdownList from '../components/lists/DropdownList.vue';
 import ElementsList from '../components/lists/ElementsList.vue';
 import IntegerField from '../components/input_fields/IntegerField.vue';
+import TextField from '../components/input_fields/TextField.vue';
 </script>
 
 <template>
@@ -14,8 +15,8 @@ import IntegerField from '../components/input_fields/IntegerField.vue';
     </header>
 
     <body>
-        <IntegerField label="Nazwa turnirju"></IntegerField>
-        <IntegerField label="Gra"></IntegerField>
+        <TextField label="Nazwa turnirju"/>
+        <TextField label="Gra"/>
         <DropdownList :items ="['play-off', 'liga']" placeholder ='Typ turnieju'/>
         <IntegerField label="Liczba uczestników" min="0" max="100"/>
             <ElementsList /> 
