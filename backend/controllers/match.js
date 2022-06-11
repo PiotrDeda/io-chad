@@ -1,74 +1,46 @@
-const express = require('express')
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
-const router = express.Router();
+const Match = require('../models/match');
 
-var MatchSchema = new Schema({
-	participantOne: { type: Schema.Types.ObjectId, ref: 'Competition.participants' },
-	participantTwo: { type: Schema.Types.ObjectId, ref: 'Competition.participants' },
-	participantOneScore: Number,
-	participantTwoScore: Number
-});
-var Match = mongoose.model('Match', MatchSchema);
-
-router.get("/", async (req, res) => {
-	try
-	{
+/*router.get("/", async (req, res) => {
+	try {
 		const matches = await Match.find();
 		res.send(matches);
-	}
-	catch
-	{
+	} catch {
 		res.sendStatus(500);
 	}
 });
 
 router.get("/:id", async (req, res) => {
-	try
-	{
+	try {
 		const match = await Match.findOne({_id: req.params.id});
 		res.send(match);
-	}
-	catch
-	{
+	} catch {
 		res.sendStatus(400);
 	}
 });
 
 router.post("/", async (req, res) => {
-	try
-	{
+	try {
 		const match = await Match.create(req.body);
 		res.send(match);
-	}
-	catch
-	{
+	} catch {
 		res.sendStatus(400);
 	}
 });
 
 router.put("/:id", async (req, res) => {
-	try
-	{
+	try {
 		const match = await Match.findOneAndUpdate({_id: req.params.id}, req.body, {new: true});
 		res.send(match);
-	}
-	catch
-	{
+	} catch {
 		res.sendStatus(400);
 	}
 });
 
 router.delete("/:id", async (req, res) => {
-	try
-	{
+	try {
 		const match = await Match.findOneAndDelete({_id: req.params.id});
 		res.send(match);
-	}
-	catch
-	{
+	} catch {
 		res.sendStatus(400);
 	}
-});
-
-module.exports = router;
+});*/

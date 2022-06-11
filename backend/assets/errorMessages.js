@@ -1,0 +1,15 @@
+module.exports = errorMessages = {
+	'unexpected': 'Nie powinieneś widzieć tego błędu, skontaktuj się z twórcą oprogramowania',
+	'emailRequired': 'Email jest wymagany',
+	'loginRequired': 'Login jest wymagany',
+	'passwordRequired': 'Hasło jest wymagane',
+	'emailUnique': 'Email jest zajęty',
+	'loginUnique': 'Login jest zajęty',
+	'emailInvalid': 'Email jest nieprawidłowy',
+	'loginFailed': 'Niepoprawny login lub hasło',
+	'authenticationFailed': 'Nie udało się zautoryzować użytkownika',
+	'logoutSuccess': 'Pomyślnie wylogowano',
+	'logoutAlreadyDone': 'Jesteś już wylogowany',
+	'deleteError': 'Nie udało się usunąć użytkownika',
+	'deleteSuccess': 'Pomyślnie usunięto użytkownika',
+};
