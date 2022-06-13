@@ -1,55 +1,56 @@
 <script setup>
     import EmailField from "../input_fields/EmailField.vue"
     import PasswordField from "../input_fields/PasswordField.vue";
-    import LinkButton from "../buttons/LinkButton.vue";
-    import {ref} from "vue";
     import axios from "axios";
 
-    const props = defineProps(
+    async function loginAccount(event)
     {
-        auth: { type: Boolean, required: true }
-    });
+        event.preventDefault();  // prevent site from reloading
 
-    const login = ref("");
-    const password = ref("");
-
-    async function loginAccount() {
-        try {
-            let response = await axios.post("http://localhost:8000/accounts/login", {login: login.value, passwd: password.value});
+        var form = document.getElementById("form1");
+        try
+        {
+            let response = await axios.post("http://localhost:8000/accounts/login", {login: form.login.value, passwd: form.password.value});
             console.log(response);
             let token = response.data.token;
-            if (token) {
+            if (token)
+            {
                 localStorage.setItem("jwt", token);
-                this.$router.push("/");
+                event.router.push("/");
             }
-        } catch (err) {
+        }
+        catch (err)
+        {
             console.log(err);
         }
     }
 </script>
+
 <template>
     <div class="login_panel">
-        <div class = "login_text">  <!-- from top -->
-            <span>
-                Login
-                <input v-model="login" placeholder="Podaj login" />
-            </span>
-        </div>
-        <div class = "haslo_text">
-            <span>
-                Hasło
-                <input v-model="password" placeholder="Podaj hasło" />
-            </span>
-        </div>
-        <div class = "login_button">
-            <span>
-                <button @click="loginAccount">Zaloguj się</button>
-            </span> 
-        </div><!-- to bottom -->
+        <form id="form1" @submit="loginAccount">
+            <div class="login_text">
+                <span>
+                    Login
+                    <input name="login" placeholder="Podaj login" />
+                </span>
+            </div>
+            <div class = "password_text">
+                <span>
+                    Hasło
+                    <PasswordField />
+                </span>
+            </div>
+            <div class = "login_button">
+                <span>
+                    <input type="submit" value="Zaloguj się" />
+                </span> 
+            </div>
+        </form>
     </div>
 </template>
 
-<style>
+<style scoped>
 .login_panel
 {
     display: flex;
@@ -86,7 +87,7 @@
     padding: 0px 5px; /* y x */
 }
 
-.haslo_text
+.password_text
 {
     padding: 0px 4px; /* y x */
 }
