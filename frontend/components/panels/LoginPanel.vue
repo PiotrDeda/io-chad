@@ -2,34 +2,48 @@
     import EmailField from "../input_fields/EmailField.vue"
     import PasswordField from "../input_fields/PasswordField.vue";
     import LinkButton from "../buttons/LinkButton.vue";
+    import {ref} from "vue";
+    import axios from "axios";
 
     const props = defineProps(
     {
         auth: { type: Boolean, required: true }
     });
+
+    const login = ref("");
+    const password = ref("");
+
+    async function loginAccount() {
+        try {
+            let response = await axios.post("http://localhost:8000/accounts/login", {login: login.value, passwd: password.value});
+            console.log(response);
+            let token = response.data.token;
+            if (token) {
+                localStorage.setItem("jwt", token);
+                this.$router.push("/");
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    }
 </script>
 <template>
     <div class="login_panel">
         <div class = "login_text">  <!-- from top -->
             <span>
                 Login
-                <EmailField placeholder="Podaj login" />
+                <input v-model="login" placeholder="Podaj login" />
             </span>
         </div>
         <div class = "haslo_text">
             <span>
                 Hasło
-                <PasswordField placeholder="Podaj hasło" />
+                <input v-model="password" placeholder="Podaj hasło" />
             </span>
         </div>
-        <div class = "haslo_powt_text">
-            <span>
-                <PasswordField placeholder="Powtórz hasło" />
-            </span>
-        </div> 
         <div class = "login_button">
             <span>
-                <LinkButton label = "Zaloguj się"/>
+                <button @click="loginAccount">Zaloguj się</button>
             </span> 
         </div><!-- to bottom -->
     </div>
