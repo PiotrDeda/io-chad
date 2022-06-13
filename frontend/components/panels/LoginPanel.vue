@@ -1,6 +1,8 @@
 <script setup>
     import EmailField from "../input_fields/EmailField.vue"
+    import LoginField from "../input_fields/LoginField.vue";
     import PasswordField from "../input_fields/PasswordField.vue";
+    import SubmitButton from "../buttons/SubmitButton.vue";
     import axios from "axios";
 
     async function loginAccount(event)
@@ -32,18 +34,18 @@
             <div class="login_text">
                 <span>
                     Login
-                    <input name="login" placeholder="Podaj login" />
+                    <LoginField autofocus maxLength="20" />
                 </span>
             </div>
-            <div class = "password_text">
+            <div class="password_text">
                 <span>
                     Hasło
                     <PasswordField />
                 </span>
             </div>
-            <div class = "login_button">
+            <div class="login_button">
                 <span>
-                    <input type="submit" value="Zaloguj się" />
+                    <SubmitButton label="Zaloguj się" />
                 </span> 
             </div>
         </form>
