@@ -6,9 +6,9 @@ exports.register = async (req, res) => {
 		const account = await Account.create(req.body);
 		let data = await account.save();
 		const token = await account.generateAuthToken();
-		res.status(201).json({ data, token });
+		res.status(201).json({data, token});
 	} catch (err) {
-		res.status(400).json({ err: err });
+		res.status(400).json({err: err.message});
 	}
 };
 exports.login = async (req, res) => {
@@ -17,12 +17,12 @@ exports.login = async (req, res) => {
 		const passwd = req.body.passwd;
 		const account = await Account.findByCredentials(login, passwd);
 		if (!account) {
-			return res.status(401).json({ error: e.loginFailed });
+			return res.status(401).json({error: e.loginFailed});
 		}
 		const token = await account.generateAuthToken();
-		res.status(201).json({ account, token });
+		res.status(201).json({account, token});
 	} catch (err) {
-		res.status(400).json({ err: err });
+		res.status(400).json({err: err.message});
 	}
 };
 exports.profile = async (req, res) => {
@@ -37,9 +37,8 @@ exports.logout = async (req, res) => {
 			'tokens.token': token
 		});
 		if (!tokenExists)
-			res.status(400).json({ error: e.logoutAlreadyDone });
-		else
-		{
+			res.status(400).json({error: e.logoutAlreadyDone});
+		else {
 			Account.updateOne({_id: req.userData._id}, {
 				$pull: {
 					tokens: {
@@ -47,13 +46,13 @@ exports.logout = async (req, res) => {
 					}
 				}
 			}).then(() => {
-				res.status(200).json({ message: e.logoutSuccess });
+				res.status(200).json({message: e.logoutSuccess});
 			}).catch(err => {
-				res.status(400).json({ error: err });
+				res.status(400).json({error: err.message});
 			});
 		}
 	} catch (err) {
-		res.status(400).json({ err: err });
+		res.status(400).json({err: err.message});
 	}
 }
 
@@ -61,28 +60,23 @@ exports.delete = async (req, res) => {
 	try {
 		const account = await Account.findByIdAndDelete(req.userData._id);
 		if (!account)
-			res.status(400).json({ error: e.deleteError });
+			res.status(400).json({error: e.deleteFailed});
 		else
-			res.status(200).json({ message: e.deleteSuccess });
+			res.status(200).json({message: e.deleteSuccess});
 	} catch (err) {
-		res.status(400).json({ err: err });
+		res.status(400).json({err: err.message});
 	}
 }
 
-/*router.put("/:id", async (req, res) => {
+exports.changePassword = async (req, res) => {
 	try {
-		const account = await Account.findOneAndUpdate({_id: req.params.id}, req.body, {new: true});
-		res.send(account);
-	} catch {
-		res.sendStatus(400);
+		const account = await Account.findByCredentials(req.userData.login, req.body.oldPasswd);
+		if (!account)
+			return res.status(400).json({error: e.changePasswordWrongOldPassword});
+		account.passwd = req.body.newPasswd;
+		await account.save();
+		res.status(200).json({message: e.changePasswordSuccess});
+	} catch (err) {
+		res.status(400).json({err: err.message});
 	}
-});
-
-router.delete("/:id", async (req, res) => {
-	try {
-		const account = await Account.findOneAndDelete({_id: req.params.id});
-		res.send(account);
-	} catch {
-		res.sendStatus(400);
-	}
-});*/
+}

@@ -10,6 +10,8 @@ module.exports = errorMessages = {
 	'authenticationFailed': 'Nie udało się zautoryzować użytkownika',
 	'logoutSuccess': 'Pomyślnie wylogowano',
 	'logoutAlreadyDone': 'Jesteś już wylogowany',
-	'deleteError': 'Nie udało się usunąć użytkownika',
+	'deleteFailed': 'Nie udało się usunąć użytkownika',
 	'deleteSuccess': 'Pomyślnie usunięto użytkownika',
+	'changePasswordSuccess': 'Pomyślnie zmieniono hasło',
+	'changePasswordFailed': 'Nie udało się zmienić hasła',
 };
