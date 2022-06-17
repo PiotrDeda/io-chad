@@ -1,22 +1,31 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const e = require('../config/errorMessages');
+
+const MatchSchema = new Schema({
+	participantOne: {type: Schema.Types.ObjectId, ref: 'Competition.participants', required: [true, e.participantRequired]},
+	participantTwo: {type: Schema.Types.ObjectId, ref: 'Competition.participants', required: [true, e.participantRequired]},
+	participantOneScore: {type: Number, required: [true, e.scoreRequired]},
+	participantTwoScore: {type: Number, required: [true, e.scoreRequired]},
+});
 
 const StageSchema = new Schema({
-	name: String,
-	type: String,
+	name: {type: String, required: [true, e.stageNameRequired]},
+	type: {type: String, required: [true, e.stageTypeRequired]},
 	properties: [],
-	matches: [{type: Schema.Types.ObjectId, ref: 'Match'}]
+	matches: [MatchSchema]
 });
 
 const ParticipantSchema = new Schema({
 	number: Number,
-	name: String
+	name: {type: String, required: [true, e.participantNameRequired]},
 });
 
 const CompetitionSchema = new Schema({
-	name: String,
-	game: String,
-	type: String,
+	owner: {type: Schema.Types.ObjectId, ref: 'Account.users', required: [true, e.unexpected]},
+	name: {type: String, required: [true, e.competitionNameRequired]},
+	game: {type: String, required: [true, e.competitionGameRequired]},
+	type: {type: String, required: [true, e.competitionTypeRequired]},
 	stages: [StageSchema],
 	participants: [ParticipantSchema]
 });

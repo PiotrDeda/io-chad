@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const secret = require('./secret')
-const e = require('../assets/errorMessages');
+const e = require('./errorMessages');
 
 module.exports = (req, res, next) => {
 	try {

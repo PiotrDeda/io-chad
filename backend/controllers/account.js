@@ -1,12 +1,12 @@
 const Account = require('../models/account');
-const e = require('../assets/errorMessages');
+const e = require('../config/errorMessages');
 
 exports.register = async (req, res) => {
 	try {
 		const account = await Account.create(req.body);
 		let data = await account.save();
 		const token = await account.generateAuthToken();
-		res.status(201).json({data, token});
+		res.status(201).json({token});
 	} catch (err) {
 		res.status(400).json({err: err.message});
 	}
@@ -20,7 +20,7 @@ exports.login = async (req, res) => {
 			return res.status(401).json({error: e.loginFailed});
 		}
 		const token = await account.generateAuthToken();
-		res.status(201).json({account, token});
+		res.status(201).json({token});
 	} catch (err) {
 		res.status(400).json({err: err.message});
 	}
@@ -60,9 +60,9 @@ exports.delete = async (req, res) => {
 	try {
 		const account = await Account.findByIdAndDelete(req.userData._id);
 		if (!account)
-			res.status(400).json({error: e.deleteFailed});
+			res.status(400).json({error: e.accountDeleteFailed});
 		else
-			res.status(200).json({message: e.deleteSuccess});
+			res.status(200).json({message: e.accountDeleteSuccess});
 	} catch (err) {
 		res.status(400).json({err: err.message});
 	}
