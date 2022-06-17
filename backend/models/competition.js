@@ -8,8 +8,8 @@ const ParticipantSchema = new Schema({
 });
 
 const MatchSchema = new Schema({
-	participantOne: {type: ParticipantSchema, required: [true, e.participantRequired]},
-	participantTwo: {type: ParticipantSchema, required: [true, e.participantRequired]},
+	participantOne: {type: Schema.Types.ObjectId, ref: 'Competition.participants', required: [true, e.participantRequired]},
+	participantTwo: {type: Schema.Types.ObjectId, ref: 'Competition.participants', required: [true, e.participantRequired]},
 	participantOneScore: {type: Number, required: [true, e.scoreRequired]},
 	participantTwoScore: {type: Number, required: [true, e.scoreRequired]},
 });
