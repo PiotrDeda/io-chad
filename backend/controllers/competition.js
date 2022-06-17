@@ -7,7 +7,7 @@ exports.post = async (req, res) => {
 		newCompetitionJson.owner = req.userData._id;
 		const competition = await Competition.create(newCompetitionJson);
 		let data = await competition.save();
-		res.status(201).json(e.competitionPostSuccess);
+		res.status(201).json({_id: data._id});
 	} catch (err) {
 		res.status(400).json({err: err.message});
 	}

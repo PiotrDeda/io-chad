@@ -23,7 +23,6 @@ module.exports = errorMessages = {
 	'competitionNameRequired': 'Wymagane jest podanie nazwy turnieju',
 	'competitionGameRequired': 'Wymagane jest podanie gry',
 	'competitionTypeRequired': 'Wymagane jest podanie typu turnieju',
-	'competitionPostSuccess': 'Pomyślnie dodano turniej',
 	'competitionNotFound': 'Nie znaleziono turnieju',
 	'competitionDeleted': 'Pomyślnie usunięto turniej',
 	'competitionUpdated': 'Pomyślnie zaktualizowano turniej',
