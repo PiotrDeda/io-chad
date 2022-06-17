@@ -16,7 +16,6 @@ module.exports = errorMessages = {
 	'changePasswordSuccess': 'Pomyślnie zmieniono hasło',
 	'changePasswordFailed': 'Nie udało się zmienić hasła',
 	'participantRequired': 'Wymagane jest podanie obu uczestników turnieju',
-	'scoreRequired': 'Wymagane jest podanie obu wyników',
 	'stageNameRequired': 'Wymagane jest podanie nazwy etapu',
 	'stageTypeRequired': 'Wymagane jest podanie typu etapu',
 	'participantNameRequired': 'Wymagane jest podanie nazwy uczestnika',
