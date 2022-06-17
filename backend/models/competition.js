@@ -2,9 +2,14 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const e = require('../config/errorMessages');
 
+const ParticipantSchema = new Schema({
+	number: Number,
+	name: {type: String, required: [true, e.participantNameRequired]},
+});
+
 const MatchSchema = new Schema({
-	participantOne: {type: Schema.Types.ObjectId, ref: 'Competition.participants', required: [true, e.participantRequired]},
-	participantTwo: {type: Schema.Types.ObjectId, ref: 'Competition.participants', required: [true, e.participantRequired]},
+	participantOne: {type: ParticipantSchema, required: [true, e.participantRequired]},
+	participantTwo: {type: ParticipantSchema, required: [true, e.participantRequired]},
 	participantOneScore: {type: Number, required: [true, e.scoreRequired]},
 	participantTwoScore: {type: Number, required: [true, e.scoreRequired]},
 });
@@ -14,11 +19,6 @@ const StageSchema = new Schema({
 	type: {type: String, required: [true, e.stageTypeRequired]},
 	properties: [],
 	matches: [MatchSchema]
-});
-
-const ParticipantSchema = new Schema({
-	number: Number,
-	name: {type: String, required: [true, e.participantNameRequired]},
 });
 
 const CompetitionSchema = new Schema({
