@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 const e = require('../config/errorMessages');
 
 const ParticipantSchema = new Schema({
-	number: Number,
 	name: {type: String, required: [true, e.participantNameRequired]},
+	number: Number,
 });
 
 const MatchSchema = new Schema({
