@@ -18,8 +18,7 @@ const AccountSchema = new Schema({
 	login: {type: String, unique: [true, e.loginUnique], required: [true, e.loginRequired], dropDups: true},
 	passwd: {type: String, required: [true, e.passwordRequired], select: false},
 	tokens: {type: [{token: {type: String, required: [true, e.unexpected]}}], select: false},
-	accountCreationDate: {type: Date, required: [true, e.unexpected], default: Date.now()},
-	managedCompetitions: [{type: Schema.Types.ObjectId, ref: 'Competition'}]
+	accountCreationDate: {type: Date, required: [true, e.unexpected], default: Date.now()}
 });
 
 AccountSchema.pre('save', function (next) {
