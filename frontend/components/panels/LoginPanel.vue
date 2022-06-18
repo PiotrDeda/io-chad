@@ -1,41 +1,58 @@
 <script setup>
     import EmailField from "../input_fields/EmailField.vue"
+    import LoginField from "../input_fields/LoginField.vue";
     import PasswordField from "../input_fields/PasswordField.vue";
-    import LinkButton from "../buttons/LinkButton.vue";
+    import SubmitButton from "../buttons/SubmitButton.vue";
+    import axios from "axios";
 
-    const props = defineProps(
+    async function loginAccount(event)
     {
-        auth: { type: Boolean, required: true }
-    });
+        event.preventDefault();  // prevent site from reloading
+
+        var form = document.getElementById("form1");
+        try
+        {
+            let response = await axios.post("http://localhost:8000/accounts/login", {login: form.login.value, passwd: form.password.value});
+            console.log(response);
+            let token = response.data.token;
+            if (token)
+            {
+                localStorage.setItem("jwt", token);
+                event.router.push("/");
+            }
+        }
+        catch (err)
+        {
+            console.log(err);
+        }
+    }
 </script>
+
 <template>
     <div class="login_panel">
-        <div class = "login_text">  <!-- from top -->
-            <span>
-                Login
-                <EmailField placeholder="Podaj login" />
-            </span>
-        </div>
-        <div class = "haslo_text">
-            <span>
-                Hasło
-                <PasswordField placeholder="Podaj hasło" />
-            </span>
-        </div>
-        <div class = "haslo_powt_text">
-            <span>
-                <PasswordField placeholder="Powtórz hasło" />
-            </span>
-        </div> 
-        <div class = "login_button">
-            <span>
-                <LinkButton label = "Zaloguj się"/>
-            </span> 
-        </div><!-- to bottom -->
+        <form id="form1" @submit="loginAccount">
+            <div class="login_text">
+                <span>
+                    Login
+                    <LoginField autofocus maxLength="20" />
+                </span>
+            </div>
+            <div class="password_text">
+                <span>
+                    Hasło
+                    <PasswordField />
+                </span>
+            </div>
+            <div class="login_button">
+                <span>
+                    <SubmitButton label="Zaloguj się" />
+                </span> 
+            </div>
+        </form>
     </div>
 </template>
 
-<style>
+<style scoped>
 .login_panel
 {
     display: flex;
@@ -72,7 +89,7 @@
     padding: 0px 5px; /* y x */
 }
 
-.haslo_text
+.password_text
 {
     padding: 0px 4px; /* y x */
 }
