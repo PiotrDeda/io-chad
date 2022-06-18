@@ -2,36 +2,31 @@
     const props = defineProps(
     {
         form: { type: String, default: "form1" },
-        placeholder: { type: String, default: "hasło" },
+        label: { type: String, required: true },
+        form: { type: String, default: "form1" },
         disabled: { type: Boolean, default: false }
     });
 </script>
 
 <template>
     <input
-        type="password"
+        type="submit"
+        :value="label"
+        :id="props.label"
         :form="props.form"
-        name="password"
-        size="20"
-        :placeholder="placeholder"
         :disabled="props.disabled"
-        required
     />
 </template>
 
 <style scoped>
-input[type="password"]::placeholder
+input[type="submit"]
 {
+    text-align: center;
     color: var(--color-text);
-}
-
-input[type="password"]
-{
-    color: var(--color-valid-input);
     font-size: inherit;
 
     margin: 4px;
-    padding: 7.5px 15px;
+    padding: 9px 15px;
     background-color: transparent;
 
     border-style: solid;
@@ -39,13 +34,17 @@ input[type="password"]
     border-width: 1px;
     border-color: var(--color-border);
 
+    cursor: pointer;
+
     transition: 0.4s;
 }
 
-input[type="password"]:focus, input[type="password"]:hover
+@media(hover: hover)
 {
-    outline: none;
-    border-color: var(--color-border-hover);
+    input[type="submit"]:hover
+    {
+        border-color: var(--color-border-hover);
+        color: var(--color-text-hover);
+    }
 }
-
 </style>

@@ -5,6 +5,11 @@
     {
         auth: { type: Boolean, required: true, default: false }
     });
+
+    function logout() {
+        localStorage.removeItem("jwt");
+        this.$router.push("/");
+    }
 </script>
 
 <!-- TODO: change links to proper subsites as soon as they are created -->
@@ -15,8 +20,13 @@
         </span>
         <span> <!-- right side -->
             <LinkButton v-if="props.auth != true" label="Zaloguj" link="/login" />
+<<<<<<< HEAD
             <LinkButton v-if="props.auth != true" label="Załóż Konto" link="/reg" />
             <LinkButton v-else label="Wyloguj" link="/" />
+=======
+            <LinkButton v-if="props.auth != true" label="Załóż Konto" link="/register" />
+            <LinkButton v-else label="Wyloguj" @click="logout" />
+>>>>>>> 774fcf6999de922f379f697492d872bb6c364e5e
         </span>
     </div>
 </template>
