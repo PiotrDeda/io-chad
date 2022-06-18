@@ -1,8 +1,8 @@
 <script setup>
-    const props = defineProps(
+const props = defineProps(
     {
-        height: { type: String, default: '90px' },
-        width: { type: String, default: '400px' }
+        height: {type: String, default: '90px'},
+        width: {type: String, default: '400px'}
     });
 </script>
 
@@ -14,9 +14,8 @@
     </div>
 </template>
 
-<style >
-.scroll-area
-{
+<style>
+.scroll-area {
     position: relative;
     margin: auto;
     padding: 5px;
@@ -30,8 +29,7 @@
     overflow-x: hidden;
 }
 
-.main-window
-{
+.main-window {
     border: 2px solid var(--color-border);
     border-radius: 4px;
     width: v-bind(props.width);

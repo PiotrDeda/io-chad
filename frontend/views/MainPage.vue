@@ -15,7 +15,7 @@ const teams = ref([
     { name: 'trzy', list: 1},
     { name: 'cztery', list: 1},
     { name: 'piec', list: 1},
-    { name: 'szczesc', list: 1},
+    { name: 'szesc', list: 1},
     { name: 'siedem', list: 1},
     { name: 'osiem', list: 1},
     { name: 'dziewiec', list: 1},
@@ -23,7 +23,7 @@ const teams = ref([
 
   const onDrop = (event, list, limit)=>{
         const new_name =  event.dataTransfer.getData('item');
-        const new_item = teams.value.find( (it)=> it.name == new_name )
+        const new_item = teams.value.find( (it)=> it.name === new_name )
         console.log(new_item.list)
         if( getTeams(list).length >= limit ){
             return
@@ -33,7 +33,7 @@ const teams = ref([
 }
 
 const getTeams = (list)=>{
-    return teams.value.filter( (it)=> it.list == list )
+    return teams.value.filter( (it)=> it.list === list )
 }
 
 </script>
