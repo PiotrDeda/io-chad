@@ -14,7 +14,7 @@
     <div class="text_field_wrapper">
     <label>{{ label }}:</label>
     <input
-        type="inputText"
+        type="text"
         :autofocus="props.autofocus"
         :form="props.form"
         name="inputText"
@@ -33,19 +33,14 @@
 {
     color: var(--color-text);
     font-size: inherit;
-
     width: fit-content;
-
     margin: 4px;
     padding-left: 15px;
-
     background-color: transparent;
-
     border-style: solid;
     border-radius: 6px;
     border-width: 1px;
     border-color: var(--color-border);
-
     transition: 0.4s;
 }
 
@@ -54,7 +49,7 @@
     margin-right: 15px;
 }
 
-.text_field_wrapper input[type="number"]
+.text_field_wrapper input[type="text"]
 {
     color: var(--color-default-input);
     font-size: inherit;
@@ -74,18 +69,6 @@
 
     transition: 0.4s;
 }
-
-.text_field_wrapper input[type="number"]:out-of-range
-{
-    color: var(--color-invalid-input);
-}
-
-input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button
-{
-    -webkit-appearance: none;
-    margin: 0;
-}
-
 .text_field_wrapper:hover,
 .text_field_wrapper:focus-within
 {
@@ -93,15 +76,15 @@ input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-o
     transition: 0.4s;
 }
 
-.text_field_wrapper input[type="number"]:focus,
-.text_field_wrapper input[type="number"]:hover
+.text_field_wrapper input[type="text"]:focus,
+.text_field_wrapper input[type="text"]:hover
 {
     outline: none;
     border-color: var(--color-border-hover);
     transition: 0.4s;
 }
 
-input[type="inputText"]
+input[type="text"]
 {
     color: var(--color-valid-input);
     font-size: inherit;
@@ -117,12 +100,9 @@ input[type="inputText"]
 
     transition: 0.4s;
 }
-
-input[type="inputText"]:focus, input[type="inputText"]:hover
+input[type="text"]:focus, input[type="text"]:hover
 {
     outline: none;
     border-color: var(--color-border-hover);
 }
-
-
 </style>

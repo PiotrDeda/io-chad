@@ -15,16 +15,15 @@ import TextField from '../components/input_fields/TextField.vue';
     </header>
 
     <body>
-        <TextField label="Nazwa turnirju"/>
-        <TextField label="Gra"/>
+        <TextField label="Nazwa turnieju"/>
+        <TextField label="Typ gry"/>
         <DropdownList :items ="['play-off', 'liga']" placeholder ='Typ turnieju'/>
         <IntegerField label="Liczba uczestników" min="0" max="100"/>
-            <ElementsList /> 
-            <LinkButton id="submit_button" label="Generuj" link="/tc" />
+        <LinkButton id="submit_button" label="Generuj" link="/tc" />
        
     </body>
 </template>
 
 <style scoped>
-@import '../assets/chadTheme.css';
+@import '../assets/base.css';
 </style>

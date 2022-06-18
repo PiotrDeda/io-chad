@@ -26,7 +26,7 @@ import IntegerField from '../components/input_fields/IntegerField.vue';
 </template>
 
 <style scoped>
-@import '../assets/chadTheme.css';
+@import '../assets/base.css';
 #imie{
      color: var(--color-valid-input);
   text-align: center;
