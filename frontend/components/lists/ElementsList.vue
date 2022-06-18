@@ -27,6 +27,7 @@
     scrollbar-color: var(--color-border) var(--color-border-hover);
     background-color: var(--color-input-background);
     border-radius: 4px;
+    overflow-x: hidden;
 }
 
 .main-window
