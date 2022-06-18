@@ -2,7 +2,7 @@
     const props = defineProps(
     {
         form: { type: String, default: "form1" },
-        placeholder: { type: String, default: "adres email" },
+        placeholder: { type: String, default: "login" },
         minLength: {type: Number, default: 5 },
         maxLength: { type: Number, default: 30 },
         autofocus: { type: Boolean, default: false},
@@ -12,14 +12,13 @@
 
 <template>
     <input
-        type="email"
+        type="text"
         :autofocus="props.autofocus"
         :form="props.form"
-        name="email"
+        name="login"
         :minlength="props.minLength"
         :maxlength="props.maxLength"
         :size="props.maxLength"
-        pattern="/^[a-z0-9_\-\.]{2,}@[a-z0-9_\-\.]{2,}\.[a-z]{2,}$/i"
         :placeholder="placeholder"
         :disabled="props.disabled"
         required
@@ -27,12 +26,12 @@
 </template>
 
 <style scoped>
-input[type="email"]::placeholder
+input[type="text"]::placeholder
 {
     color: var(--color-text);
 }
 
-input[type="email"]
+input[type="text"]
 {
     color: var(--color-valid-input);
     font-size: inherit;
@@ -49,7 +48,7 @@ input[type="email"]
     transition: 0.4s;
 }
 
-input[type="email"]:focus, input[type="email"]:hover
+input[type="text"]:focus, input[type="text"]:hover
 {
     outline: none;
     border-color: var(--color-border-hover);
