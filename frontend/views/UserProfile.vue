@@ -17,19 +17,23 @@ import IntegerField from '../components/input_fields/IntegerField.vue';
         <h3>Nowoczesny generetor turniejów specjalnie dla ciebie! Twórz turnieje już teraz w kilku prostych krokach!</h3>
     </header>
 
-    <body>
-        <h3 id="imie">Witaj Użytkowniku !</h3>
+    <main>
+        <h3 id="name">Witaj Użytkowniku !</h3>
         <LinkButton label ="Strona zmiany hasła" link ="/passwd" />
         <LinkButton label ="Generator turnieju" link ="/tc" />
         <LinkButton label ="Statystyki" link =""/>
-    </body>
+    </main>
 </template>
 
 <style scoped>
 @import '../assets/base.css';
-#imie{
+#name{
      color: var(--color-valid-input);
   text-align: center;
     
+}
+
+main{
+    display: block;
 }
 </style>

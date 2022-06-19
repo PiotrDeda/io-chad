@@ -22,7 +22,7 @@ import LinkButtonVue from '../components/buttons/LinkButton.vue';
         </div>
     </header>
 
-    <body>
+    <main>
         <BaseItem>
             <template #heading>Podaj login (e-mail)</template>
             <EmailField></EmailField>
@@ -36,13 +36,16 @@ import LinkButtonVue from '../components/buttons/LinkButton.vue';
             <PasswordField></PasswordField>
         </BaseItem>
         <BaseItem>
-             <LinkButtonVue  id ="change_passwd"  label="ZMIEŃ !" link="https://www.youtube.com/watch?v=dQw4w9WgXcQ&feature=youtu.be"> </LinkButtonVue>
+             <LinkButtonVue  id ="change_passwd"  label="ZMIEŃ !" link=""> </LinkButtonVue>
         </BaseItem>  
-    </body>
+    </main>
 </template>
 
 
 <style scoped>
 @import '../assets/base.css';
+main{
+    display: block;
+}
 
 </style>

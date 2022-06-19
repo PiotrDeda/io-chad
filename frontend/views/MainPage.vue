@@ -14,16 +14,19 @@ import TextField from '../components/input_fields/TextField.vue';
         <h3>Nowoczesny generetor turniejów specjalnie dla ciebie! Twórz turnieje już teraz w kilku prostych krokach!</h3>
     </header>
 
-    <body>
+    <main>
         <TextField label="Nazwa turnieju"/>
         <TextField label="Typ gry"/>
         <DropdownList :items ="['play-off', 'liga']" placeholder ='Typ turnieju'/>
         <IntegerField label="Liczba uczestników" min="0" max="100"/>
         <LinkButton id="submit_button" label="Generuj" link="/tc" />
        
-    </body>
+    </main>
 </template>
 
 <style scoped>
 @import '../assets/base.css';
+main{
+    display: block;
+}
 </style>
