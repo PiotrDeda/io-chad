@@ -43,7 +43,10 @@ onMounted(async () => {
         .then(response => (tournament.value = response.data.competition))
         .catch(error => {
             console.log(error);
-            alert(error.response.data.message);
+            if (error.response.data.message)
+                alert(error.response.data.message);
+            else if (error.response.data.err)
+                alert(error.response.data.err);
         })
     amount.value = tournament.value.participants.length;
     comps.value = tournament.value.participants.map((it) => ({name: it.name, list: 1}));

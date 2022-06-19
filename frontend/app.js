@@ -11,7 +11,7 @@ import BracketDesigner from './views/BracketDesigner.vue';
 
 const routes = [
 	{path: '/', name: 'Home', component: MainPage},
-	{path: '/tournamentcreator', name: 'TournamentCreatorPage', component: TournamentCreator},
+	{path: '/tournamentcreator/:id', name: 'TournamentCreatorPage', component: TournamentCreator},
 	{path: '/login', name: 'LoginPage', component: LoginPanel},
 	{path: '/register', name: 'RegisterPage', component: RegisterPanel},
 	{path: '/profile', name: 'UserProfile', component: UserProfile},

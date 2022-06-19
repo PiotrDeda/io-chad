@@ -6,8 +6,8 @@ import axios from "axios";
 
 async function loginAccount(event) {
     event.preventDefault();  // prevent site from reloading
-
     const form = document.getElementById("form1");
+
     await axios.post("http://localhost:8000/accounts/login", {
         login: form.login.value,
         passwd: form.password.value
@@ -18,7 +18,10 @@ async function loginAccount(event) {
         })
         .catch(error => {
             console.log(error);
-            alert(error.response.data.err);
+            if (error.response.data.message)
+                alert(error.response.data.message);
+            else if (error.response.data.err)
+                alert(error.response.data.err);
         })
 }
 </script>
