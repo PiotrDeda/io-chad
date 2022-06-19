@@ -16,7 +16,7 @@ const routes = [
 	{path: '/register', name: 'RegisterPage', component: RegisterPanel},
 	{path: '/profile', name: 'UserProfile', component: UserProfile},
 	{path: '/changepassword', name: 'PasswordChange', component: PasswordChange},
-	{path: '/bracketdesigner', name: 'BracketDesigner', component: BracketDesigner}
+	{path: '/bracket/:id', name: 'BracketDesigner', component: BracketDesigner}
 ];
 
 const router = createRouter({

@@ -5,19 +5,16 @@ import ElementsList from '../components/lists/ElementsList.vue';
 import DropZone from '../components/draggable/DropZone.vue';
 import {onMounted, ref} from 'vue';
 import axios from "axios";
+import {useRoute} from "vue-router";
 
-// TODO: debug variable, remove when not needed
-const tournamentId = '62acfdc25060280a13aa25b3';
-
+const route = useRoute();
 const tournament = ref({});
 const amount = ref(0);
 const pairs = ref([]);
-
-// zaladowanie druzyn
 const comps = ref([])
 
 function loadPairs() {
-    for (let i = 1; i < 1 + amount.value / 2; i++) {
+    for (let i = 1; i < 1 + comps.value.length / 2; i++) {
         pairs.value.push({pair_id: i, home_id: i * 2, away_id: i * 2 + 1});
     }
 }
@@ -39,7 +36,7 @@ function resetLayout() {
 }
 
 onMounted(async () => {
-    await axios.get('http://localhost:8000/competitions/' + tournamentId, {headers: {"Authorization": 'Bearer ' + localStorage.getItem("jwt")}})
+    await axios.get('http://localhost:8000/competitions/' + route.params.id, {headers: {"Authorization": 'Bearer ' + localStorage.getItem("jwt")}})
         .then(response => (tournament.value = response.data.competition))
         .catch(error => {
             console.log(error);
