@@ -1,26 +1,27 @@
 <script setup>
     import LinkButton from "../buttons/LinkButton.vue"
 
-    const props = defineProps(
+    function isAuth()
     {
-        auth: { type: Boolean, required: true, default: false }
-    });
+        var token = localStorage.getItem("jwt");
+        return (token != null);
+    }
 
-    function logout() {
+    function logout()
+    {
         localStorage.removeItem("jwt");
-        this.$router.push("/");
+        window.location.href = "/";
     }
 </script>
 
-<!-- TODO: change links to proper subsites as soon as they are created -->
 <template>
     <div class="top_panel">
         <span> <!-- left side -->
             <LinkButton label="Strona Główna" link="/" />
         </span>
         <span> <!-- right side -->
-            <LinkButton v-if="props.auth != true" label="Zaloguj" link="/login" />
-            <LinkButton v-if="props.auth != true" label="Załóż Konto" link="/register" />
+            <LinkButton v-if="isAuth() != true" label="Zaloguj" link="/login" />
+            <LinkButton v-if="isAuth() != true" label="Załóż Konto" link="/register" />
             <LinkButton v-else label="Wyloguj" @click="logout" />
         </span>
     </div>

@@ -1,28 +1,27 @@
+import {createRouter, createWebHistory} from 'vue-router';
+import {createApp} from 'vue';
 import App from './App.vue';
 import MainPage from './views/MainPage.vue';
 import TournamentCreator from './views/TournamentCreator.vue';
-import RegisterPanel from './components/panels/RegisterPanel.vue';
 import LoginPanel from './components/panels/LoginPanel.vue';
-
-import { createWebHistory, createRouter } from 'vue-router';
-import { createApp } from 'vue';
-import RegisterPanelVue from './components/panels/RegisterPanel.vue';
-import PasswordChangeVue from './views/PasswordChange.vue';
-import UserProfileVue from './views/UserProfile.vue';
+import RegisterPanel from './components/panels/RegisterPanel.vue';
+import UserProfile from './views/UserProfile.vue';
+import PasswordChange from './views/PasswordChange.vue';
+import BracketDesigner from './views/BracketDesigner.vue';
 
 const routes = [
-    { path: '/', name: 'Home', component: MainPage },
-    { path: '/tc', name: 'TournamentCreatorPage', component: TournamentCreator },
-    { path: '/login', name: 'LoginPage', component: LoginPanel },
-    { path: '/reg', name: 'RegisterPage', component: RegisterPanelVue },
-    { path: '/userProfile', name: 'UserProfile', component: UserProfileVue },
-    { path: '/passwd', name: 'PasswordChange', component: PasswordChangeVue }
-
+	{path: '/', name: 'Home', component: MainPage},
+	{path: '/tournamentcreator', name: 'TournamentCreatorPage', component: TournamentCreator},
+	{path: '/login', name: 'LoginPage', component: LoginPanel},
+	{path: '/register', name: 'RegisterPage', component: RegisterPanel},
+	{path: '/profile', name: 'UserProfile', component: UserProfile},
+	{path: '/changepassword', name: 'PasswordChange', component: PasswordChange},
+	{path: '/bracketdesigner', name: 'BracketDesigner', component: BracketDesigner}
 ];
 
 const router = createRouter({
-    history: createWebHistory(),
-    routes,
+	history: createWebHistory(),
+	routes,
 });
 
 createApp(App).use(router).mount('#app')

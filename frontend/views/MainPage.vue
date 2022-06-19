@@ -20,7 +20,6 @@ import TextField from '../components/input_fields/TextField.vue';
         <DropdownList :items ="['play-off', 'liga']" placeholder ='Typ turnieju'/>
         <IntegerField label="Liczba uczestników" min="0" max="100"/>
         <LinkButton id="submit_button" label="Generuj" link="/tc" />
-       
     </main>
 </template>
 
