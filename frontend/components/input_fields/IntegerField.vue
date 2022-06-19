@@ -53,15 +53,17 @@ const props = defineProps(
     transition: 0.4s;
 }
 
-.integer_field_wrapper label {
+.integer_field_wrapper label
+{
     margin-right: 15px;
+    min-width: fit-content;
 }
 
 .integer_field_wrapper input[type="number"] {
     color: var(--color-default-input);
     font-size: inherit;
 
-    width: 70px;
+    width: 100%;
 
     margin: 4px 0px;
     padding: 5px 15px;
