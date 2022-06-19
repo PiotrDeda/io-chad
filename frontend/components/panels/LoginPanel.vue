@@ -6,22 +6,23 @@ import axios from "axios";
 
 async function loginAccount(event) {
     event.preventDefault();  // prevent site from reloading
-
     const form = document.getElementById("form1");
-    try {
-        let response = await axios.post("http://localhost:8000/accounts/login", {
-            login: form.login.value,
-            passwd: form.password.value
-        });
-        console.log(response);
-        let token = response.data.token;
-        if (token) {
-            localStorage.setItem("jwt", token);
+
+    await axios.post("http://localhost:8000/accounts/login", {
+        login: form.login.value,
+        passwd: form.password.value
+    })
+        .then(response => {
+            localStorage.setItem("jwt", response.data.token);
             window.location.href = "/";
-        }
-    } catch (err) {
-        console.log(err);
-    }
+        })
+        .catch(error => {
+            console.log(error);
+            if (error.response.data.message)
+                alert(error.response.data.message);
+            else if (error.response.data.err)
+                alert(error.response.data.err);
+        })
 }
 </script>
 

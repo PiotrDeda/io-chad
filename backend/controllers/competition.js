@@ -26,9 +26,9 @@ exports.get = async (req, res) => {
 	try {
 		const competition = await Competition.findById(req.params.id);
 		if (!competition)
-			res.status(404).json({error: e.competitionNotFound});
+			res.status(404).json({err: e.competitionNotFound});
 		else if (competition.owner.toString() !== req.userData._id.toString())
-			res.status(401).json({error: e.notAuthorized});
+			res.status(401).json({err: e.notAuthorized});
 		else
 			res.status(200).json({competition});
 	} catch (err) {
@@ -40,9 +40,9 @@ exports.delete = async (req, res) => {
 	try {
 		const competition = await Competition.findById(req.params.id);
 		if (!competition)
-			res.status(404).json({error: e.competitionNotFound});
+			res.status(404).json({err: e.competitionNotFound});
 		else if (competition.owner.toString() !== req.userData._id.toString())
-			res.status(401).json({error: e.notAuthorized});
+			res.status(401).json({err: e.notAuthorized});
 		else
 			await competition.remove();
 		res.status(200).json({message: e.competitionDeleted});
@@ -55,9 +55,9 @@ exports.put = async (req, res) => {
 	try {
 		const competition = await Competition.findById(req.params.id);
 		if (!competition)
-			res.status(404).json({error: e.competitionNotFound});
+			res.status(404).json({err: e.competitionNotFound});
 		else if (competition.owner.toString() !== req.userData._id.toString())
-			res.status(401).json({error: e.notAuthorized});
+			res.status(401).json({err: e.notAuthorized});
 		else
 			await competition.updateOne(req.body);
 		res.status(200).json({message: e.competitionUpdated});

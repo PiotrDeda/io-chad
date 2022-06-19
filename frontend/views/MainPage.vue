@@ -1,9 +1,29 @@
 <script setup>
-import LinkButton from '../components/buttons/LinkButton.vue'
 import TopPanel from '../components/panels/TopPanel.vue';
 import DropdownList from '../components/lists/DropdownList.vue';
-import IntegerField from '../components/input_fields/IntegerField.vue';
 import TextField from '../components/input_fields/TextField.vue';
+import SubmitButton from "../components/buttons/SubmitButton.vue";
+import axios from "axios";
+
+async function generate(event) {
+    event.preventDefault();  // prevent site from reloading
+    const form = document.getElementById("form1");
+
+    await axios.post('http://localhost:8000/competitions', {
+        name: form.name.value,
+        game: form.game.value,
+        type: form.type.value,
+    }, {headers: {"Authorization": 'Bearer ' + localStorage.getItem("jwt")}})
+        .then(response => (window.location.href = '/tournament/' + response.data._id))
+        .catch(error => {
+            console.log(error);
+            if (error.response.data.message)
+                alert(error.response.data.message);
+            else if (error.response.data.err)
+                alert(error.response.data.err);
+        })
+}
+
 </script>
 
 <template>
@@ -15,11 +35,12 @@ import TextField from '../components/input_fields/TextField.vue';
     </header>
 
     <main>
-        <TextField label="Nazwa turnieju"/>
-        <TextField label="Typ gry"/>
-        <DropdownList :items="['play-off', 'liga']" placeholder='Typ turnieju'/>
-        <IntegerField label="Liczba uczestników" max="100" min="0"/>
-        <LinkButton id="submit_button" label="Generuj" link="/tournamentcreator"/>
+        <form id="form1" @submit="generate">
+            <TextField label="Nazwa turnieju" name="name"/>
+            <TextField label="Typ gry" name="game"/>
+            <DropdownList :items="['play-off', 'liga']" name="type" placeholder='Typ turnieju'/>
+            <SubmitButton id="submit_button" label="Generuj"/>
+        </form>
     </main>
 </template>
 
