@@ -3,14 +3,16 @@ const props = defineProps(
     {
         items: {type: Array, default: ['o1', 'o2', 'o3']},
         name: {type: String, default: "dropdownList"},
+        selected: {type: Number, default: 0},
+        disabled: {type: Boolean, default: false},
         placeholder: {type: String, default: "_select_"}
     });
 </script>
 
 <template>
-    <select :name="props.name">
-        <option disabled selected value="">{{ props.placeholder }}</option>
-        <option v-for="it in items" :value="it"> {{ it }}</option>
+    <select :name="props.name" :disabled="props.disabled">
+        <option disabled :selected="props.selected == 0" value="">{{ props.placeholder }}</option>
+        <option v-for="it in items.length" :selected="props.selected == it" :value="items[it-1]"> {{ items[it-1] }}</option>
     </select>
 </template>
 
