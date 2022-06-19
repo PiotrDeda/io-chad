@@ -1,7 +1,7 @@
 <script setup>
-    const props = defineProps(
+const props = defineProps(
     {
-        label: { type: String, required: true }
+        label: {type: String, required: true}
     });
 </script>
 
@@ -10,8 +10,7 @@
 </template>
 
 <style scoped>
-button
-{
+button {
     text-align: center;
     color: var(--color-text);
     font-size: inherit;
@@ -30,10 +29,8 @@ button
     transition: 0.4s;
 }
 
-@media(hover: hover)
-{
-    button:hover
-    {
+@media (hover: hover) {
+    button:hover {
         border-color: var(--color-border-hover);
         color: var(--color-text-hover);
     }

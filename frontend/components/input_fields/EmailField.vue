@@ -1,39 +1,37 @@
 <script setup>
-    const props = defineProps(
+const props = defineProps(
     {
-        form: { type: String, default: "form1" },
-        placeholder: { type: String, default: "adres email" },
-        minLength: {type: Number, default: 5 },
-        maxLength: { type: Number, default: 30 },
-        autofocus: { type: Boolean, default: false},
-        disabled: { type: Boolean, default: false }
+        form: {type: String, default: "form1"},
+        placeholder: {type: String, default: "adres email"},
+        minLength: {type: Number, default: 5},
+        maxLength: {type: Number, default: 30},
+        autofocus: {type: Boolean, default: false},
+        disabled: {type: Boolean, default: false}
     });
 </script>
 
 <template>
     <input
-        type="email"
         :autofocus="props.autofocus"
-        :form="props.form"
-        name="email"
-        :minlength="props.minLength"
-        :maxlength="props.maxLength"
-        :size="props.maxLength"
-        pattern="/^[a-z0-9_\-\.]{2,}@[a-z0-9_\-\.]{2,}\.[a-z]{2,}$/i"
-        :placeholder="placeholder"
         :disabled="props.disabled"
+        :form="props.form"
+        :maxlength="props.maxLength"
+        :minlength="props.minLength"
+        :placeholder="placeholder"
+        :size="props.maxLength"
+        name="email"
+        pattern="/^[a-z0-9_\-\.]{2,}@[a-z0-9_\-\.]{2,}\.[a-z]{2,}$/i"
         required
+        type="email"
     />
 </template>
 
 <style scoped>
-input[type="email"]::placeholder
-{
+input[type="email"]::placeholder {
     color: var(--color-text);
 }
 
-input[type="email"]
-{
+input[type="email"] {
     color: var(--color-valid-input);
     font-size: inherit;
 
@@ -49,8 +47,7 @@ input[type="email"]
     transition: 0.4s;
 }
 
-input[type="email"]:focus, input[type="email"]:hover
-{
+input[type="email"]:focus, input[type="email"]:hover {
     outline: none;
     border-color: var(--color-border-hover);
 }

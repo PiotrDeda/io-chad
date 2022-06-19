@@ -1,31 +1,28 @@
 <script setup>
-    import EmailField from "../input_fields/EmailField.vue"
-    import LoginField from "../input_fields/LoginField.vue";
-    import PasswordField from "../input_fields/PasswordField.vue";
-    import SubmitButton from "../buttons/SubmitButton.vue";
-    import axios from "axios";
+import LoginField from "../input_fields/LoginField.vue";
+import PasswordField from "../input_fields/PasswordField.vue";
+import SubmitButton from "../buttons/SubmitButton.vue";
+import axios from "axios";
 
-    async function loginAccount(event)
-    {
-        event.preventDefault();  // prevent site from reloading
+async function loginAccount(event) {
+    event.preventDefault();  // prevent site from reloading
 
-        var form = document.getElementById("form1");
-        try
-        {
-            let response = await axios.post("http://localhost:8000/accounts/login", {login: form.login.value, passwd: form.password.value});
-            console.log(response);
-            let token = response.data.token;
-            if (token)
-            {
-                localStorage.setItem("jwt", token);
-                window.location.href = "/";
-            }
+    const form = document.getElementById("form1");
+    try {
+        let response = await axios.post("http://localhost:8000/accounts/login", {
+            login: form.login.value,
+            passwd: form.password.value
+        });
+        console.log(response);
+        let token = response.data.token;
+        if (token) {
+            localStorage.setItem("jwt", token);
+            window.location.href = "/";
         }
-        catch (err)
-        {
-            console.log(err);
-        }
+    } catch (err) {
+        console.log(err);
     }
+}
 </script>
 
 <template>
@@ -34,27 +31,26 @@
             <div class="login_text">
                 <span>
                     Login
-                    <LoginField autofocus maxLength="20" />
+                    <LoginField autofocus maxLength="20"/>
                 </span>
             </div>
             <div class="password_text">
                 <span>
                     Hasło
-                    <PasswordField />
+                    <PasswordField/>
                 </span>
             </div>
             <div class="login_button">
                 <span>
-                    <SubmitButton label="Zaloguj się" />
-                </span> 
+                    <SubmitButton label="Zaloguj się"/>
+                </span>
             </div>
         </form>
     </div>
 </template>
 
 <style scoped>
-.login_panel
-{
+.login_panel {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -84,18 +80,15 @@
     z-index: 1; /* always bring to front */
 }
 
-.login_text
-{
+.login_text {
     padding: 0px 5px; /* y x */
 }
 
-.password_text
-{
+.password_text {
     padding: 0px 4px; /* y x */
 }
 
-.login_button
-{
+.login_button {
     padding: 20px 100px; /* y x */
 }
 

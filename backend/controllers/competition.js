@@ -31,8 +31,7 @@ exports.get = async (req, res) => {
 			res.status(401).json({error: e.notAuthorized});
 		else
 			res.status(200).json({competition});
-	}
-	catch (err) {
+	} catch (err) {
 		res.status(400).json({err: err.message});
 	}
 }
@@ -47,8 +46,7 @@ exports.delete = async (req, res) => {
 		else
 			await competition.remove();
 		res.status(200).json({message: e.competitionDeleted});
-	}
-	catch (err) {
+	} catch (err) {
 		res.status(400).json({err: err.message});
 	}
 }
@@ -63,8 +61,7 @@ exports.put = async (req, res) => {
 		else
 			await competition.updateOne(req.body);
 		res.status(200).json({message: e.competitionUpdated});
-	}
-	catch (err) {
+	} catch (err) {
 		res.status(400).json({err: err.message});
 	}
 }

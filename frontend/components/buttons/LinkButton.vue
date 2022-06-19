@@ -1,18 +1,17 @@
 <script setup>
-    import BaseButton from "./BaseButton.vue";
+import BaseButton from "./BaseButton.vue";
 
-    const props = defineProps(
+const props = defineProps(
     {
-        label: { type: String, required: true },
-        link: { type: String, default: "/" }
+        label: {type: String, required: true},
+        link: {type: String, default: "/"}
     });
 
-    function redirect()
-    {
-        window.location.href = props.link;
-    }
+function redirect() {
+    window.location.href = props.link;
+}
 </script>
 
 <template>
-    <BaseButton :label="props.label" @click="redirect" />
+    <BaseButton :label="props.label" @click="redirect"/>
 </template>

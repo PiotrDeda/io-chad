@@ -1,28 +1,27 @@
 <script setup>
 const props = defineProps(
     {
-        items: { type: Array, default: ['o1', 'o2', 'o3'] },
-        placeholder: { type: String, default: "_select_" }
+        items: {type: Array, default: ['o1', 'o2', 'o3']},
+        placeholder: {type: String, default: "_select_"}
     });
 
 function _init_() {
-	console.log( props.items )
+    console.log(props.items)
 }
 
 _init_()
 </script>
 
-<template>	
+<template>
     <select name="sub-menu">
-        <option value="" disabled selected>{{props.placeholder}}</option>
-        <option v-for="it in items" :value="it"> {{ it }} </option>
+        <option disabled selected value="">{{ props.placeholder }}</option>
+        <option v-for="it in items" :value="it"> {{ it }}</option>
     </select>
 </template>
 
 <style scoped>
-select
-{
-	text-align: center;
+select {
+    text-align: center;
     color: var(--color-text);
     font-size: inherit;
 
@@ -36,18 +35,16 @@ select
     border-color: var(--color-border);
 
     cursor: pointer;
-    
+
     transition: 0.4s;
 }
 
-select:hover
-{
+select:hover {
     color: var(--color-text-hover);
     border-color: var(--color-border-hover);
 }
 
-option:hover
-{
+option:hover {
     border-color: var(--color-border);
     background-color: var(--color-background-soft);
     transition: 0.4s;

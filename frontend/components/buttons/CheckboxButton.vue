@@ -1,42 +1,39 @@
 <script setup>
-    const props = defineProps(
+const props = defineProps(
     {
-        label: { type: String, required: true },
-        checked: { type: Boolean, default: false }
+        label: {type: String, required: true},
+        checked: {type: Boolean, default: false}
     });
 
-    // Unfortunately, "checked" prop is not properly assigned to
-    // "checked" attribute, so we have to use a dirty hack also
-    // known as bitwise XOR to get the correct "checked" status.
-    //
-    // It is also worth noting that Vue props are read-only,
-    // hence we use an attribute in the first place.
-    function _init()
-    {
-        return { checked: props.checked };
-    }
+// Unfortunately, "checked" prop is not properly assigned to
+// "checked" attribute, so we have to use a dirty hack also
+// known as bitwise XOR to get the correct "checked" status.
+//
+// It is also worth noting that Vue props are read-only,
+// hence we use an attribute in the first place.
+function _init() {
+    return {checked: props.checked};
+}
 
-    function changeCheckedStatus()
-    {
-        this.checked = !(this.checked);
-        console.log(`${props.label} isChecked = ${this.checked ^ props.checked}`);
-    }
+function changeCheckedStatus() {
+    this.checked = !(this.checked);
+    console.log(`${props.label} isChecked = ${this.checked ^ props.checked}`);
+}
 
-    function getCheckedStatus()
-    {
-        return this.checked ^ props.checked;
-    } 
-    
+function getCheckedStatus() {
+    return this.checked ^ props.checked;
+}
 
-    _init();
+
+_init();
 </script>
 
 <template>
     <div class="checkbox_wrapper">
         <input
-            type="checkbox"
-            :name="props.label"
             :checked="props.checked"
+            :name="props.label"
+            type="checkbox"
             @click="changeCheckedStatus()"
         />
         <label :for="props.label">{{ label }}</label>
@@ -44,8 +41,7 @@
 </template>
 
 <style scoped>
-.checkbox_wrapper
-{
+.checkbox_wrapper {
     display: flex;
     flex-direction: row;
 
@@ -64,19 +60,16 @@
     transition: 0.4s;
 }
 
-.checkbox_wrapper input[type="checkbox"]
-{
+.checkbox_wrapper input[type="checkbox"] {
     margin-right: 5px;
 }
 
-.checkbox_wrapper input[type="checkbox"]:checked + label
-{
+.checkbox_wrapper input[type="checkbox"]:checked + label {
     color: var(--color-valid-input);
     transition: 0.4s;
 }
 
-.checkbox_wrapper input[type="checkbox"] + label
-{
+.checkbox_wrapper input[type="checkbox"] + label {
     color: var(--color-text);
     transition: 0.4s;
 }

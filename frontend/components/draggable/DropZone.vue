@@ -23,7 +23,6 @@ const props = defineProps(
 </template>
 
 <style scoped>
-
 .main {
     display: inline-block;
 }

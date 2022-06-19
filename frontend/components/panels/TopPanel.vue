@@ -1,36 +1,34 @@
 <script setup>
-    import axios from "axios";
-    import LinkButton from "../buttons/LinkButton.vue"
-    import BaseButton from "../buttons/BaseButton.vue";
+import axios from "axios";
+import LinkButton from "../buttons/LinkButton.vue"
+import BaseButton from "../buttons/BaseButton.vue";
 
-    function isAuth()
-    {
-        return localStorage.getItem("jwt") != null;
-    }
+function isAuth() {
+    return localStorage.getItem("jwt") != null;
+}
 
-    async function logout() {
-        await axios.delete("http://localhost:8000/accounts/logout", {headers: {"Authorization": 'Bearer ' + localStorage.getItem("jwt")}});
-        localStorage.removeItem("jwt");
-        window.location.href = "/";
-    }
+async function logout() {
+    await axios.delete("http://localhost:8000/accounts/logout", {headers: {"Authorization": 'Bearer ' + localStorage.getItem("jwt")}});
+    localStorage.removeItem("jwt");
+    window.location.href = "/";
+}
 </script>
 
 <template>
     <div class="top_panel">
         <span> <!-- left side -->
-            <LinkButton label="Strona Główna" link="/" />
+            <LinkButton label="Strona Główna" link="/"/>
         </span>
         <span> <!-- right side -->
-            <LinkButton v-if="!isAuth()" label="Zaloguj" link="/login" />
-            <LinkButton v-if="!isAuth()" label="Załóż Konto" link="/register" />
-            <BaseButton v-else label="Wyloguj" @click="logout" />
+            <LinkButton v-if="!isAuth()" label="Zaloguj" link="/login"/>
+            <LinkButton v-if="!isAuth()" label="Załóż Konto" link="/register"/>
+            <BaseButton v-else label="Wyloguj" @click="logout"/>
         </span>
     </div>
 </template>
 
 <style scoped>
-.top_panel
-{
+.top_panel {
     display: flex;
     flex-direction: row;
     justify-content: space-between;

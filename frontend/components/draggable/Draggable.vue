@@ -1,5 +1,4 @@
 <script setup>
-
 const props = defineProps(
     {
         item: {type: String, required: true, default: "_item_"}
@@ -11,12 +10,11 @@ const startDrag = (event, porps) => {
     event.dataTransfer.effectAllowed = 'move'
     event.dataTransfer.setData('item', props.item)
 }
-
 </script>
 
 <template>
-    <div draggable="true"
-         class="draggable"
+    <div class="draggable"
+         draggable="true"
          name='{{props.item}}'
          @dragstart="startDrag($event, item)"
     >
