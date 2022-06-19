@@ -21,7 +21,7 @@ import IntegerField from '../components/input_fields/IntegerField.vue';
         <h3 id="imie">Witaj Użytkowniku !</h3>
         <LinkButton label ="Strona zmiany hasła" link ="/passwd" />
         <LinkButton label ="Generator turnieju" link ="/tc" />
-        <LinkButton label ="Statystyki" link ="https://www.youtube.com/watch?v=dQw4w9WgXcQ&feature=youtu.be"/>
+        <LinkButton label ="Statystyki" link =""/>
     </body>
 </template>
 
