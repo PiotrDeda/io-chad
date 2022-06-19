@@ -23,24 +23,32 @@ const startDrag = (event, porps) => {
 </template>
 
 <style scoped>
-.draggable {
-    text-align: center;
+.draggable
+{
+    display: flex;
+    place-items: center;
+    place-content: center;
+
     color: var(--color-text);
     font-size: inherit;
-    height: 40px;
-    line-height: 40px;
-    width: 240px;
+
+    width: 100%;
+    margin: 4px;
+    padding: 7.5px 15px;
+
     background-color: var(--color-background);
+
     border-style: solid;
     border-radius: 6px;
     border-width: 1px;
     border-color: var(--color-border);
+
     cursor: pointer;
-    margin: 10px;
     transition: 0.4s;
 }
 
-.draggable:hover {
+.draggable:hover
+{
     color: var(--color-text-hover);
     border-color: var(--color-border-hover);
 }

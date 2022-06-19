@@ -14,26 +14,37 @@ const props = defineProps(
     </div>
 </template>
 
-<style>
-.scroll-area {
-    position: relative;
-    margin: auto;
-    padding: 5px;
+<style scoped>
+.main-window
+{
+    display: flex;
+    place-items: center;
+    place-content: center;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--color-border);
+    border-radius: 6px;
+    width: v-bind(props.width);
+    height: v-bind(props.height);
+}
+
+.scroll-area
+{
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    place-content: center;
+
+    padding: 10px;
     width: 100%;
     height: 100%;
     overflow: scroll;
     scrollbar-width: thin;
     scrollbar-color: var(--color-border) var(--color-border-hover);
     background-color: var(--color-input-background);
-    border-radius: 4px;
+    border-radius: 6px;
     overflow-x: hidden;
-}
-
-.main-window {
-    border: 2px solid var(--color-border);
-    border-radius: 4px;
-    width: v-bind(props.width);
-    height: v-bind(props.height);
 }
 
 </style>

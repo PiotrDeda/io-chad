@@ -3,9 +3,10 @@ import TopPanel from '../components/panels/TopPanel.vue';
 import Draggable from '../components/draggable/Draggable.vue';
 import ElementsList from '../components/lists/ElementsList.vue';
 import DropZone from '../components/draggable/DropZone.vue';
-import {onMounted, ref} from 'vue';
+import { onMounted, ref } from 'vue';
 import axios from "axios";
 import {useRoute} from "vue-router";
+import BaseButton from '../components/buttons/BaseButton.vue';
 
 const route = useRoute();
 const tournament = ref({});
@@ -58,129 +59,148 @@ onMounted(async () => {
         <h3> Kreator drabinki turniejowej </h3>
     </header>
 
-    <main id="main">
-        <DropZone id="team_selector"
-                  :items="getTeams(1)"
-                  placeholder=""
-                  @drop="onDrop($event, 1)"
-        >
-            <div class="play_off_title"> Uczestnicy</div>
-            <ElementsList id="team_listing" height="498px" width="100%">
+    <main>
+        <article>
+            <div class="play_off_title">Uczestnicy</div>
+            <DropZone id="team_selector" :items="getTeams(1)" placeholder="Brak uczestników" @drop="onDrop($event, 1)">
                 <Draggable v-for="it in getTeams(1)" :item="it.name"></Draggable>
-            </ElementsList>
-        </DropZone>
+            </DropZone>
+        </article>
 
-        <div id="bracket_layout">
-            <ElementsList height="600px" width="1000px">
-                <div id="center">
-                    <div v-for="pair in pairs" class="play_off">
-                        <div class="play_off_title"> Para {{ pair.pair_id }}</div>
-                        <div class="play_off_teams">
-                            <DropZone
-                                :items="getTeams(pair.home_id)"
-                                @drop="onDrop($event, pair.home_id, 1)"
-                            >
-                                <Draggable v-for="it in getTeams(pair.home_id)" :item="it.name"></Draggable>
-                            </DropZone>
+        <aside>
+            <div v-for="pair in pairs" class="play_off">
+                <div class="play_off_title">Para {{ pair.pair_id }}</div>
+                <div class="play_off_teams">
+                    <DropZone :items="getTeams(pair.home_id)" @drop="onDrop($event, pair.home_id, 1)">
+                        <Draggable v-for="it in getTeams(pair.home_id)" :item="it.name"></Draggable>
+                    </DropZone>
 
-                            <div class="separator">
-                                -
-                            </div>
+                    <div class="separator">-</div>
 
-                            <DropZone
-                                :items="getTeams(pair.away_id)"
-                                @drop="onDrop($event, pair.away_id, 1)"
-                            >
-                                <Draggable v-for="it in getTeams(pair.away_id)" :item="it.name"></Draggable>
-                            </DropZone>
-                        </div>
-                    </div>
+                    <DropZone :items="getTeams(pair.away_id)" @drop="onDrop($event, pair.away_id, 1)">
+                        <Draggable v-for="it in getTeams(pair.away_id)" :item="it.name"></Draggable>
+                    </DropZone>
                 </div>
-            </ElementsList>
-        </div>
+            </div>
+        </aside>
     </main>
-    <div id="button_panel">
-        <button id="reset" @click="resetLayout">Resetuj układ</button>
-        <button id="send" @click="sendBracket">Zapisz układ</button>
+    <div id="bd_bottom_panel">
+        <BaseButton @click="resetLayout" label="Resetuj układ" />
+        <BaseButton @click="sendBracket" label="Zapisz układ" />
     </div>
 </template>
 
 <style scoped>
+@import '../assets/base.css';
 
-#main {
-    height: 650px;
+main
+{
+    width: 40%;
 }
 
-#center {
-    justify-content: center;
-}
-
-
-#bracket_layout {
-    margin: 15px;
-}
-
-.play_off_teams {
-    border: 1px;
-    border-style: solid;
-    border-color: var(--color-border-hover);
+article
+{
     display: flex;
+    flex-direction: column;
+    place-items: center;
+
+    width: 30%;
+    height: 400px;
+    min-width: fit-content;
+
+    margin-right: 7.5px;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--color-border);
+    border-radius: 6px;
+}
+
+aside
+{
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    place-content: center;
+
+    width: 70%;
+    height: 400px;
+    
+    margin-left: 7.5px;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--color-border);
+    border-radius: 6px;
+
+    overflow-y: scroll;
+}
+
+.play_off
+{
+    width: 100%;
+}
+
+.play_off_teams
+{
+    display: flex;
+    place-items: center;
+
     margin: 10px;
     padding: 20px;
-    justify-content: space-around;
-    align-items: baseline;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--color-border-hover);
+    border-radius: 6px;
 }
 
-.play_off_title {
+.play_off_title
+{
     font-size: 24px;
     text-align: center;
     color: var(--color-heading);
-    margin-bottom: 20px;
+    margin: 10px;
 }
 
-.separator {
+.separator
+{
+    display: flex;
+    place-content: center;
+
     font-size: 52px;
     text-align: center;
 }
 
-#team_selector {
-    height: 650px;
+#team_selector
+{
+    display: flex;
+    place-items: center;
+    place-content: center;
+    
+    width: 100%;
+    height: 100%;
+
+    border-width: 0px;
+    border-style: solid;
+    border-color: var(--color-border);
+    border-radius: 0px;
+    border-top-width: 1px;
 }
 
-#team_listing {
+#team_listing
+{
     display: flex;
     flex-direction: column;
     justify-content: center;
-
 }
 
-#button_panel {
-    width: 60%;
+#bd_bottom_panel
+{
     display: flex;
-    justify-content: space-around;
-    padding: 30px;
-}
+    place-content: center;
 
-button {
-    font-size: 18px;
-    color: var(--color-black);
-    border: 5px solid var(--color-default-input);
-    border-radius: 10px;
-    padding: 8px;
-    width: 200px;
-    cursor: pointer;
-}
-
-button:hover {
-    opacity: 0.6;
-}
-
-#reset {
-    background-color: var(--color-default-input);
-}
-
-#send {
-    background-color: var(--color-heading);
+    margin: 15px 0px;
 }
 
 </style>
