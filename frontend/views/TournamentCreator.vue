@@ -35,17 +35,7 @@ onMounted(async () => {
     <main>
         <article>
             <ElementsList height="100%" width="100%">
-                Faza grupowa:
-                <ListsRow height="fit-content">
-                    <IntegerField label="Grupa A" max="8" min="0" value="0"/>
-                    <IntegerField label="Grupa B" max="8" min="0" value="0"/>
-                    <IntegerField label="Grupa C" max="8" min="0" value="0"/>
-                    <IntegerField label="Grupa D" max="8" min="0" value="0"/>
-                    <IntegerField label="Grupa E" max="8" min="0" value="0"/>
-                </ListsRow>
-                <ListsRow height="fit-content">
-
-                </ListsRow>
+                WIP
             </ElementsList>
         </article>
         <aside>
@@ -70,9 +60,14 @@ onMounted(async () => {
 <style scoped>
 @import '../assets/base.css';
 
-article {
+article
+{
+    display: flex;
+    flex-direction: column;
+
+    place-items: center;
+
     padding: 15px;
-    margin: 15px;
     margin-right: 7.5px;
 
     width: 70%;
@@ -84,9 +79,14 @@ article {
     border-color: var(--color-border);
 }
 
-aside {
+aside
+{
+    display: flex;
+    flex-direction: column;
+
+    place-items: center;
+
     padding: 15px;
-    margin: 15px;
     margin-left: 7.5px;
 
     width: calc(30% - 45px);

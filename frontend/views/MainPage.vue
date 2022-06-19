@@ -3,6 +3,8 @@ import TopPanel from '../components/panels/TopPanel.vue';
 import DropdownList from '../components/lists/DropdownList.vue';
 import TextField from '../components/input_fields/TextField.vue';
 import SubmitButton from "../components/buttons/SubmitButton.vue";
+import MultipleTextField from '../components/input_fields/MultipleTextField.vue';
+
 import axios from "axios";
 
 async function generate(event) {
@@ -36,10 +38,11 @@ async function generate(event) {
 
     <main>
         <form id="form1" @submit="generate">
-            <TextField label="Nazwa turnieju" name="name"/>
-            <TextField label="Typ gry" name="game"/>
-            <DropdownList :items="['play-off', 'liga']" name="type" placeholder='Typ turnieju'/>
-            <SubmitButton id="submit_button" label="Generuj"/>
+            <TextField label="Nazwa turnieju" name="name" />
+            <TextField label="Typ gry" name="game" />
+            <DropdownList :items="['play-off', 'liga']" name="type" placeholder="Typ turnieju" />
+            <MultipleTextField placeholder="Brak uczestników" tooltip="Dodaj uczestników:" />
+            <SubmitButton label="Generuj" />
         </form>
     </main>
 </template>
@@ -47,7 +50,25 @@ async function generate(event) {
 <style scoped>
 @import '../assets/base.css';
 
-main {
-    display: block;
+main
+{
+    margin: 0px;
+    padding: 9px 15px;
+    background-color: var(--color-background);
+
+    border-style: solid;
+    border-radius: 6px;
+    border-width: 1px;
+    border-color: var(--color-border);
+
+    transition: 0.4s;
+}
+
+form
+{
+    display: flex;
+    flex-direction: column;
+
+    place-items: center;
 }
 </style>

@@ -15,14 +15,17 @@ const props = defineProps(
 </template>
 
 <style scoped>
-select {
+select
+{
     text-align: center;
     color: var(--color-text);
     font-size: inherit;
 
     margin: 4px;
-    padding: 9px 10px;
+    padding: 9px 15px;
     background-color: var(--color-background);
+
+    width: 100%;
 
     border-style: solid;
     border-radius: 6px;

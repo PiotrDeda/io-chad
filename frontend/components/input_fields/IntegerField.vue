@@ -29,11 +29,16 @@ const props = defineProps(
 
 <style scoped>
 
-.integer_field_wrapper {
+.integer_field_wrapper
+{
+    display: flex;
+    flex-direction: row;
     color: var(--color-text);
     font-size: inherit;
 
-    width: fit-content;
+    place-items: center;
+
+    width: 100%;
 
     margin: 4px;
     padding-left: 15px;
