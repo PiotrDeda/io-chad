@@ -12,7 +12,7 @@ import BracketDesigner from './views/BracketDesigner.vue';
 
 const routes = [
 	{path: '/', name: 'Home', component: MainPage},
-	{path: '/tournament/:id', name: 'TournamentCreatorPage', component: TournamentCreator},
+	{path: '/tournament/creator/:id', name: 'TournamentCreatorPage', component: TournamentCreator},
 	{path: '/tournament/edit/:id', name: 'TournamentEditorPage', component: TournamentEditor},
 	{path: '/login', name: 'LoginPage', component: LoginPanel},
 	{path: '/register', name: 'RegisterPage', component: RegisterPanel},

@@ -20,7 +20,6 @@ const props = defineProps(
         :placeholder="placeholder"
         :size="props.maxLength"
         name="email"
-        pattern="/^[a-z0-9_\-\.]{2,}@[a-z0-9_\-\.]{2,}\.[a-z]{2,}$/i"
         required
         type="email"
     />
