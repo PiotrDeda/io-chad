@@ -40,5 +40,8 @@
         --color-default-input:    rgba(235, 235, 235, 0.64);
         --color-invalid-input:    rgb(255, 80, 80);
         --color-valid-input:      rgb(0, 190, 146);
+
+        --color-black:            rgb(10, 10, 10);
+        --color-dark-green:       rgb(20, 110, 20);
     }
 }

@@ -36,8 +36,8 @@ import IntegerField from '../components/input_fields/IntegerField.vue';
 
         <baseItem>
             <template #heading>Uczestnicy (jeden uczestnik w jednej linii)</template>
-            <ElementsList /> 
-        </baseItem>  
+            <ElementsList />
+        </baseItem>
 
         <baseItem>
             <LinkButton id="submit_button" label="Generuj" link="https://www.youtube.com/watch?v=dQw4w9WgXcQ" />

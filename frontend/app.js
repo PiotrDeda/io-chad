@@ -1,6 +1,7 @@
 import App from './App.vue';
 import MainPage from './views/MainPage.vue';
 import TournamentCreator from './views/TournamentCreator.vue';
+import BracketDesigner from './views/BracketDesigner.vue';
 import RegisterPanel from './components/panels/RegisterPanel.vue';
 import LoginPanel from './components/panels/LoginPanel.vue';
 
@@ -10,6 +11,7 @@ import { createApp } from 'vue';
 const routes = [
     { path: '/', name: 'Home', component: MainPage },
     { path: '/tc', name: 'TournamentCreatorPage', component: TournamentCreator },
+    { path: '/bck', name: 'BracketDesigner', component: BracketDesigner },
     { path: '/register', name: 'RegisterPage', component: RegisterPanel },
     { path: '/login', name: 'LoginPage', component: LoginPanel }
 ];
