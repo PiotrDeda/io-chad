@@ -4,7 +4,6 @@ const e = require('../config/errorMessages');
 
 const ParticipantSchema = new Schema({
 	name: {type: String, required: [true, e.participantNameRequired]},
-	number: Number,
 });
 
 const MatchSchema = new Schema({
@@ -20,6 +19,8 @@ const MatchSchema = new Schema({
 	},
 	participantOneScore: Number,
 	participantTwoScore: Number,
+	date: String,
+	notes: String,
 });
 
 const StageSchema = new Schema({
