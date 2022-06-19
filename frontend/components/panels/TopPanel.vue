@@ -22,7 +22,8 @@ async function logout() {
         <span> <!-- right side -->
             <LinkButton v-if="!isAuth()" label="Zaloguj" link="/login"/>
             <LinkButton v-if="!isAuth()" label="Załóż Konto" link="/register"/>
-            <BaseButton v-else label="Wyloguj" @click="logout"/>
+            <LinkButton v-if="isAuth()" label="Profil" link="/profile"/>
+            <BaseButton v-if="isAuth()" label="Wyloguj" @click="logout"/>
         </span>
     </div>
 </template>

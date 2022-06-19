@@ -5,12 +5,6 @@ const props = defineProps(
         name: {type: String, default: "dropdownList"},
         placeholder: {type: String, default: "_select_"}
     });
-
-function _init_() {
-    console.log(props.items)
-}
-
-_init_()
 </script>
 
 <template>
