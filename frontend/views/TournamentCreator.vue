@@ -1,16 +1,34 @@
 <script setup>
+import {onMounted, ref} from "vue";
+import {useRoute} from "vue-router";
+import axios from "axios";
 import TopPanel from '../components/panels/TopPanel.vue';
 import IntegerField from '../components/input_fields/IntegerField.vue';
 import DropdownList from '../components/lists/DropdownList.vue';
 import ElementsList from '../components/lists/ElementsList.vue';
 import ListsRow from '../components/lists/ListsRow.vue';
+
+const tournament = ref({});
+const route = useRoute();
+
+onMounted(async () => {
+    await axios.get('http://localhost:8000/competitions/' + route.params.id, {headers: {"Authorization": 'Bearer ' + localStorage.getItem("jwt")}})
+        .then(response => (tournament.value = response.data.competition))
+        .catch(error => {
+            console.log(error);
+            if (error.response.data.message)
+                alert(error.response.data.message);
+            else if (error.response.data.err)
+                alert(error.response.data.err);
+        })
+})
 </script>
 
 <template>
     <TopPanel/>
     <header>
         <h1>Kreator Turnieju</h1>
-        <h2>{{ $route.params.id }}</h2>
+        <h2>{{ tournament.name }}</h2>
     </header>
 
     <main>
