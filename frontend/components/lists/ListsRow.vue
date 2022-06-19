@@ -1,8 +1,8 @@
 <script setup>
-    const props = defineProps(
+const props = defineProps(
     {
-        height: { type: String, default: '100px' },
-        padding: { type: String, default: '5px'}
+        height: {type: String, default: '100px'},
+        padding: {type: String, default: '5px'}
     });
 </script>
 
@@ -12,10 +12,9 @@
     </div>
 </template>
 
-<style >
+<style>
 
-.row
-{
+.row {
     position: relative;
     padding: v-bind(props.padding);
     height: v-bind(props.height);
@@ -24,7 +23,7 @@
     display: flex;
 }
 
-#content{
+#content {
     align-content: center;
 }
 

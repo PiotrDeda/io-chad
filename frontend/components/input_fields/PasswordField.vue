@@ -1,32 +1,30 @@
 <script setup>
-    const props = defineProps(
+const props = defineProps(
     {
-        form: { type: String, default: "form1" },
-        placeholder: { type: String, default: "hasło" },
-        disabled: { type: Boolean, default: false }
+        form: {type: String, default: "form1"},
+        placeholder: {type: String, default: "hasło"},
+        disabled: {type: Boolean, default: false}
     });
 </script>
 
 <template>
     <input
-        type="password"
-        :form="props.form"
-        name="password"
-        size="20"
-        :placeholder="placeholder"
         :disabled="props.disabled"
+        :form="props.form"
+        :placeholder="placeholder"
+        name="password"
         required
+        size="20"
+        type="password"
     />
 </template>
 
 <style scoped>
-input[type="password"]::placeholder
-{
+input[type="password"]::placeholder {
     color: var(--color-text);
 }
 
-input[type="password"]
-{
+input[type="password"] {
     color: var(--color-valid-input);
     font-size: inherit;
 
@@ -42,8 +40,7 @@ input[type="password"]
     transition: 0.4s;
 }
 
-input[type="password"]:focus, input[type="password"]:hover
-{
+input[type="password"]:focus, input[type="password"]:hover {
     outline: none;
     border-color: var(--color-border-hover);
 }

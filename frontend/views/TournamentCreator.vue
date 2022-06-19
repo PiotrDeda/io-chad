@@ -7,7 +7,7 @@ import ListsRow from '../components/lists/ListsRow.vue';
 </script>
 
 <template>
-    <TopPanel />
+    <TopPanel/>
     <header>
         <h1>Kreator Turnieju</h1>
     </header>
@@ -17,11 +17,11 @@ import ListsRow from '../components/lists/ListsRow.vue';
             <ElementsList height="100%" width="100%">
                 Faza grupowa:
                 <ListsRow height="fit-content">
-                    <IntegerField label="Grupa A" min="0" max="8" value="0" />
-                    <IntegerField label="Grupa B" min="0" max="8" value="0" />
-                    <IntegerField label="Grupa C" min="0" max="8" value="0" />
-                    <IntegerField label="Grupa D" min="0" max="8" value="0" />
-                    <IntegerField label="Grupa E" min="0" max="8" value="0" />
+                    <IntegerField label="Grupa A" max="8" min="0" value="0"/>
+                    <IntegerField label="Grupa B" max="8" min="0" value="0"/>
+                    <IntegerField label="Grupa C" max="8" min="0" value="0"/>
+                    <IntegerField label="Grupa D" max="8" min="0" value="0"/>
+                    <IntegerField label="Grupa E" max="8" min="0" value="0"/>
                 </ListsRow>
                 <ListsRow height="fit-content">
 
@@ -29,18 +29,18 @@ import ListsRow from '../components/lists/ListsRow.vue';
             </ElementsList>
         </article>
         <aside>
-            <IntegerField label="Liczba uczestników" min="0" max="12" value="4" />
-            <IntegerField label="Mecze bezpośrednie" min="0" max="4" value="2" />
-            <IntegerField label="Liczba grup" min="0" max="20" value="2" />
-            <IntegerField label="Punkty do bezpośredniego awansu" min="0" max="99" value="2" />
-            <IntegerField label="Punkty do baraży" min="0" max="99" value="2" />
-            <IntegerField label="Punkty do awansu warunkowego*" min="0" max="99" value="2" />
-            <IntegerField label="Punkty za wygraną" min="0" max="99" value="3" />
-            <IntegerField label="Punkty za remis" min="-99" max="99" value="1" />
-            <IntegerField label="Punkty za przegraną" min="-99" max="99" value="0" />
+            <IntegerField label="Liczba uczestników" max="12" min="0" value="4"/>
+            <IntegerField label="Mecze bezpośrednie" max="4" min="0" value="2"/>
+            <IntegerField label="Liczba grup" max="20" min="0" value="2"/>
+            <IntegerField label="Punkty do bezpośredniego awansu" max="99" min="0" value="2"/>
+            <IntegerField label="Punkty do baraży" max="99" min="0" value="2"/>
+            <IntegerField label="Punkty do awansu warunkowego*" max="99" min="0" value="2"/>
+            <IntegerField label="Punkty za wygraną" max="99" min="0" value="3"/>
+            <IntegerField label="Punkty za remis" max="99" min="-99" value="1"/>
+            <IntegerField label="Punkty za przegraną" max="99" min="-99" value="0"/>
             <DropdownList
-                placeholder="W przypadku remisu punktowego decyduje:"
                 :items="['Bilans bramkowy', 'Bezpośredni mecz', 'Losowo', 'Wybór ręczny']"
+                placeholder="W przypadku remisu punktowego decyduje:"
             />
         </aside>
     </main>
@@ -49,8 +49,7 @@ import ListsRow from '../components/lists/ListsRow.vue';
 <style scoped>
 @import '../assets/base.css';
 
-article
-{
+article {
     padding: 15px;
     margin: 15px;
     margin-right: 7.5px;
@@ -64,8 +63,7 @@ article
     border-color: var(--color-border);
 }
 
-aside
-{
+aside {
     padding: 15px;
     margin: 15px;
     margin-left: 7.5px;

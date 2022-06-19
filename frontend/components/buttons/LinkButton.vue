@@ -1,47 +1,17 @@
 <script setup>
-    const props = defineProps(
+import BaseButton from "./BaseButton.vue";
+
+const props = defineProps(
     {
-        label: { type: String, required: true },
-        link: { type: String, default: "/" }
+        label: {type: String, required: true},
+        link: {type: String, default: "/"}
     });
 
-    function redirect()
-    {
-        window.location.href = props.link;
-    }
+function redirect() {
+    window.location.href = props.link;
+}
 </script>
 
 <template>
-    <button type="button" @click="redirect()">{{ label }}</button>
+    <BaseButton :label="props.label" @click="redirect"/>
 </template>
-
-<style scoped>
-button
-{
-    text-align: center;
-    color: var(--color-text);
-    font-size: inherit;
-
-    margin: 4px;
-    padding: 9px 15px;
-    background-color: var(--color-background);
-
-    border-style: solid;
-    border-radius: 6px;
-    border-width: 1px;
-    border-color: var(--color-border);
-
-    cursor: pointer;
-
-    transition: 0.4s;
-}
-
-@media(hover: hover)
-{
-    button:hover
-    {
-        border-color: var(--color-border-hover);
-        color: var(--color-text-hover);
-    }
-}
-</style>

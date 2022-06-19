@@ -1,31 +1,23 @@
 <script setup>
 const props = defineProps(
     {
-        form: {type: String, default: "form1"},
-        label: {type: String, required: true},
-        disabled: {type: Boolean, default: false}
+        label: {type: String, required: true}
     });
 </script>
 
 <template>
-    <input
-        :id="props.label"
-        :disabled="props.disabled"
-        :form="props.form"
-        :value="label"
-        type="submit"
-    />
+    <button type="button">{{ label }}</button>
 </template>
 
 <style scoped>
-input[type="submit"] {
+button {
     text-align: center;
     color: var(--color-text);
     font-size: inherit;
 
     margin: 4px;
     padding: 9px 15px;
-    background-color: transparent;
+    background-color: var(--color-background);
 
     border-style: solid;
     border-radius: 6px;
@@ -38,7 +30,7 @@ input[type="submit"] {
 }
 
 @media (hover: hover) {
-    input[type="submit"]:hover {
+    button:hover {
         border-color: var(--color-border-hover);
         color: var(--color-text-hover);
     }
