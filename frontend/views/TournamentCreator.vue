@@ -50,15 +50,17 @@ function getParticipantCount()
             </ElementsList>
         </article>
         <aside>
-            <IntegerField label="Liczba uczestników" :max="12" :min="0" :value="getParticipantCount()" disabled/>
+            <IntegerField label="Liczba uczestników" name="participant_count" :max="12" :min="0" :value="getParticipantCount()" disabled/>
             <DropdownList :items="[tournament.type]" :selected="1" name="type" placeholder="Typ turnieju" disabled />
-            <IntegerField label="Mecze bezpośrednie" :max="2" :min="1" :value="1"/>
-            <IntegerField label="Punkty za wygraną" :max="99" :min="0" :value="3"/>
-            <IntegerField label="Punkty za remis" :max="99" :min="-99" :value="1"/>
-            <IntegerField label="Punkty za przegraną" :max="99" :min="-99" :value="0"/>
+            <IntegerField label="Mecze bezpośrednie" name="direct_matches_count" :max="2" :min="1" :value="1" required />
+            <IntegerField label="Punkty za wygraną" name="win_points" :max="99" :min="0" :value="3" required />
+            <IntegerField label="Punkty za remis" name="draw_points" :max="99" :min="-99" :value="1" required />
+            <IntegerField label="Punkty za przegraną" name="loss_points" :max="99" :min="-99" :value="0" required />
             <DropdownList
+                name="score_tie_resolution"
                 :items="['Bilans bramkowy', 'Losowo']"
                 placeholder="W przypadku remisu punktowego decyduje:"
+                required
             />
         </aside>
     </main>

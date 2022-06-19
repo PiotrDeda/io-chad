@@ -2,6 +2,7 @@
 const props = defineProps(
     {
         label: {type: String, required: true},
+        name: {type: String, required: true},
         value: {type: Number, default: 0},
         form: {type: String, default: "form1"},
         min: {type: Number, default: -999999},
@@ -19,7 +20,7 @@ const props = defineProps(
             :form="props.form"
             :max="props.max"
             :min="props.min"
-            :name="props.label"
+            :name="props.name"
             :value="props.value"
             required
             type="number"
