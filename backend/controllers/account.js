@@ -17,7 +17,7 @@ exports.login = async (req, res) => {
 		const passwd = req.body.passwd;
 		const account = await Account.findByCredentials(login, passwd);
 		if (!account) {
-			return res.status(401).json({error: e.loginFailed});
+			return res.status(401).json({err: e.loginFailed});
 		}
 		const token = await account.generateAuthToken();
 		res.status(201).json({token});
@@ -37,7 +37,7 @@ exports.logout = async (req, res) => {
 			'tokens.token': token
 		});
 		if (!tokenExists)
-			res.status(400).json({error: e.logoutAlreadyDone});
+			res.status(400).json({err: e.logoutAlreadyDone});
 		else {
 			Account.updateOne({_id: req.userData._id}, {
 				$pull: {
@@ -48,7 +48,7 @@ exports.logout = async (req, res) => {
 			}).then(() => {
 				res.status(200).json({message: e.logoutSuccess});
 			}).catch(err => {
-				res.status(400).json({error: err.message});
+				res.status(400).json({err: err.message});
 			});
 		}
 	} catch (err) {
@@ -60,7 +60,7 @@ exports.delete = async (req, res) => {
 	try {
 		const account = await Account.findByIdAndDelete(req.userData._id);
 		if (!account)
-			res.status(400).json({error: e.accountDeleteFailed});
+			res.status(400).json({err: e.accountDeleteFailed});
 		else
 			res.status(200).json({message: e.accountDeleteSuccess});
 	} catch (err) {
@@ -72,7 +72,7 @@ exports.changePassword = async (req, res) => {
 	try {
 		const account = await Account.findByCredentials(req.userData.login, req.body.oldPasswd);
 		if (!account)
-			return res.status(400).json({error: e.changePasswordWrongOldPassword});
+			return res.status(400).json({err: e.changePasswordWrongOldPassword});
 		account.passwd = req.body.newPasswd;
 		await account.save();
 		res.status(200).json({message: e.changePasswordSuccess});
