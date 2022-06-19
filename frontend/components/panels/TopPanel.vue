@@ -1,14 +1,15 @@
 <script setup>
+    import axios from "axios";
     import LinkButton from "../buttons/LinkButton.vue"
+    import BaseButton from "../buttons/BaseButton.vue";
 
     function isAuth()
     {
-        var token = localStorage.getItem("jwt");
-        return (token != null);
+        return localStorage.getItem("jwt") != null;
     }
 
-    function logout()
-    {
+    async function logout() {
+        await axios.delete("http://localhost:8000/accounts/logout", {headers: {"Authorization": 'Bearer ' + localStorage.getItem("jwt")}});
         localStorage.removeItem("jwt");
         window.location.href = "/";
     }
@@ -20,9 +21,9 @@
             <LinkButton label="Strona Główna" link="/" />
         </span>
         <span> <!-- right side -->
-            <LinkButton v-if="isAuth() != true" label="Zaloguj" link="/login" />
-            <LinkButton v-if="isAuth() != true" label="Załóż Konto" link="/register" />
-            <LinkButton v-else label="Wyloguj" @click="logout" />
+            <LinkButton v-if="!isAuth()" label="Zaloguj" link="/login" />
+            <LinkButton v-if="!isAuth()" label="Załóż Konto" link="/register" />
+            <BaseButton v-else label="Wyloguj" @click="logout" />
         </span>
     </div>
 </template>
