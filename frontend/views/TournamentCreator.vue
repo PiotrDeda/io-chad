@@ -10,6 +10,7 @@ import ListsRow from '../components/lists/ListsRow.vue';
     <TopPanel/>
     <header>
         <h1>Kreator Turnieju</h1>
+        <h2>{{ $route.params.id }}</h2>
     </header>
 
     <main>

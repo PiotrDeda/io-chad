@@ -2,6 +2,7 @@
 const props = defineProps(
     {
         items: {type: Array, default: ['o1', 'o2', 'o3']},
+        name: {type: String, default: "dropdownList"},
         placeholder: {type: String, default: "_select_"}
     });
 
@@ -13,7 +14,7 @@ _init_()
 </script>
 
 <template>
-    <select name="sub-menu">
+    <select :name="props.name">
         <option disabled selected value="">{{ props.placeholder }}</option>
         <option v-for="it in items" :value="it"> {{ it }}</option>
     </select>

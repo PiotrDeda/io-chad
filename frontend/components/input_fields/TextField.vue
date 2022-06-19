@@ -2,9 +2,10 @@
 const props = defineProps(
     {
         label: {type: String, required: true},
-        form: {type: String, default: "form2"},
+        name: {type: String, default: "inputText"},
+        form: {type: String, default: "form1"},
         autofocus: {type: Boolean, default: false},
-        disabled: {type: Boolean, default: false}
+        disabled: {type: Boolean, default: false},
     });
 </script>
 
@@ -18,7 +19,7 @@ const props = defineProps(
             :maxlength="props.maxLength"
             :minlength="props.minLength"
             :size="props.maxLength"
-            name="inputText"
+            :name="props.name"
             placeholder=""
             required
             type="text"
