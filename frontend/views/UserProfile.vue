@@ -35,8 +35,7 @@ onMounted(async () => {
 
     <main>
         <h3 id="name">Witaj {{ account.login }}!</h3>
-        <LinkButton label="Strona zmiany hasła" link="/changepassword"/>
-        <LinkButton label="Statystyki" link=""/>
+        <LinkButton label="Zmiana hasła" link="/changepassword"/>
     </main>
 
     <div id="tournaments">

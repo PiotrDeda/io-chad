@@ -6,7 +6,7 @@ import TournamentCreator from './views/TournamentCreator.vue';
 import LoginPanel from './components/panels/LoginPanel.vue';
 import RegisterPanel from './components/panels/RegisterPanel.vue';
 import UserProfile from './views/UserProfile.vue';
-import PasswordChange from './views/PasswordChange.vue';
+import ChangePassword from './components/panels/ChangePasswordPanel.vue';
 import BracketDesigner from './views/BracketDesigner.vue';
 
 const routes = [
@@ -15,7 +15,7 @@ const routes = [
 	{path: '/login', name: 'LoginPage', component: LoginPanel},
 	{path: '/register', name: 'RegisterPage', component: RegisterPanel},
 	{path: '/profile', name: 'UserProfile', component: UserProfile},
-	{path: '/changepassword', name: 'PasswordChange', component: PasswordChange},
+	{path: '/changepassword', name: 'PasswordChange', component: ChangePassword},
 	{path: '/bracket/:id', name: 'BracketDesigner', component: BracketDesigner}
 ];
 

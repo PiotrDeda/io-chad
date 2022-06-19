@@ -1,6 +1,7 @@
 <script setup>
 const props = defineProps(
     {
+        name: {type: String, default: "password"},
         form: {type: String, default: "form1"},
         placeholder: {type: String, default: "hasło"},
         disabled: {type: Boolean, default: false}
@@ -12,7 +13,7 @@ const props = defineProps(
         :disabled="props.disabled"
         :form="props.form"
         :placeholder="placeholder"
-        name="password"
+        :name="props.name"
         required
         size="20"
         type="password"
