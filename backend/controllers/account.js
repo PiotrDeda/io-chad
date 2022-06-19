@@ -26,7 +26,16 @@ exports.login = async (req, res) => {
 	}
 };
 exports.profile = async (req, res) => {
-	await res.json(req.userData);
+	try {
+		const account = await Account.findById(req.userData._id);
+		if (!account)
+			res.status(400).json({err: e.unexpected});
+		else
+			res.status(200).json(account);
+	}
+	catch (err) {
+		res.status(400).json({err: err.message});
+	}
 };
 
 exports.logout = async (req, res) => {

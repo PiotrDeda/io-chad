@@ -14,7 +14,7 @@ async function generate(event) {
         game: form.game.value,
         type: form.type.value,
     }, {headers: {"Authorization": 'Bearer ' + localStorage.getItem("jwt")}})
-        .then(response => (window.location.href = '/tournamentcreator/' + response.data._id))
+        .then(response => (window.location.href = '/tournament/' + response.data._id))
         .catch(error => {
             console.log(error);
             if (error.response.data.message)
