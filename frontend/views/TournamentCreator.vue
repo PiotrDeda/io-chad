@@ -7,9 +7,10 @@ import IntegerField from '../components/input_fields/IntegerField.vue';
 import DropdownList from '../components/lists/DropdownList.vue';
 import ElementsList from '../components/lists/ElementsList.vue';
 import ListsRow from '../components/lists/ListsRow.vue';
+import LinkButton from "../components/buttons/LinkButton.vue";
 
-const tournament = ref({});
 const route = useRoute();
+const tournament = ref({});
 
 onMounted(async () => {
     await axios.get('http://localhost:8000/competitions/' + route.params.id, {headers: {"Authorization": 'Bearer ' + localStorage.getItem("jwt")}})
@@ -63,6 +64,7 @@ onMounted(async () => {
             />
         </aside>
     </main>
+    <LinkButton label="Drabinka" :link="`/bracket/${tournament._id}`"/>
 </template>
 
 <style scoped>
