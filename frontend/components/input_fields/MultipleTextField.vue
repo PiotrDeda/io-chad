@@ -13,18 +13,41 @@
         disabled: { type: Boolean, default: false },
     });
 
-    const optionCount = ref(0);
+    const optionCount = ref(ref<Number>(0));
     const inputContent = ref();
     const optionsBox = ref();
-    var optionList = ref([]);
+    const optionList = ref([]);
+    const teamsFormInput = ref();
 
     function addOption()
     {
         optionCount.value++;
         optionList.value.push(inputContent.value.value);
+        teamsFormInput.value.value = JSON.stringify(optionList.value);
         inputContent.value.value = "";
     }
 
+    const removeOptionFunction = ref((key) =>
+    {
+        if(!optionList.value.includes(key)) { return; }
+
+        var index = optionList.value.indexOf(key);
+
+        optionCount.value--;
+        optionList.value.splice(index, 1);
+        teamsFormInput.value.value = JSON.stringify(optionList.value);
+    });
+</script>
+
+<script>
+    export default
+    {
+        data() {
+            return {
+                removeOption: this.removeOptionFunction
+            }
+        }
+    }
 </script>
 
 <template>
@@ -44,6 +67,7 @@
             />
             <button id="add_option_button" type="button" @click="addOption()">+</button>
         </div>
+        <input :form="form" name="teams" ref="teamsFormInput" type="hidden" />
     </div>
 </template>
 
