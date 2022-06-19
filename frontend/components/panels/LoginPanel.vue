@@ -18,7 +18,7 @@
             if (token)
             {
                 localStorage.setItem("jwt", token);
-                event.router.push("/");
+                window.location.href = "/";
             }
         }
         catch (err)

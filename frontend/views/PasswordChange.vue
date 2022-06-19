@@ -18,7 +18,7 @@ import LinkButtonVue from '../components/buttons/LinkButton.vue';
                 </h3>
             </div>
             
-            <h1>W celu zmiany hasła podaj nowe e-mail oraz nowe hasło</h1>
+            <h1>W celu zmiany hasła podaj nowy e-mail oraz nowe hasło</h1>
         </div>
     </header>
 
@@ -36,7 +36,7 @@ import LinkButtonVue from '../components/buttons/LinkButton.vue';
             <PasswordField></PasswordField>
         </BaseItem>
         <BaseItem>
-             <LinkButtonVue  id ="change_passwd"  label="ZMIEŃ !" link="https://www.youtube.com/watch?v=dQw4w9WgXcQ&feature=youtu.be"> </LinkButtonVue>
+             <LinkButtonVue  id ="change_passwd"  label="ZMIEŃ !" link=""> </LinkButtonVue>
         </BaseItem>  
     </main>
 </template>
@@ -44,5 +44,8 @@ import LinkButtonVue from '../components/buttons/LinkButton.vue';
 
 <style scoped>
 @import '../assets/base.css';
+main{
+    display: block;
+}
 
 </style>

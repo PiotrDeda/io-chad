@@ -17,7 +17,7 @@
 <template>
     <div class="top_panel">
         <span> <!-- left side -->
-            <LinkButton label="Strona Główna" link="/tc" />
+            <LinkButton label="Strona Główna" link="/" />
         </span>
         <span> <!-- right side -->
             <LinkButton v-if="isAuth() != true" label="Zaloguj" link="/login" />

@@ -4,10 +4,13 @@ import TopPanel from '../components/panels/TopPanel.vue';
 import DropdownList from '../components/lists/DropdownList.vue';
 import ElementsList from '../components/lists/ElementsList.vue';
 import IntegerField from '../components/input_fields/IntegerField.vue';
-import TextField from '../components/input_fields/TextField.vue';
 </script>
 
 <template>
+<!--
+
+    WORK IN PROGRES
+-->
     <TopPanel />
     <header>
         <h1>CHAD Competition Hub Administration & Design</h1>
@@ -15,16 +18,21 @@ import TextField from '../components/input_fields/TextField.vue';
     </header>
 
     <main>
-        <TextField label="Nazwa turnieju"/>
-        <TextField label="Typ gry"/>
-        <DropdownList :items ="['play-off', 'liga']" placeholder ='Typ turnieju'/>
-        <IntegerField label="Liczba uczestników" min="0" max="100"/>
-        <LinkButton id="submit_button" label="Generuj" link="/tc" />
+        <h3 id="name">Witaj Użytkowniku !</h3>
+        <LinkButton label ="Strona zmiany hasła" link ="/passwd" />
+        <LinkButton label ="Generator turnieju" link ="/tc" />
+        <LinkButton label ="Statystyki" link =""/>
     </main>
 </template>
 
 <style scoped>
 @import '../assets/base.css';
+#name{
+     color: var(--color-valid-input);
+  text-align: center;
+    
+}
+
 main{
     display: block;
 }
