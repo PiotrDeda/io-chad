@@ -11,19 +11,41 @@ async function generate(event) {
     event.preventDefault();  // prevent site from reloading
     const form = document.getElementById("form1");
 
+    const parsedTeams = parseTeams(form.teams.value);
+
     await axios.post('http://localhost:8000/competitions', {
         name: form.name.value,
         game: form.game.value,
         type: form.type.value,
-    }, {headers: {"Authorization": 'Bearer ' + localStorage.getItem("jwt")}})
-        .then(response => (window.location.href = '/tournament/creator/' + response.data._id))
-        .catch(error => {
-            console.log(error);
-            if (error.response.data.message)
-                alert(error.response.data.message);
-            else if (error.response.data.err)
-                alert(error.response.data.err);
-        })
+        participants: parsedTeams
+    },
+    {
+        headers: {"Authorization": 'Bearer ' + localStorage.getItem("jwt")}})
+            .then(response => (
+                window.location.href = '/tournament/creator/' + response.data._id
+            ))
+            .catch(error => {
+                console.log(error);
+                if (error.response.data.message)
+                    alert(error.response.data.message);
+                else if (error.response.data.err)
+                    alert(error.response.data.err);
+            })
+}
+
+function parseTeams(teams)
+{
+    console.log(teams);
+    var json = JSON.parse(teams);
+    var result = [];
+
+    for(let team of json)
+    {
+        let tmp = { "name": team };
+        result.push(tmp);
+    }
+
+    return result;
 }
 
 </script>
