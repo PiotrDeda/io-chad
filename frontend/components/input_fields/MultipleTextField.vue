@@ -7,6 +7,7 @@
         form: { type: String, default: "form1" },
         tooltip: { type: String, default: "Opis" },
         placeholder: { type: String, default: "Brak opcji" },
+        input_placeholder: { type: String, default: "Wpisz uczestnika" },
         minLength: {type: Number, default: 2 },
         maxLength: { type: Number, default: 30 },
         autofocus: { type: Boolean, default: false },
@@ -62,6 +63,7 @@
                 id="option_text_input"
                 type="text"
                 ref="inputContent"
+                :placeholder="input_placeholder"
                 :minlength="props.minLength"
                 :maxlength="props.maxLength"
             />
@@ -87,6 +89,8 @@
 
     color: var(--color-valid-input);
     font-size: inherit;
+
+    width: 100%;
 
     margin: 4px;
     padding: 0px;
@@ -143,12 +147,18 @@
     color: var(--color-valid-input);
     font-size: inherit;
 
-    padding: 7.5px 15px;
+    padding: 10px 15px;
     background-color: transparent;
 
     border-width: 0px;
+    width: 100%;
 
     transition: 0.4s;
+}
+
+#option_text_input::placeholder
+{
+    color: var(--color-text);
 }
 
 #option_text_input:focus, #option_text_input:hover

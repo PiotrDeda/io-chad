@@ -25,4 +25,5 @@ module.exports = errorMessages = {
 	'competitionNotFound': 'Nie znaleziono turnieju',
 	'competitionDeleted': 'Pomyślnie usunięto turniej',
 	'competitionUpdated': 'Pomyślnie zaktualizowano turniej',
+	'stageNumberRequired': 'Wymagane jest podanie numeru etapu',
 };

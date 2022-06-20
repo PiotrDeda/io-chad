@@ -7,14 +7,43 @@ import IntegerField from '../components/input_fields/IntegerField.vue';
 import DropdownList from '../components/lists/DropdownList.vue';
 import ElementsList from '../components/lists/ElementsList.vue';
 import ListsRow from '../components/lists/ListsRow.vue';
-import LinkButton from "../components/buttons/LinkButton.vue";
+import SubmitButton from "../components/buttons/SubmitButton.vue";
 
 const route = useRoute();
+const participantCount = ref();
 const tournament = ref({});
+
+async function saveTournament(event) {
+    event.preventDefault();  // prevent site from reloading
+    const form = document.getElementById("form1");
+
+    tournament.value.directMatchesCount = form.direct_matches_count.value;
+    tournament.value.winPoints = form.win_points.value;
+    tournament.value.drawPoints = form.draw_points.value;
+    tournament.value.losePoints = form.loss_points.value;
+    tournament.value.scoreTieResolution = form.score_tie_resolution.value;
+
+    await axios.put('http://localhost:8000/competitions/' + tournament.value._id, tournament.value,
+    {
+        headers: {"Authorization": 'Bearer ' + localStorage.getItem("jwt")}})
+            .then(response => (
+                window.location.href = '/bracket/' + tournament.value._id
+            ))
+            .catch(error => {
+                console.log(error);
+                if (error.response.data.message)
+                    alert(error.response.data.message);
+                else if (error.response.data.err)
+                    alert(error.response.data.err);
+            })
+}
 
 onMounted(async () => {
     await axios.get('http://localhost:8000/competitions/' + route.params.id, {headers: {"Authorization": 'Bearer ' + localStorage.getItem("jwt")}})
-        .then(response => (tournament.value = response.data.competition))
+        .then(response => {
+            tournament.value = response.data.competition;
+            participantCount.value = Object.keys(response.data.competition.participants).length;
+        })
         .catch(error => {
             console.log(error);
             if (error.response.data.message)
@@ -23,6 +52,11 @@ onMounted(async () => {
                 alert(error.response.data.err);
         })
 })
+
+function getParticipantCount()
+{
+    return participantCount.value;
+}
 </script>
 
 <template>
@@ -35,44 +69,42 @@ onMounted(async () => {
     <main>
         <article>
             <ElementsList height="100%" width="100%">
-                Faza grupowa:
-                <ListsRow height="fit-content">
-                    <IntegerField label="Grupa A" max="8" min="0" value="0"/>
-                    <IntegerField label="Grupa B" max="8" min="0" value="0"/>
-                    <IntegerField label="Grupa C" max="8" min="0" value="0"/>
-                    <IntegerField label="Grupa D" max="8" min="0" value="0"/>
-                    <IntegerField label="Grupa E" max="8" min="0" value="0"/>
-                </ListsRow>
-                <ListsRow height="fit-content">
-
-                </ListsRow>
+                <div v-for="participant in tournament.participants">
+                    {{ participant["name"] }}
+                </div>
             </ElementsList>
         </article>
         <aside>
-            <IntegerField label="Liczba uczestników" max="12" min="0" value="4"/>
-            <IntegerField label="Mecze bezpośrednie" max="4" min="0" value="2"/>
-            <IntegerField label="Liczba grup" max="20" min="0" value="2"/>
-            <IntegerField label="Punkty do bezpośredniego awansu" max="99" min="0" value="2"/>
-            <IntegerField label="Punkty do baraży" max="99" min="0" value="2"/>
-            <IntegerField label="Punkty do awansu warunkowego*" max="99" min="0" value="2"/>
-            <IntegerField label="Punkty za wygraną" max="99" min="0" value="3"/>
-            <IntegerField label="Punkty za remis" max="99" min="-99" value="1"/>
-            <IntegerField label="Punkty za przegraną" max="99" min="-99" value="0"/>
-            <DropdownList
-                :items="['Bilans bramkowy', 'Bezpośredni mecz', 'Losowo', 'Wybór ręczny']"
-                placeholder="W przypadku remisu punktowego decyduje:"
-            />
+            <form id="form1" @submit="saveTournament">
+                <IntegerField label="Liczba uczestników" name="participant_count" :max="12" :min="0" :value="getParticipantCount()" disabled/>
+                <DropdownList :items="[tournament.type]" :selected="1" name="type" placeholder="Typ turnieju" disabled />
+                <IntegerField label="Mecze bezpośrednie" name="direct_matches_count" :max="2" :min="1" :value="1" required />
+                <IntegerField label="Punkty za wygraną" name="win_points" :max="99" :min="0" :value="3" required />
+                <IntegerField label="Punkty za remis" name="draw_points" :max="99" :min="-99" :value="1" required />
+                <IntegerField label="Punkty za przegraną" name="loss_points" :max="99" :min="-99" :value="0" required />
+                <DropdownList
+                    name="score_tie_resolution"
+                    :items="['Bilans bramkowy', 'Losowo']"
+                    placeholder="W przypadku remisu punktowego decyduje:"
+                    required
+                />
+                <SubmitButton label="Przejdź do drabinki" />
+            </form>
         </aside>
     </main>
-    <LinkButton label="Drabinka" :link="`/bracket/${tournament._id}`"/>
 </template>
 
 <style scoped>
 @import '../assets/base.css';
 
-article {
+article
+{
+    display: flex;
+    flex-direction: column;
+
+    place-items: center;
+
     padding: 15px;
-    margin: 15px;
     margin-right: 7.5px;
 
     width: 70%;
@@ -84,9 +116,14 @@ article {
     border-color: var(--color-border);
 }
 
-aside {
+aside
+{
+    display: flex;
+    flex-direction: column;
+
+    place-items: center;
+
     padding: 15px;
-    margin: 15px;
     margin-left: 7.5px;
 
     width: calc(30% - 45px);

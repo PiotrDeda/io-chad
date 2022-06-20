@@ -1,50 +1,76 @@
 <script setup>
 import EmailField from "../input_fields/EmailField.vue"
+import LoginField from "../input_fields/LoginField.vue"
 import PasswordField from "../input_fields/PasswordField.vue";
 import CheckboxButton from "../buttons/CheckboxButton.vue"
-import LinkButton from "../buttons/LinkButton.vue";
+import SubmitButton from "../buttons/SubmitButton.vue";
+import axios from "axios";
 
-const props = defineProps(
-    {
-        auth: {type: Boolean, required: true}
-    });
+async function loginAccount(event) {
+    event.preventDefault();  // prevent site from reloading
+    const form = document.getElementById("form1");
+
+    if (form.password.value !== form.repeatedPassword.value) {
+        alert("Hasła nie są identyczne");
+        return;
+    }
+
+    await axios.post("http://localhost:8000/accounts/register", {
+        email: form.email.value,
+        login: form.login.value,
+        passwd: form.password.value
+    })
+        .then(response => {
+            localStorage.setItem("jwt", response.data.token);
+            window.location.href = "/";
+        })
+        .catch(error => {
+            console.log(error);
+            if (error.response.data.message)
+                alert(error.response.data.message);
+            else if (error.response.data.err)
+                alert(error.response.data.err);
+        })
+}
 </script>
 
 <template>
     <div class="register_panel">
-        <div class="email_text"> <!-- from top -->
-            <span> 
-                E-Mail
-                <EmailField placeholder="Podaj email"/>
-            </span>
-        </div>
-        <div class="login_text">
-            <span>
-                Login
-                <EmailField placeholder="Podaj login"/>
-            </span>
-        </div>
-        <div class="haslo_text">
-            <span>
-                Hasło
-                <PasswordField placeholder="Podaj hasło"/>
-            </span>
-        </div>
-        <div class="haslo_powt_text">
-            <span>
-                <PasswordField placeholder="Powtórz hasło"/>
-            </span>
-        </div>
-        <div class="checkbox_button">
-            <span> 
-                <CheckboxButton label="Akceptuję regulamin"/>
-            </span>
-        </div><!-- to bottom -->
-        <div class="create_button">
-            <span>
-                <LinkButton label="Utwórz konto"/>
-            </span>
-        </div><!-- to bottom -->
+        <form id="form1" @submit="loginAccount">
+            <div class="email_text">
+                <span>
+                    E-Mail
+                    <EmailField placeholder="Podaj email"/>
+                </span>
+            </div>
+            <div class="login_text">
+                <span>
+                    Login
+                    <LoginField placeholder="Podaj login"/>
+                </span>
+            </div>
+            <div class="haslo_text">
+                <span>
+                    Hasło
+                    <PasswordField placeholder="Podaj hasło"/>
+                </span>
+            </div>
+            <div class="haslo_powt_text">
+                <span>
+                    <PasswordField name="repeatedPassword" placeholder="Powtórz hasło"/>
+                </span>
+            </div>
+            <div class="checkbox_button">
+                <span>
+                    <CheckboxButton label="Akceptuję regulamin"/>
+                </span>
+            </div>
+            <div class="create_button">
+                <span>
+                    <SubmitButton label="Utwórz konto"/>
+                </span>
+            </div>
+        </form>
     </div>
 </template>
 
