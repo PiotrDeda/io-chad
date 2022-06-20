@@ -12,11 +12,24 @@ const props = defineProps(
 </script>
 
 <template>
-    <div class="integer_field_wrapper">
+    <div v-if="props.disabled" class="if_disabled integer_field_wrapper">
+        <label class="if_disabled">{{ label }}:</label>
+        <input
+            :id="props.label"
+            :form="props.form"
+            :max="props.max"
+            :min="props.min"
+            :name="props.name"
+            :value="props.value"
+            disabled
+            required
+            type="number"
+        />
+    </div>
+    <div v-else class="integer_field_wrapper">
         <label>{{ label }}:</label>
         <input
             :id="props.label"
-            :disabled="props.disabled"
             :form="props.form"
             :max="props.max"
             :min="props.min"
@@ -100,6 +113,16 @@ input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-o
     outline: none;
     border-color: var(--color-border-hover);
     transition: 0.4s;
+}
+
+.integer_field_wrapper input[type="number"]:disabled,
+.integer_field_wrapper input[type="number"]:disabled:focus,
+.integer_field_wrapper input[type="number"]:disabled:hover,
+.if_disabled,
+.if_disabled:hover
+{
+    color: var(--color-disabled-input);
+    border-color: var(--color-border-disabled);
 }
 
 </style>

@@ -39,6 +39,12 @@ select
     transition: 0.4s;
 }
 
+select:disabled, 
+select:disabled:hover {
+    color: var(--color-disabled-input);
+    border-color: var(--color-border-disabled);
+}
+
 select:hover {
     color: var(--color-text-hover);
     border-color: var(--color-border-hover);

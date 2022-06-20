@@ -7,16 +7,18 @@
 
     --color-border:           rgba(84, 84, 84, 0.48);
     --color-border-hover:     rgb(0, 190, 146);
+    --color-border-disabled:  rgb(116, 116, 116);
     --color-input-background: rgb(50, 50, 50);
 
     --color-heading:          rgb(0, 190, 146);
     --color-text:             rgba(235, 235, 235, 0.64);
     --color-text-hover:       rgb(0, 190, 146);
-    --color-header:           rgb(0, 190, 146);
+    --color-text-disabled:    rgb(116, 116, 116);
 
     --color-default-input:    rgba(235, 235, 235, 0.64);
     --color-invalid-input:    rgb(255, 80, 80);
     --color-valid-input:      rgb(0, 190, 146);
+    --color-disabled-input:   rgb(116, 116, 116);
 }
 
 /* Dark mode */
@@ -30,18 +32,17 @@
 
         --color-border:           rgba(84, 84, 84, 0.48);
         --color-border-hover:     rgb(0, 190, 146);
+        --color-border-disabled:  rgb(116, 116, 116);
         --color-input-background: rgb(50, 50, 50);
 
         --color-heading:          rgb(0, 190, 146);
         --color-text:             rgba(235, 235, 235, 0.64);
         --color-text-hover:       rgb(0, 190, 146);
-        --color-header:           rgb(0, 190, 146);
+        --color-text-disabled:    rgb(116, 116, 116);
 
         --color-default-input:    rgba(235, 235, 235, 0.64);
         --color-invalid-input:    rgb(255, 80, 80);
         --color-valid-input:      rgb(0, 190, 146);
-
-        --color-black:            rgb(10, 10, 10);
-        --color-dark-green:       rgb(20, 110, 20);
+        --color-disabled-input:   rgb(116, 116, 116);
     }
 }
