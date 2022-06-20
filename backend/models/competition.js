@@ -23,6 +23,11 @@ const MatchSchema = new Schema({
 	notes: String,
 });
 
+const StageSchema = new Schema({
+	number: {type: Number, required: [true, e.stageNumberRequired], default: 1},
+	matches: [MatchSchema]
+});
+
 const CompetitionSchema = new Schema({
 	owner: {type: Schema.Types.ObjectId, ref: 'Account.users', required: [true, e.unexpected]},
 	name: {type: String, required: [true, e.competitionNameRequired]},
@@ -33,7 +38,7 @@ const CompetitionSchema = new Schema({
 	drawPoints: {type: Number, default: 1},
 	losePoints: {type: Number, default: 0},
 	scoreTieResolution: {type: String, default: 'Bilans bramkowy'},
-	matches: [MatchSchema],
+	stages: [StageSchema],
 	participants: [ParticipantSchema]
 });
 
