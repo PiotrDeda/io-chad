@@ -9,6 +9,7 @@ import RegisterPage from './views/RegisterPage.vue';
 import UserProfile from './views/UserProfile.vue';
 import ChangePassword from './components/panels/ChangePasswordPanel.vue';
 import BracketDesigner from './views/BracketDesigner.vue';
+import LeaguePage from './views/LeaguePage.vue';
 
 const routes = [
 	{path: '/', name: 'Home', component: MainPage},
@@ -18,7 +19,8 @@ const routes = [
 	{path: '/register', name: 'RegisterPage', component: RegisterPage},
 	{path: '/profile', name: 'UserProfile', component: UserProfile},
 	{path: '/changepassword', name: 'PasswordChange', component: ChangePassword},
-	{path: '/bracket/:id', name: 'BracketDesigner', component: BracketDesigner}
+	{path: '/bracket/:id', name: 'BracketDesigner', component: BracketDesigner},
+	{path: '/leaguepage', name: 'LeaguePage', component: LeaguePage}
 ];
 
 const router = createRouter({
