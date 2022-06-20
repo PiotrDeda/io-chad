@@ -77,12 +77,56 @@ function getParticipantCount()
         </article>
         <aside>
             <form id="form1" @submit="saveTournament">
-                <IntegerField label="Liczba uczestników" name="participant_count" :max="12" :min="0" :value="getParticipantCount()" disabled/>
-                <DropdownList :items="[tournament.type]" :selected="1" name="type" placeholder="Typ turnieju" disabled />
-                <IntegerField label="Mecze bezpośrednie" name="direct_matches_count" :max="2" :min="1" :value="1" required />
-                <IntegerField label="Punkty za wygraną" name="win_points" :max="99" :min="0" :value="3" required />
-                <IntegerField label="Punkty za remis" name="draw_points" :max="99" :min="-99" :value="1" required />
-                <IntegerField label="Punkty za przegraną" name="loss_points" :max="99" :min="-99" :value="0" required />
+                <IntegerField
+                    label="Liczba uczestników"
+                    name="participant_count"
+                    :max="12"
+                    :min="0"
+                    :value="getParticipantCount()"
+                    disabled
+                />
+                <DropdownList
+                    :items="[tournament.type]"
+                    :selected="1"
+                    name="type"
+                    placeholder="Typ turnieju"
+                    disabled
+                />
+                <IntegerField
+                    label="Mecze bezpośrednie"
+                    name="direct_matches_count"
+                    :max="2"
+                    :min="1"
+                    :value="1"
+                    required
+                />
+                <IntegerField
+                    label="Punkty za wygraną"
+                    name="win_points"
+                    :max="99"
+                    :min="0"
+                    :value="3"
+                    required
+                    :disabled="tournament.type === 'Play-off'"
+                />
+                <IntegerField
+                    label="Punkty za remis"
+                    name="draw_points"
+                    :max="99"
+                    :min="-99"
+                    :value="1"
+                    required
+                    :disabled="tournament.type === 'Play-off'"
+                />
+                <IntegerField
+                    label="Punkty za przegraną"
+                    name="loss_points"
+                    :max="99"
+                    :min="-99"
+                    :value="0"
+                    required
+                    :disabled="tournament.type === 'Play-off'" 
+                />
                 <DropdownList
                     name="score_tie_resolution"
                     :items="['Bilans bramkowy', 'Losowo']"

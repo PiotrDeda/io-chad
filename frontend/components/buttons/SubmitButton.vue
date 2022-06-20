@@ -37,6 +37,12 @@ input[type="submit"] {
     transition: 0.4s;
 }
 
+input[type="submit"]:disabled
+{
+    color: var(--color-disabled-input);
+    border-color: var(--color-border-disabled);
+}
+
 @media (hover: hover) {
     input[type="submit"]:hover {
         border-color: var(--color-border-hover);

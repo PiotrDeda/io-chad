@@ -46,6 +46,12 @@ input[type="email"] {
     transition: 0.4s;
 }
 
+input[type="email"]:disabled
+{
+    color: var(--color-disabled-input);
+    border-color: var(--color-border-disabled);
+}
+
 input[type="email"]:focus, input[type="email"]:hover {
     outline: none;
     border-color: var(--color-border-hover);
