@@ -35,6 +35,8 @@ function resetLayout() {
     comps.value.forEach((it) => it.list = 1);
 }
 
+
+
 onMounted(async () => {
     await axios.get('http://localhost:8000/competitions/' + route.params.id, {headers: {"Authorization": 'Bearer ' + localStorage.getItem("jwt")}})
         .then(response => (tournament.value = response.data.competition))

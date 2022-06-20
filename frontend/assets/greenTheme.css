@@ -2,8 +2,8 @@
 :root
 {
     --color-background:       rgb(24, 24, 24);
-    --color-background-soft:  rgb(34, 34, 34);
-    --color-background-mute:  rgb(40, 40, 40);
+    --color-background-soft:  rgb(56, 56, 56);
+    --color-background-mute:  rgb(75, 75, 75);
 
     --color-border:           rgba(84, 84, 84, 0.48);
     --color-border-hover:     rgb(0, 190, 146);
