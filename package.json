@@ -17,6 +17,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.3.8",
     "morgan": "^1.10.0",
+    "nodemon": "^2.0.16",
     "vue": "^3.2.33",
     "vue-jwt-decode": "^0.1.0",
     "vue-router": "^4.0.15"
