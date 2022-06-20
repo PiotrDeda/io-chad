@@ -6,11 +6,13 @@
 
     const route = useRoute();
     const tournament = ref({});
+    const parts = ref([]);
 
     onMounted(async () => {
         await axios.get('http://localhost:8000/competitions/' + route.params.id, {headers: {"Authorization": 'Bearer ' + localStorage.getItem("jwt")}})
             .then(response => {
                 tournament.value = response.data.competition;
+                parts.value = generateParticipantTable(tournament.value);
             })
             .catch(error => {
                 console.log(error);
@@ -18,9 +20,6 @@
                     alert(error.response.data.message);
                 else if (error.response.data.err)
                     alert(error.response.data.err);
-            })
-            .finally(() => {
-                console.log(tournament.value);
             });
     });
 
@@ -125,9 +124,14 @@
         var sum = 0;
         for(let match of data.stages[0].matches)
         {
+            if(isNaN(match.participantOneScore) || isNaN(match.participantTwoScore))
+            {
+                continue;
+            }
             if(match.participantOne === id) { sum += match.participantOneScore; }
             else if(match.participantTwo === id) { sum += match.participantTwoScore; }
         }
+
         return sum;
     }
 
@@ -136,6 +140,11 @@
         var sum = 0;
         for(let match of data.stages[0].matches)
         {
+            if(isNaN(match.participantOneScore) || isNaN(match.participantTwoScore))
+            {
+                continue;
+            }
+
             if(match.participantOne === id)
             {
                 if(match.participantOneScore > match.participantTwoScore) { sum++; }
@@ -153,6 +162,11 @@
         var sum = 0;
         for(let match of data.stages[0].matches)
         {
+            if(isNaN(match.participantOneScore) || isNaN(match.participantTwoScore))
+            {
+                continue;
+            }
+
             if((match.participantOne === id) || (match.participantTwo === id))
             {
                 if(match.participantOneScore == match.participantTwoScore) { sum++; }
@@ -166,6 +180,11 @@
         var sum = 0;
         for(let match of data.stages[0].matches)
         {
+            if(isNaN(match.participantOneScore) || isNaN(match.participantTwoScore))
+            {
+                continue;
+            }
+
             if(match.participantOne === id)
             {
                 if(match.participantOneScore < match.participantTwoScore) { sum++; }
@@ -187,6 +206,11 @@
         var sum = 0;
         for(let match of data.stages[0].matches)
         {
+            if(isNaN(match.participantOneScore) || isNaN(match.participantTwoScore))
+            {
+                continue;
+            }
+
             if(match.participantOne === id)
             {
                 if(match.participantOneScore > match.participantTwoScore) { sum += winPoints; }
@@ -218,6 +242,7 @@
                 <table>
                     <thead>
                         <tr>
+                            <th>Miejsce</th>
                             <th>Nazwa uczestnika</th>
                             <th>Punkty</th>
                             <th>Bramki</th>
@@ -227,7 +252,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="pnt in generateParticipantTable(ph_input)">
+                        <tr v-for="pnt in parts">
+                            <td class="lp_participant_place">{{ parts.indexOf(pnt)+1 }}</td>
                             <td class="lp_participant_name">{{ pnt.name }}</td>
                             <td class="lp_participant_score">{{ pnt.score }}</td>
                             <td class="lp_participant_goals">{{ pnt.goals }}</td>
