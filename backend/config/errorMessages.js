@@ -15,7 +15,6 @@ module.exports = errorMessages = {
 	'accountDeleteSuccess': 'Pomyślnie usunięto użytkownika',
 	'changePasswordSuccess': 'Pomyślnie zmieniono hasło',
 	'changePasswordFailed': 'Nie udało się zmienić hasła',
-	'participantRequired': 'Wymagane jest podanie obu uczestników turnieju',
 	'stageNameRequired': 'Wymagane jest podanie nazwy etapu',
 	'stageTypeRequired': 'Wymagane jest podanie typu etapu',
 	'participantNameRequired': 'Wymagane jest podanie nazwy uczestnika',
