@@ -63,7 +63,7 @@ async function loginAccount(event) {
     top: 10%;
     bottom: 60%;
 
-    background-color: var(--color-background-mute);
+    background-color: var(--color-background-soft);
     border-top-style: solid;
     border-top-width: thin;
     border-top-color: var(--color-border);

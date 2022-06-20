@@ -82,7 +82,7 @@ async function loginAccount(event) {
     padding: 20px 35px; /* y x */
 
     position: fixed;
-    left: 37%;
+    left: 0%;
     right: 37%;
     top: 10%;
     bottom: 45%;

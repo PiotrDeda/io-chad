@@ -31,7 +31,7 @@ input[type="password"] {
 
     margin: 4px;
     padding: 7.5px 15px;
-    background-color: transparent;
+    background-color: var(--color-background);
 
     border-style: solid;
     border-radius: 6px;

@@ -25,7 +25,7 @@ input[type="submit"] {
 
     margin: 4px;
     padding: 9px 15px;
-    background-color: transparent;
+    background-color: var(--color-background);
 
     border-style: solid;
     border-radius: 6px;

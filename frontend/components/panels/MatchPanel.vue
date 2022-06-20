@@ -207,7 +207,6 @@ h1 {
     justify-content: space-around;
     align-items: baseline;
     padding: 5px;
-
 }
 
 #mp_info {
