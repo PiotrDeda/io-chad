@@ -7,6 +7,7 @@ const ParticipantSchema = new Schema({
 });
 
 const MatchSchema = new Schema({
+	number: {type: Number, default: 1},
 	participantOne: {
 		type: Schema.Types.ObjectId,
 		ref: 'Competition.participants'

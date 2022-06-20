@@ -1,6 +1,7 @@
 <script setup>
 import {onMounted, ref} from 'vue';
 import MatchPanel from '../panels/MatchPanel.vue';
+import axios from "axios";
 
 const props = defineProps({
     tournament: {type: Object, required: true},
@@ -14,7 +15,7 @@ const detailsPopup = () => {
     details.value.show = !details.value.show;
 }
 
-function getMatchInfo() {
+async function getMatchInfo() {
     let temp;
     for (let i = 0; i < props.tournament.stages.length; i++) {
         temp = props.tournament.stages[i].matches.find(match => match._id === props.match_id[0]);
@@ -35,6 +36,47 @@ function getMatchInfo() {
         date: temp.date,
         notes: temp.notes
     };
+    if (props.tournament.type === "Play-off") {
+        let checkNumber = temp.number % 2 === 0 ? temp.number - 1 : temp.number + 1;
+        let checkMatch;
+        for (let i = 0; i < props.tournament.stages.length; i++) {
+            checkMatch = props.tournament.stages[i].matches.find(match => match.number === checkNumber);
+            if (checkMatch) {
+                break;
+            }
+        }
+        if (!checkMatch)
+            return;
+        if (checkMatch.participantOneScore && checkMatch.participantTwoScore) {
+            let i, j;
+            let resultNumber = temp.number + props.tournament.participants.length / 2 - Math.floor(temp.number / 2);
+            search:
+            for (i = 0; i < props.tournament.stages.length; i++) {
+                for (j = 0; j < props.tournament.stages[i].matches.length; j++) {
+                    if (props.tournament.stages[i].matches[j].number === resultNumber) {
+                        break search;
+                    }
+                }
+            }
+            if (props.tournament.stages[i].matches[j].participantOne || props.tournament.stages[i].matches[j].participantTwo)
+                return;
+            props.tournament.stages[i].matches[j].participantOne = checkMatch.participantOneScore > checkMatch.participantTwoScore ? checkMatch.participantOne : checkMatch.participantTwo;
+            props.tournament.stages[i].matches[j].participantTwo = temp.participantOneScore > temp.participantTwoScore ? temp.participantOne : temp.participantTwo;
+            await axios.put('http://localhost:8000/competitions/' + props.tournament._id, props.tournament,
+                {
+                    headers: {"Authorization": 'Bearer ' + localStorage.getItem("jwt")}})
+                .then(response => (
+                    window.location.reload()
+                ))
+                .catch(error => {
+                    console.log(error);
+                    if (error.response.data.message)
+                        alert(error.response.data.message);
+                    else if (error.response.data.err)
+                        alert(error.response.data.err);
+                })
+        }
+    }
 }
 
 onMounted(() => {
@@ -45,7 +87,7 @@ onMounted(() => {
 
 <template>
     <MatchPanel v-if="details.show" :ids="props.match_id" :match_info="match_info" :offFunction="detailsPopup"
-                :tournament="props.tournament" :refreshFunction="getMatchInfo"/>
+                :refreshFunction="getMatchInfo" :tournament="props.tournament"/>
     <div id="match_button" @click="()=>detailsPopup()">
 
         <div v-if="match_info.date === '-'" class="info_line"> Nie ustalono</div>
