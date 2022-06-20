@@ -68,11 +68,12 @@ function getParticipantCount()
 
     <main>
         <article>
-            <ElementsList height="100%" width="100%">
-                <div v-for="participant in tournament.participants">
+            <h3>Uczestnicy:</h3>
+            <div class="scroll_wrapper">
+                <div class="tc_participant" v-for="participant in tournament.participants">
                     {{ participant["name"] }}
                 </div>
-            </ElementsList>
+            </div>
         </article>
         <aside>
             <form id="form1" @submit="saveTournament">
@@ -107,8 +108,9 @@ article
     padding: 15px;
     margin-right: 7.5px;
 
-    width: 70%;
-    min-width: fit-content;
+    width: 40%;
+    min-width: 300px;
+    height: 400px;
 
     border-style: solid;
     border-radius: 6px;
@@ -126,8 +128,48 @@ aside
     padding: 15px;
     margin-left: 7.5px;
 
-    width: calc(30% - 45px);
+    width: 60%;
     min-width: fit-content;
+    height: 400px;
+
+    border-style: solid;
+    border-radius: 6px;
+    border-width: 1px;
+    border-color: var(--color-border);
+}
+
+form
+{
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    place-items: center;
+    width: 100%;
+}
+
+.scroll_wrapper
+{
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    padding: 0px 7.5px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.tc_participant
+{
+    display: flex;
+
+    place-items: center;
+    place-content: center;
+
+    min-width: fit-content;
+
+    padding: 7.5px 15px;
+    margin: 4px;
 
     border-style: solid;
     border-radius: 6px;
