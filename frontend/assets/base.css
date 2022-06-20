@@ -46,6 +46,8 @@ header
 main
 {
     display: flex;
+    place-content: center;
+    place-items: center;
 }
 
 h1

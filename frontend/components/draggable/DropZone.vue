@@ -9,43 +9,44 @@ const props = defineProps(
 </script>
 
 <template>
-    <div class="main">
-        <div class="drop_zone"
-             @dragover.prevent
-             @dragenter.prevent
-        >
-            <div v-if="items.length === 0" class="zone_placeholder"> {{ placeholder }}</div>
-
-            <slot></slot>
-
-        </div>
+    <div class="drop_zone" @dragover.prevent @dragenter.prevent>
+        <div v-if="items.length === 0" class="zone_placeholder">{{ placeholder }}</div>
+        <slot></slot>
     </div>
 </template>
 
 <style scoped>
-.main {
-    display: inline-block;
-}
 
+.drop_zone
+{
+    display: flex;
+    flex-direction: column;
 
-.drop_zone {
+    place-items: center;
+    place-content: center;
+
+    margin: 0px 4px;
+    padding: 15px;
+
+    width: 100%;
+    min-height: 60px;
+
     color: var(--color-text);
-    background-color: var(--color-background);
+    background-color: transparent;
     border-style: solid;
     border-color: var(--color-border);
-    border-radius: 10px;
+    border-radius: 6px;
+    border-width: 1px;
     cursor: pointer;
-    margin: 15px;
-    padding: 20px;
-    min-width: 286px;
-    min-height: 20px;
+    
     transition: 0.4s;
 }
 
-.zone_placeholder {
-    font-size: 12px;
+.zone_placeholder
+{
+    /* font-size: 12px; */
     text-align: center;
-    color: var(--color-heading);
+    color: var(--color-text);
 }
 
 </style>

@@ -2,6 +2,7 @@
 const props = defineProps(
     {
         label: {type: String, required: true},
+        name: {type: String, required: true},
         value: {type: Number, default: 0},
         form: {type: String, default: "form1"},
         min: {type: Number, default: -999999},
@@ -19,7 +20,7 @@ const props = defineProps(
             :form="props.form"
             :max="props.max"
             :min="props.min"
-            :name="props.label"
+            :name="props.name"
             :value="props.value"
             required
             type="number"
@@ -29,11 +30,16 @@ const props = defineProps(
 
 <style scoped>
 
-.integer_field_wrapper {
+.integer_field_wrapper
+{
+    display: flex;
+    flex-direction: row;
     color: var(--color-text);
     font-size: inherit;
 
-    width: fit-content;
+    place-items: center;
+
+    width: 100%;
 
     margin: 4px;
     padding-left: 15px;
@@ -48,15 +54,17 @@ const props = defineProps(
     transition: 0.4s;
 }
 
-.integer_field_wrapper label {
+.integer_field_wrapper label
+{
     margin-right: 15px;
+    min-width: fit-content;
 }
 
 .integer_field_wrapper input[type="number"] {
     color: var(--color-default-input);
     font-size: inherit;
 
-    width: 70px;
+    width: 100%;
 
     margin: 4px 0px;
     padding: 5px 15px;

@@ -4,7 +4,6 @@ const e = require('../config/errorMessages');
 
 const ParticipantSchema = new Schema({
 	name: {type: String, required: [true, e.participantNameRequired]},
-	number: Number,
 });
 
 const MatchSchema = new Schema({
@@ -20,12 +19,12 @@ const MatchSchema = new Schema({
 	},
 	participantOneScore: Number,
 	participantTwoScore: Number,
+	date: String,
+	notes: String,
 });
 
 const StageSchema = new Schema({
-	name: {type: String, required: [true, e.stageNameRequired]},
-	type: {type: String, required: [true, e.stageTypeRequired]},
-	properties: [],
+	number: {type: Number, required: [true, e.stageNumberRequired], default: 1},
 	matches: [MatchSchema]
 });
 
@@ -34,6 +33,11 @@ const CompetitionSchema = new Schema({
 	name: {type: String, required: [true, e.competitionNameRequired]},
 	game: {type: String, required: [true, e.competitionGameRequired]},
 	type: {type: String, required: [true, e.competitionTypeRequired]},
+	directMatchesCount: {type: Number, default: 1},
+	winPoints: {type: Number, default: 3},
+	drawPoints: {type: Number, default: 1},
+	losePoints: {type: Number, default: 0},
+	scoreTieResolution: {type: String, default: 'Bilans bramkowy'},
 	stages: [StageSchema],
 	participants: [ParticipantSchema]
 });
