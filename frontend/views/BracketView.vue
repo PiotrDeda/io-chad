@@ -1,5 +1,5 @@
 <script setup>
-import {ref, onMounted} from 'vue';
+import {onMounted, ref} from 'vue';
 import {useRoute} from "vue-router";
 import BracketStage from '../components/panels/BracketStage.vue';
 import ElementsList from '../components/lists/ElementsList.vue';
@@ -7,12 +7,7 @@ import TopPanel from '../components/panels/TopPanel.vue';
 import axios from "axios";
 
 const route = useRoute();
-const bracket = ref({
-    stages: [[['id_1'], ['id_2'], ['id_3'], ['id_4'], ['id_5'], ['id_6'], ['id_7'], ['id_8']],
-        [['id_9'], ['id_10'], ['id_11'], ['id_12']],
-        [['id_13'], ['id_14']],
-        [['id_1']]],
-})
+const stages = ref([]);
 const tournament = ref({});
 
 onMounted(async () => {
@@ -27,6 +22,13 @@ onMounted(async () => {
             else if (error.response.data.err)
                 alert(error.response.data.err);
         })
+
+    for (let i = 0; i < tournament.value.stages.length; i++) {
+        stages.value.push([]);
+        for (let j = 0; j < tournament.value.stages[i].matches.length; j++) {
+            stages.value[i].push([tournament.value.stages[i].matches[j]._id]);
+        }
+    }
 })
 
 </script>
@@ -37,8 +39,8 @@ onMounted(async () => {
     <div id="bracket_view">
         <header> {{ tournament.name }} - drabinka turniejowa</header>
         <ElementsList flex="auto" width="1200px" xbar="thin">
-            <BracketStage v-for="stage in bracket.stages" :matches_id="stage"
-                          :matches_per_pair="tournament.directMatchesCount">
+            <BracketStage v-for="stage in stages" :matches_id="stage"
+                          :matches_per_pair="tournament.directMatchesCount" :tournament="tournament">
             </BracketStage>
         </ElementsList>
     </div>

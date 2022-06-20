@@ -9,13 +9,11 @@ const ParticipantSchema = new Schema({
 const MatchSchema = new Schema({
 	participantOne: {
 		type: Schema.Types.ObjectId,
-		ref: 'Competition.participants',
-		required: [true, e.participantRequired]
+		ref: 'Competition.participants'
 	},
 	participantTwo: {
 		type: Schema.Types.ObjectId,
-		ref: 'Competition.participants',
-		required: [true, e.participantRequired]
+		ref: 'Competition.participants'
 	},
 	participantOneScore: Number,
 	participantTwoScore: Number,
