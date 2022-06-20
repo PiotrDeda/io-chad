@@ -20,7 +20,7 @@ const routes = [
 	{path: '/profile', name: 'UserProfile', component: UserProfile},
 	{path: '/changepassword', name: 'PasswordChange', component: ChangePassword},
 	{path: '/bracket/:id', name: 'BracketDesigner', component: BracketDesigner},
-	{path: '/bracketview', name: 'BracketView', component: BracketView}
+	{path: '/bracketview/:id', name: 'BracketView', component: BracketView}
 ];
 
 const router = createRouter({
