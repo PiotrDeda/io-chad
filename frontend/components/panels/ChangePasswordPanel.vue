@@ -2,6 +2,7 @@
 import LoginField from "../input_fields/LoginField.vue";
 import PasswordField from "../input_fields/PasswordField.vue";
 import SubmitButton from "../buttons/SubmitButton.vue";
+import TopPanelVue from "./TopPanel.vue";
 import axios from "axios";
 
 async function changePassword(event) {
@@ -28,6 +29,13 @@ async function changePassword(event) {
 </script>
 
 <template>
+   <header>
+        <TopPanelVue/>
+        <div class="wrapper">
+            <h1>W celu zmiany hasła podaj login, stare oraz nowe hasło</h1>
+        </div>
+    </header>
+    <main>
     <div class="login_panel">
         <form id="form1" @submit="changePassword">
             <div class="login_text">
@@ -55,20 +63,17 @@ async function changePassword(event) {
             </div>
         </form>
     </div>
+    </main>
 </template>
 
 <style scoped>
+@import '../../assets/base.css';
 .login_panel {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
     padding: 20px 35px; /* y x */
+    margin-top: 20;
 
-    position: fixed;
-    left: 37%;
-    right: 37%;
-    top: 10%;
-    bottom: 60%;
 
     background-color: var(--color-background-mute);
     border-top-style: solid;
