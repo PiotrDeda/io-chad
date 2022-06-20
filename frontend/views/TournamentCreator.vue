@@ -108,8 +108,8 @@ article
     padding: 15px;
     margin-right: 7.5px;
 
-    width: 70%;
-    min-width: 200px;
+    width: 40%;
+    min-width: 300px;
     height: 400px;
 
     border-style: solid;
@@ -128,7 +128,7 @@ aside
     padding: 15px;
     margin-left: 7.5px;
 
-    width: calc(30% - 45px);
+    width: 60%;
     min-width: fit-content;
     height: 400px;
 
@@ -136,6 +136,15 @@ aside
     border-radius: 6px;
     border-width: 1px;
     border-color: var(--color-border);
+}
+
+form
+{
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    place-items: center;
+    width: 100%;
 }
 
 .scroll_wrapper
