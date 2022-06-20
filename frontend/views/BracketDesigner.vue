@@ -37,10 +37,12 @@ function resetLayout() {
 
 async function saveBracket() {
     const matches = [];
+    let matchNumber = 1;
     for (const pair of pairs.value) {
         matches.push({
             participantOne: getTeams(pair.home_id)[0].id,
             participantTwo: getTeams(pair.away_id)[0].id,
+            number: matchNumber++,
         });
     }
     tournament.value.stages = [{number: 1, matches: matches}];
@@ -51,7 +53,7 @@ async function saveBracket() {
 
         tournament.value.stages.push({number: num++, matches: []});
         for (let j = 0; j < i; j++) {
-            tournament.value.stages[num-2].matches.push({});
+            tournament.value.stages[num-2].matches.push({number: matchNumber++});
         }
         if (i <= 1)
             break;
