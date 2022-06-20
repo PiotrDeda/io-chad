@@ -62,7 +62,7 @@ function parseTeams(teams)
         <form id="form1" @submit="generate">
             <TextField label="Nazwa turnieju" name="name" />
             <TextField label="Typ gry" name="game" />
-            <DropdownList :items="['play-off', 'liga']" name="type" placeholder="Typ turnieju" />
+            <DropdownList :items="['Play-off', 'Liga']" name="type" placeholder="Typ turnieju" />
             <MultipleTextField placeholder="Brak uczestników" tooltip="Dodaj uczestników:" />
             <SubmitButton label="Generuj" />
         </form>

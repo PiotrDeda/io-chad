@@ -10,7 +10,6 @@ import BaseButton from '../components/buttons/BaseButton.vue';
 
 const route = useRoute();
 const tournament = ref({});
-const amount = ref(0);
 const pairs = ref([]);
 const comps = ref([])
 
@@ -36,6 +35,31 @@ function resetLayout() {
     comps.value.forEach((it) => it.list = 1);
 }
 
+async function saveBracket() {
+    const matches = [];
+    for (const pair of pairs.value) {
+        matches.push({
+            participantOne: getTeams(pair.home_id)[0].id,
+            participantTwo: getTeams(pair.away_id)[0].id,
+        });
+    }
+    tournament.value.matches = matches;
+
+    await axios.put('http://localhost:8000/competitions/' + tournament.value._id, tournament.value,
+    {
+        headers: {"Authorization": 'Bearer ' + localStorage.getItem("jwt")}})
+        .then(response => (
+            console.log(response)
+        ))
+        .catch(error => {
+            console.log(error);
+            if (error.response.data.message)
+                alert(error.response.data.message);
+            else if (error.response.data.err)
+                alert(error.response.data.err);
+        })
+}
+
 onMounted(async () => {
     await axios.get('http://localhost:8000/competitions/' + route.params.id, {headers: {"Authorization": 'Bearer ' + localStorage.getItem("jwt")}})
         .then(response => (tournament.value = response.data.competition))
@@ -46,8 +70,7 @@ onMounted(async () => {
             else if (error.response.data.err)
                 alert(error.response.data.err);
         })
-    amount.value = tournament.value.participants.length;
-    comps.value = tournament.value.participants.map((it) => ({name: it.name, list: 1}));
+    comps.value = tournament.value.participants.map((it) => ({name: it.name, list: 1, id: it._id}));
     loadPairs();
 })
 </script>
@@ -86,7 +109,7 @@ onMounted(async () => {
     </main>
     <div id="bd_bottom_panel">
         <BaseButton @click="resetLayout" label="Resetuj układ" />
-        <BaseButton @click="sendBracket" label="Zapisz układ" />
+        <BaseButton @click="saveBracket" label="Zapisz układ" />
     </div>
 </template>
 

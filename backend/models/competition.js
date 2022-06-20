@@ -23,19 +23,17 @@ const MatchSchema = new Schema({
 	notes: String,
 });
 
-const StageSchema = new Schema({
-	name: {type: String, required: [true, e.stageNameRequired]},
-	type: {type: String, required: [true, e.stageTypeRequired]},
-	properties: [],
-	matches: [MatchSchema]
-});
-
 const CompetitionSchema = new Schema({
 	owner: {type: Schema.Types.ObjectId, ref: 'Account.users', required: [true, e.unexpected]},
 	name: {type: String, required: [true, e.competitionNameRequired]},
 	game: {type: String, required: [true, e.competitionGameRequired]},
 	type: {type: String, required: [true, e.competitionTypeRequired]},
-	stages: [StageSchema],
+	directMatchesCount: {type: Number, default: 1},
+	winPoints: {type: Number, default: 3},
+	drawPoints: {type: Number, default: 1},
+	losePoints: {type: Number, default: 0},
+	scoreTieResolution: {type: String, default: 'Bilans bramkowy'},
+	matches: [MatchSchema],
 	participants: [ParticipantSchema]
 });
 
