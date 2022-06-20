@@ -1,8 +1,11 @@
 <script setup>
 const props = defineProps(
     {
-        height: {type: String, default: '90px'},
-        width: {type: String, default: '400px'}
+        height: {type: String, required: false, default: '90px'},
+        width: {type: String, required: false, default: '400px'},
+        flex: {type: String, required: false, default: 'column'},
+        xbar: {type: String, required: false, default: 'hidden'},
+        
     });
 </script>
 
@@ -25,16 +28,20 @@ const props = defineProps(
     border-style: solid;
     border-color: var(--color-border);
     border-radius: 6px;
-    width: v-bind(props.width);
-    height: v-bind(props.height);
+    height: auto;
+    width: auto;
+    min-width: v-bind(props.width);
+    min-height: v-bind(props.height);
 }
 
 .scroll-area
 {
     display: flex;
-    flex-direction: column;
+    overflow-x: v-bind(props.xbar);
+    flex-direction: v-bind(props.flex);
     place-items: center;
     place-content: center;
+    align-items: stretch;
 
     padding: 10px;
     width: 100%;
@@ -44,7 +51,6 @@ const props = defineProps(
     scrollbar-color: var(--color-border) var(--color-border-hover);
     background-color: var(--color-input-background);
     border-radius: 6px;
-    overflow-x: hidden;
 }
 
 </style>

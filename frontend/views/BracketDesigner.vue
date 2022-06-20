@@ -44,6 +44,15 @@ async function saveBracket() {
         });
     }
     tournament.value.stages = [{number: 1, matches: matches}];
+    let num = 2;
+    for (let i = matches.length / 2; i > 0; i /= 2) {
+        tournament.value.stages.push({number: num++, matches: []});
+        for (let j = 0; j < i; j++) {
+            tournament.value.stages[num-2].matches.push({});
+        }
+        if (i === 1)
+            break;
+    }
 
     await axios.put('http://localhost:8000/competitions/' + tournament.value._id, tournament.value,
     {
@@ -85,24 +94,30 @@ onMounted(async () => {
     <main>
         <article>
             <div class="play_off_title">Uczestnicy</div>
-            <DropZone id="team_selector" :items="getTeams(1)" placeholder="Brak uczestników" @drop="onDrop($event, 1)">
-                <Draggable v-for="it in getTeams(1)" :item="it.name"></Draggable>
-            </DropZone>
+            <div class="scroll_wrapper">
+                <DropZone id="team_selector" :items="getTeams(1)" placeholder="Brak uczestników" @drop="onDrop($event, 1)">
+                    <Draggable v-for="it in getTeams(1)" :item="it.name"></Draggable>
+                </DropZone>
+            </div>
         </article>
 
         <aside>
-            <div v-for="pair in pairs" class="play_off">
-                <div class="play_off_title">Para {{ pair.pair_id }}</div>
-                <div class="play_off_teams">
-                    <DropZone :items="getTeams(pair.home_id)" @drop="onDrop($event, pair.home_id, 1)">
-                        <Draggable v-for="it in getTeams(pair.home_id)" :item="it.name"></Draggable>
-                    </DropZone>
+            <div class="scroll_wrapper">
+                <div class="vertical_direction">
+                    <div v-for="pair in pairs" class="play_off">
+                        <div class="play_off_title">Para {{ pair.pair_id }}</div>
+                        <div class="play_off_teams">
+                            <DropZone placeholder="Przeciągnij tutaj uczestnika" :items="getTeams(pair.home_id)" @drop="onDrop($event, pair.home_id, 1)">
+                                <Draggable v-for="it in getTeams(pair.home_id)" :item="it.name"></Draggable>
+                            </DropZone>
 
-                    <div class="separator">-</div>
+                            <div class="separator">-</div>
 
-                    <DropZone :items="getTeams(pair.away_id)" @drop="onDrop($event, pair.away_id, 1)">
-                        <Draggable v-for="it in getTeams(pair.away_id)" :item="it.name"></Draggable>
-                    </DropZone>
+                            <DropZone placeholder="Przeciągnij tutaj uczestnika" :items="getTeams(pair.away_id)" @drop="onDrop($event, pair.away_id, 1)">
+                                <Draggable v-for="it in getTeams(pair.away_id)" :item="it.name"></Draggable>
+                            </DropZone>
+                        </div>
+                    </div>
                 </div>
             </div>
         </aside>
@@ -148,15 +163,37 @@ aside
 
     width: 70%;
     height: 400px;
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> origin/master
     margin-left: 7.5px;
 
     border-width: 1px;
     border-style: solid;
     border-color: var(--color-border);
     border-radius: 6px;
+<<<<<<< HEAD
 
     overflow-y: scroll;
+=======
+}
+
+.scroll_wrapper
+{
+    display: flex;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.vertical_direction
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+>>>>>>> origin/master
 }
 
 .play_off
@@ -200,9 +237,15 @@ aside
     display: flex;
     place-items: center;
     place-content: center;
+<<<<<<< HEAD
     
     width: 100%;
     height: 100%;
+=======
+
+    width: 100%;
+    height: fit-content;
+>>>>>>> origin/master
 
     border-width: 0px;
     border-style: solid;
