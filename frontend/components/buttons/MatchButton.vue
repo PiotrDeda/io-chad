@@ -123,6 +123,13 @@ onMounted(() => {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+
+    /* Prevent text selection */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #match_button:hover {
