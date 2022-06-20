@@ -4,8 +4,6 @@ import App from './App.vue';
 import MainPage from './views/MainPage.vue';
 import TournamentCreator from './views/TournamentCreator.vue';
 import TournamentEditor from './components/panels/TournamentEditorPanel.vue';
-import LoginPanel from './components/panels/LoginPanel.vue';
-import RegisterPanel from './components/panels/RegisterPanel.vue';
 import LoginPage from './views/LoginPage.vue';
 import RegisterPage from './views/RegisterPage.vue';
 import UserProfile from './views/UserProfile.vue';
