@@ -22,7 +22,7 @@ const routes = [
 	{path: '/changepassword', name: 'PasswordChange', component: ChangePassword},
 	{path: '/bracket/:id', name: 'BracketDesigner', component: BracketDesigner},
 	{path: '/bracketview/:id', name: 'BracketView', component: BracketView},
-	{path: '/leaguepage', name: 'LeaguePage', component: LeaguePage}
+	{path: '/tournament/leaguepage/:id', name: 'LeaguePage', component: LeaguePage}
 ];
 
 const router = createRouter({
