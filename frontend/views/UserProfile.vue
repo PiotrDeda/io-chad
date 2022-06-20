@@ -64,7 +64,10 @@ onMounted(async () => {
             <h3>Twoje turnieje</h3>
             <table>
                 <tr v-for="tournament in tournaments">
-                    <td class="column_tour_name"><LinkButton style="width: 90%; min-width: fit-content;" :label="tournament.name" :link="`/tournament/${tournament._id}`"/></td>
+                    <td class="column_tour_name">
+                        <LinkButton v-if="tournament.type === 'Play-off'" style="width: 90%; min-width: fit-content;" :label="tournament.name" :link="`/bracketview/${tournament._id}`"/>
+                        <LinkButton v-if="tournament.type === 'Liga'" style="width: 90%; min-width: fit-content;" :label="tournament.name" :link="`/tournament/leaguepage/${tournament._id}`"/>
+                    </td>
                     <td><LinkButton label="Edytuj" :link="`/tournament/edit/${tournament._id}`"/></td>
                     <td><BaseButton label="Usuń" @click="deleteTournament(tournament._id)"/></td>
                 </tr>

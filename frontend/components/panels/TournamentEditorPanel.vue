@@ -2,7 +2,7 @@
 import axios from "axios";
 import {onMounted, ref} from "vue";
 import {useRoute} from "vue-router";
-import DropdownList from '../../components/lists/DropdownList.vue';
+import TopPanel from "./TopPanel.vue";
 import TextField from '../../components/input_fields/TextField.vue';
 import SubmitButton from "../../components/buttons/SubmitButton.vue";
 
@@ -15,7 +15,6 @@ async function edit(event) {
 
     tournament.value.name = form.name.value;
     tournament.value.game = form.game.value;
-    tournament.value.type = form.type.value;
 
     await axios.put('http://localhost:8000/competitions/' + route.params.id, tournament.value, {headers: {"Authorization": 'Bearer ' + localStorage.getItem("jwt")}})
         .then(response => (window.location.href = '/profile'))
@@ -42,11 +41,18 @@ onMounted(async () => {
 </script>
 
 <template>
+    <TopPanel/>
+
+    <header>
+        <div class="wrapper">
+            <h1>Edytuj turniej {{ tournament.name }}</h1>
+        </div>
+    </header>
+
     <main>
         <form id="form1" @submit="edit">
-            <TextField label="Nazwa turnieju" name="name"/>
-            <TextField label="Typ gry" name="game"/>
-            <DropdownList :items="['play-off', 'liga']" name="type" placeholder='Typ turnieju'/>
+            <TextField :value="tournament.name" label="Nazwa turnieju" name="name"/>
+            <TextField :value="tournament.game" label="Typ gry" name="game"/>
             <SubmitButton id="submit_button" label="Edytuj"/>
         </form>
     </main>
@@ -56,6 +62,22 @@ onMounted(async () => {
 @import '../../assets/base.css';
 
 main {
-    display: block;
+    margin: 0px;
+    padding: 9px 15px;
+    background-color: var(--color-background);
+
+    border-style: solid;
+    border-radius: 6px;
+    border-width: 1px;
+    border-color: var(--color-border);
+
+    transition: 0.4s;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+
+    place-items: center;
 }
 </style>
