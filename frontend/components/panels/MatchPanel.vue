@@ -77,10 +77,10 @@ const switchMatch = () => {
 
 #mp_popup{
     position: fixed;
-    left: 0;
     z-index: 99;
-    margin-left: 25%;
-    margin-right: 25%;
+    left: 25%;
+    right: 25%;
+    bottom: 35%;
     background-color: var(--color-background-soft);
     height: 45%;
     width: 50%;

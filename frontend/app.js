@@ -9,7 +9,6 @@ import RegisterPanel from './components/panels/RegisterPanel.vue';
 import UserProfile from './views/UserProfile.vue';
 import ChangePassword from './components/panels/ChangePasswordPanel.vue';
 import BracketDesigner from './views/BracketDesigner.vue';
-import LeaguePage from './views/LeaguePage.vue';
 import BracketView from './views/BracketView.vue';
 
 const routes = [
