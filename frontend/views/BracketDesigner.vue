@@ -46,11 +46,14 @@ async function saveBracket() {
     tournament.value.stages = [{number: 1, matches: matches}];
     let num = 2;
     for (let i = matches.length / 2; i > 0; i /= 2) {
+        if (matches.length === 1)
+            break;
+
         tournament.value.stages.push({number: num++, matches: []});
         for (let j = 0; j < i; j++) {
             tournament.value.stages[num-2].matches.push({});
         }
-        if (i === 1)
+        if (i <= 1)
             break;
     }
 
