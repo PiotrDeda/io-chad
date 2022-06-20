@@ -58,7 +58,7 @@ async function saveBracket() {
     {
         headers: {"Authorization": 'Bearer ' + localStorage.getItem("jwt")}})
         .then(response => (
-            console.log(response)
+            window.location.href = '/bracketview/' + tournament.value._id
         ))
         .catch(error => {
             console.log(error);
