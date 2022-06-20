@@ -163,21 +163,13 @@ aside
 
     width: 70%;
     height: 400px;
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> origin/master
     margin-left: 7.5px;
 
     border-width: 1px;
     border-style: solid;
     border-color: var(--color-border);
     border-radius: 6px;
-<<<<<<< HEAD
-
-    overflow-y: scroll;
-=======
 }
 
 .scroll_wrapper
@@ -193,7 +185,6 @@ aside
     display: flex;
     flex-direction: column;
     width: 100%;
->>>>>>> origin/master
 }
 
 .play_off
@@ -237,15 +228,9 @@ aside
     display: flex;
     place-items: center;
     place-content: center;
-<<<<<<< HEAD
-    
-    width: 100%;
-    height: 100%;
-=======
 
     width: 100%;
     height: fit-content;
->>>>>>> origin/master
 
     border-width: 0px;
     border-style: solid;
