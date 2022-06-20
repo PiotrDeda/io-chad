@@ -9,17 +9,11 @@ const props = defineProps({
                                 required: true
                             }, 
 
-                            id1:
+                            ids:
                             {
-                                type: String,
+                                type: Array,
                                 required: true, 
-                                default: "id1"
-                            }, 
-                            id2:
-                            {
-                                type: String,
-                                required: false, 
-                                default: "_no_id_"
+                                default: ['id1', 'id2']
                             },
                         })
 
@@ -70,7 +64,7 @@ const switchMatch = () => {
         </div>
 
         <div id="mp_buttons">
-            <BaseButton v-if="props.id2 !== '_no_id_'" @click="switchMatch()" :label="info.match_label" />
+            <BaseButton v-if="props.ids.length > 1" @click="switchMatch()" :label="info.match_label" />
             <BaseButton @click="offFunction()" label="Wyjdź"/>
             <BaseButton @click="sendResult" label="Zapisz"/>
         </div>
@@ -85,10 +79,8 @@ const switchMatch = () => {
     position: fixed;
     left: 0;
     z-index: 99;
-    margin-top: 200px;
     margin-left: 25%;
     margin-right: 25%;
-    margin-bottom: auto;
     background-color: var(--color-background-soft);
     height: 45%;
     width: 50%;

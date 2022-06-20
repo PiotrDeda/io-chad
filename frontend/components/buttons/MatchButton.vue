@@ -4,8 +4,7 @@ import MatchPanel from '../panels/MatchPanel.vue';
 
 //id meczu i ew rewanżu
 const match = defineProps({
-                                match_id1:{ type: String, required: true, default: "_item_"},
-                                match_id2:{ type: String, required: false, default: "_item_"}
+                                match_id:{ type: Array, required: true, default: [ 'id1', 'id2' ]},
                         })
 
 // znzjdz mecz po id
@@ -33,7 +32,7 @@ const detailsPopup = () =>{
 </script>
 
 <template>
-    <MatchPanel v-if="details.show" :offFunction="() => detailsPopup()" :id1="match.match_id1" :id2="match.match_id2"/>
+    <MatchPanel v-if="details.show" :offFunction="() => detailsPopup()" :ids="match.match_id" />
     <div id="match_button" @click="()=>detailsPopup()">
 
         <div v-if="match_info.date === '-'" class="info_line"> Nie ustalono </div>

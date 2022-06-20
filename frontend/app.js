@@ -10,6 +10,7 @@ import UserProfile from './views/UserProfile.vue';
 import ChangePassword from './components/panels/ChangePasswordPanel.vue';
 import BracketDesigner from './views/BracketDesigner.vue';
 import LeaguePage from './views/LeaguePage.vue';
+import BracketView from './views/BracketView.vue';
 
 const routes = [
 	{path: '/', name: 'Home', component: MainPage},
@@ -20,7 +21,7 @@ const routes = [
 	{path: '/profile', name: 'UserProfile', component: UserProfile},
 	{path: '/changepassword', name: 'PasswordChange', component: ChangePassword},
 	{path: '/bracket/:id', name: 'BracketDesigner', component: BracketDesigner},
-	{path: '/leaguepage', name: 'LeaguePage', component: LeaguePage}
+	{path: '/bracketview', name: 'BracketView', component: BracketView}
 ];
 
 const router = createRouter({
