@@ -43,7 +43,7 @@ async function saveBracket() {
             participantTwo: getTeams(pair.away_id)[0].id,
         });
     }
-    tournament.value.matches = matches;
+    tournament.value.stages = [{number: 1, matches: matches}];
 
     await axios.put('http://localhost:8000/competitions/' + tournament.value._id, tournament.value,
     {
