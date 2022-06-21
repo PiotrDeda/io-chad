@@ -3,6 +3,7 @@
     import {useRoute} from "vue-router";
     import axios from "axios";
     import TopPanel from '../components/panels/TopPanel.vue';
+    import LeaguePage from '../components/panels/TimetablePanel.vue';
 
     const route = useRoute();
     const tournament = ref({});
@@ -265,6 +266,7 @@
                 </table>
             </div>
         </article>
+        <LeaguePage />
     </main>
 </template>
 

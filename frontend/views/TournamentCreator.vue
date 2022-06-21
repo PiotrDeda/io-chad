@@ -22,13 +22,24 @@ async function saveTournament(event) {
     tournament.value.drawPoints = form.draw_points.value;
     tournament.value.losePoints = form.loss_points.value;
     tournament.value.scoreTieResolution = form.score_tie_resolution.value;
+    tournament.value.stages = [{
+        number: 1,
+        matches: permuteMatches(tournament.value.participants)
+    }];
 
     await axios.put('http://localhost:8000/competitions/' + tournament.value._id, tournament.value,
     {
         headers: {"Authorization": 'Bearer ' + localStorage.getItem("jwt")}})
-            .then(response => (
-                window.location.href = '/bracket/' + tournament.value._id
-            ))
+            .then(response => {
+                if(tournament.value.type === "Liga")
+                {
+                    window.location.href = '/tournament/leaguepage/' + tournament.value._id;
+                }
+                else
+                {
+                    window.location.href = '/bracket/' + tournament.value._id;
+                }
+            })
             .catch(error => {
                 console.log(error);
                 if (error.response.data.message)
@@ -57,6 +68,24 @@ function getParticipantCount()
 {
     return participantCount.value;
 }
+
+function permuteMatches(participants)
+{
+    var matches = [];
+    for(let i = 0; i < participants.length; i++)
+    {
+        for(let j = i+1; j < participants.length; j++)
+        {
+            let match = {
+                participantOne: participants[i]._id,
+                participantTwo: participants[j]._id,
+            };
+            matches.push(match);
+        }
+    }
+    return matches;
+}
+
 </script>
 
 <template>
