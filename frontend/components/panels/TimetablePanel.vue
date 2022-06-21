@@ -1,10 +1,8 @@
 <script setup>
 import {onMounted, ref} from 'vue';
 import {useRoute} from "vue-router";
-import MatchButton from '../components/buttons/MatchButton.vue';
-import ElementsList from '../components/lists/ElementsList.vue';
-import BaseButton from '../components/buttons/BaseButton.vue';
-import TopPanel from '../components/panels/TopPanel.vue';
+import MatchButton from '../buttons/MatchButton.vue';
+import ElementsList from '../lists/ElementsList.vue';
 import axios from "axios";
 
 //62b0cc2cf45a23b7c1a134d6 <id
@@ -101,7 +99,6 @@ if(dwumecz){
 </script>
 
 <template>
-    <TopPanel/>
     <!--<BaseButton @click="saveTeams" label="Resetuj układ"></BaseButton>-->
     <div id="bracket_view">
         <header> {{ tournament.name }} - terminarz meczy</header>
@@ -109,7 +106,6 @@ if(dwumecz){
             
             <ElementsList flex="auto" width="120px" xbar="thin">
                 <div>
-                    {{participants.value = "name"}}
                     <MatchButton v-for="m in matches" :match_id="[m._id]" :tournament = "tournament"></MatchButton>
                 </div>
             </ElementsList>
