@@ -1,29 +1,40 @@
-# io-chad
+## Software Engineering Project – CHAD
 
-This template should help get you started developing with Vue 3 in Vite.
+**Competition Hub Administration and Design** – online tool that lets you organize various sport
+events.
 
-## Recommended IDE Setup
+This project has been developed for EOM's Software Engineering course at AGH UST.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin).
+Written in Vue3.js and Node.js.
 
-## Customize configuration
+### Setup
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+Recommended environment is [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin).
 
-## Project Setup
+### Launch
+
+Installation:
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+Development launch of both frontend and backend:
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+Production build:
 
 ```sh
 npm run build
 ```
+
+### Authors
+
+- [Piotr Deda](https://github.com/PiotrDeda) – team leader,
+- [Kamil Jagodziński](https://github.com/Kamil-Jagodzinski),
+- [Aleksander Kluczka](https://github.com/vis4rd),
+- [Bartłomiej Leśnicki](https://github.com/PanBartlomiej),
+- [Mikołaj Sondej](https://github.com/mik-sondej).
